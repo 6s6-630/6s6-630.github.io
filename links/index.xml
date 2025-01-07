@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>所有links - 6s6&#39;s blog</title>
+    <link>http://localhost:1313/links/</link>
+    <description>description is here</description>
+    <generator>Hugo 0.140.1 &amp; FixIt v0.3.17-30a67c4b</generator>
+    <language>en-us</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/links/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
