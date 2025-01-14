@@ -641,8 +641,9 @@ with open(&#34;shell-test630.zip&#34;, &#34;wb&#34;) as f:
 然后访问 `upload/suimages/shell-test630.php` rce即可
 
 
+
 ---
 
-> 作者:   
+> 作者: 6s6  
 > URL: http://localhost:1313/posts/48766ef/  
 
