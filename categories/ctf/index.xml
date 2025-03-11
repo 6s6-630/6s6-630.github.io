@@ -6,8 +6,16 @@
     <description>description is here</description>
     <generator>Hugo 0.140.1 &amp; FixIt v0.3.17-30a67c4b</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jan 2025 21:25:59 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 11 Mar 2025 22:11:59 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TPCTF2025部分wp</title>
+      <link>http://localhost:1313/posts/c1e7c5b/</link>
+      <pubDate>Tue, 11 Mar 2025 22:11:59 +0800</pubDate>
+      <guid>http://localhost:1313/posts/c1e7c5b/</guid>
+      <category domain="http://localhost:1313/categories/ctf/">CTF</category>
+      <description>TPCTF2025部分wp</description>
+    </item>
     <item>
       <title>SUCTF2025部分wp</title>
       <link>http://localhost:1313/posts/48766ef/</link>
