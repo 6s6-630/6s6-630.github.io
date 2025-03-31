@@ -5,28 +5,12 @@
     <lastmod>2025-03-19T22:40:23+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/44face1/</loc>
-    <lastmod>2025-03-19T22:40:23+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-03-19T22:40:23+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/java/</loc>
-    <lastmod>2025-03-19T22:40:23+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/categories/java/</loc>
-    <lastmod>2025-03-19T22:40:23+08:00</lastmod>
-  </url>
-  <url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-03-19T22:40:23+08:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-03-19T22:40:23+08:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-03-11T22:11:59+08:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/tags/ctf/</loc>
@@ -34,6 +18,10 @@
   </url>
   <url>
     <loc>http://localhost:1313/categories/ctf/</loc>
+    <lastmod>2025-03-11T22:11:59+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-03-11T22:11:59+08:00</lastmod>
   </url>
   <url>
