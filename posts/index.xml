@@ -6,8 +6,16 @@
     <description>description is here</description>
     <generator>Hugo 0.140.1 &amp; FixIt v0.3.17-30a67c4b</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Apr 2025 14:03:55 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Apr 2025 18:50:55 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Log4j2漏洞学习</title>
+      <link>http://localhost:1313/posts/cde7a8a/</link>
+      <pubDate>Sun, 13 Apr 2025 18:50:55 +0800</pubDate>
+      <guid>http://localhost:1313/posts/cde7a8a/</guid>
+      <category domain="http://localhost:1313/categories/java/">Java</category>
+      <description>Log4j2漏洞学习</description>
+    </item>
     <item>
       <title>CodeQL入门</title>
       <link>http://localhost:1313/posts/28dc684/</link>

