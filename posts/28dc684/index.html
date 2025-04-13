@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>CodeQL入门 - 6s6&#39;s blog</title><meta name="author" content="6s6">
+<meta name="description" content="description is here"><meta name="keywords" content='Java'>
+  <meta itemprop="name" content="CodeQL入门">
+  <meta itemprop="description" content="description is here">
+  <meta itemprop="datePublished" content="2025-04-13T14:03:55+08:00">
+  <meta itemprop="dateModified" content="2025-04-13T14:03:55+08:00">
+  <meta itemprop="wordCount" content="1462">
+  <meta itemprop="keywords" content="Java"><meta property="og:url" content="http://localhost:1313/posts/28dc684/">
+  <meta property="og:site_name" content="6s6&#39;s blog">
+  <meta property="og:title" content="CodeQL入门">
+  <meta property="og:description" content="description is here">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-13T14:03:55+08:00">
+    <meta property="article:modified_time" content="2025-04-13T14:03:55+08:00">
+    <meta property="article:tag" content="Java">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CodeQL入门">
+  <meta name="twitter:description" content="description is here">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/28dc684/" title="CodeQL入门 - 6s6&#39;s blog" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/c1e7c5b/" title="TPCTF2025部分wp" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/28dc684/index.md" title="CodeQL入门 - 6s6's blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "CodeQL入门",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/28dc684\/"
+    },"genre": "posts","keywords": "Java","wordcount":  1462 ,
+    "url": "http:\/\/localhost:1313\/posts\/28dc684\/","datePublished": "2025-04-13T14:03:55+08:00","dateModified": "2025-04-13T14:03:55+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "6s6"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item">
+              <a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/">About</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li class="menu-item"><a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item"><a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item"><a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item"><a class="menu-link" href="/about/">About</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>CodeQL入门</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://bu.dusays.com/2024/12/26/676d23907280d.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2025-04-13 14:03:55"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-04-13">2025-04-13</time></span>&nbsp;<span title="1462 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#codeql-安装">CodeQL 安装</a>
+      <ul>
+        <li><a href="#引擎安装">引擎安装</a></li>
+        <li><a href="#sdk安装">SDK安装</a></li>
+        <li><a href="#vscode开发插件安装">VSCode开发插件安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#demo">demo</a></li>
+    <li><a href="#基本语法">基本语法</a>
+      <ul>
+        <li><a href="#ql语法">QL语法</a></li>
+        <li><a href="#类库">类库</a></li>
+        <li><a href="#谓词">谓词</a></li>
+        <li><a href="#设置source和sink">设置Source和Sink</a></li>
+        <li><a href="#flow数据流">Flow数据流</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码测试">代码测试</a>
+      <ul>
+        <li><a href="#初步检测">初步检测</a></li>
+        <li><a href="#误报分析">误报分析</a></li>
+        <li><a href="#漏报补充">漏报补充</a></li>
+        <li><a href="#lombok问题解决">Lombok问题解决</a></li>
+        <li><a href="#批量化实现">批量化实现</a></li>
+      </ul>
+    </li>
+    <li><a href="#codeql进阶">CodeQL进阶</a>
+      <ul>
+        <li><a href="#instanceof语法糖">instanceof语法糖</a></li>
+        <li><a href="#递归">递归</a></li>
+        <li><a href="#强制类型转换">强制类型转换</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="前言" class="heading-element"><span>前言</span>
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>CodeQL 不多说，帮助我们进行代码审计的一个挺好的工具</p>
+<h2 id="codeql-安装" class="heading-element"><span>CodeQL 安装</span>
+  <a href="#codeql-%e5%ae%89%e8%a3%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>CodeQL本身包含两部分解析引擎+<code>SDK</code>。</p>
+<p>解析引擎用来解析我们编写的规则，虽然不开源，但是我们可以直接在官网下载二进制文件直接使用。</p>
+<p><code>SDK</code>完全开源，里面包含大部分现成的漏洞规则，我们也可以利用其编写自定义规则。</p>
+<h3 id="引擎安装" class="heading-element"><span>引擎安装</span>
+  <a href="#%e5%bc%95%e6%93%8e%e5%ae%89%e8%a3%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>去地址：https://github.com/github/codeql-cli-binaries/releases 下载已经编译好的codeql执行程序，解压之后把codeql文件夹放入～/CodeQL，我这里是 windows ，下的是 codeql-win64.zip</p>
+<p>为了方便测试我们需要把ql可执行程序加入到环境变量当中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">setx PATH &#34;E:\CodeQL\codeql;%PATH%&#34;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后重开个cmd输入 codeql，出现如下图就说明引擎设置完成</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f4cf635.png" alt="image-20250409131900882" srcset="https://bu.dusays.com/2025/04/13/67fb53f4cf635.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f4cf635.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f4cf635.png?size=large 2x" data-title="image-20250409131900882" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="sdk安装" class="heading-element"><span>SDK安装</span>
+  <a href="#sdk%e5%ae%89%e8%a3%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在这边下载规则库文件https://github.com/github/codeql，用来在后续库中进行查询</p>
+<p>将解压后的文件放入~/CodeQL中，之后输入codeql pack ls来查看当前SDK中支持的规则集。</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb541c9d8ba.png" alt="image-20250409154407515" srcset="https://bu.dusays.com/2025/04/13/67fb541c9d8ba.png?size=small, https://bu.dusays.com/2025/04/13/67fb541c9d8ba.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb541c9d8ba.png?size=large 2x" data-title="image-20250409154407515" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="vscode开发插件安装" class="heading-element"><span>VSCode开发插件安装</span>
+  <a href="#vscode%e5%bc%80%e5%8f%91%e6%8f%92%e4%bb%b6%e5%ae%89%e8%a3%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在 vscode 中安装 CodeQL 插件</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb541cae0dd.png" alt="image-20250409154926481" srcset="https://bu.dusays.com/2025/04/13/67fb541cae0dd.png?size=small, https://bu.dusays.com/2025/04/13/67fb541cae0dd.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb541cae0dd.png?size=large 2x" data-title="image-20250409154926481" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后在该插件的设置中设置 codeql 的可执行文件路径（路径中最好不要有中文）</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f4c8f02.png" alt="image-20250409171548823" srcset="https://bu.dusays.com/2025/04/13/67fb53f4c8f02.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f4c8f02.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f4c8f02.png?size=large 2x" data-title="image-20250409171548823" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后就设置好了，接下来写个demo测试一下</p>
+<h2 id="demo" class="heading-element"><span>demo</span>
+  <a href="#demo" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>由于<code>CodeQL</code>的处理对象并不是源码本身，而是中间生成的AST结构数据库，所以我们先需要把我们的项目源码转换成<code>CodeQL</code>能够识别的<code>CodeDatabase</code>。</p>
+<p>切换到源代码所在的目录然后再执行创建数据库的命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">codeql database create &lt;数据库名&gt; --language=&lt;语言标识符&gt; --source-root=&lt;源码路径&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果源代码是一个Maven项目，可能需要使用Maven命令来构建项目，并在创建数据库时指定该命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">--command=&#34;mvn clean install&#34;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不同的 language 所对应的语言标识符</p>
+<table>
+  <thead>
+      <tr>
+          <th>Language</th>
+          <th>Identity</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>C/C++</td>
+          <td>cpp</td>
+      </tr>
+      <tr>
+          <td>C#</td>
+          <td>csharp</td>
+      </tr>
+      <tr>
+          <td>Go</td>
+          <td>go</td>
+      </tr>
+      <tr>
+          <td>Java</td>
+          <td>java</td>
+      </tr>
+      <tr>
+          <td>javascript/Typescript</td>
+          <td>javascript</td>
+      </tr>
+      <tr>
+          <td>Python</td>
+          <td>python</td>
+      </tr>
+  </tbody>
+</table>
+<p>这里我主要是用 codeql 来审计 java 代码，所以用 <a href="https://github.com/l4yn3/micro_service_seclab/"target="_blank" rel="external nofollow noopener noreferrer">micro_service_seclab</a> 这个靶场来做测试</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">codeql database create micro_service_seclab_database --language=&#34;java&#34; --command=&#34;mvn clean install -Dmaven.test.skip=true&#34; --source-root=E:\CodeQL\test\micro_service_seclab</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>稍微解释下，在当前目录下创建个 <code>micro_service_seclab_database</code> 当作存放数据库的目录，指定语言为java，然后写出构建和清楚命令，最后指定源代码跟目录</p>
+</blockquote>
+<p>然后在这里把生成的 <code>micro_service_seclab_database</code> 添加进去</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f50d7b5.png" alt="image-20250409180422875" srcset="https://bu.dusays.com/2025/04/13/67fb53f50d7b5.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f50d7b5.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f50d7b5.png?size=large 2x" data-title="image-20250409180422875" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后出现这个就表示数据库加载成功了</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f488cde.png" alt="image-20250409180504379" srcset="https://bu.dusays.com/2025/04/13/67fb53f488cde.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f488cde.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f488cde.png?size=large 2x" data-title="image-20250409180504379" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>接着再添加CodeQL SDK：“文件”-“将文件夹添加到工作区”</p>
+<p>然后在 sdk/java/ql 目录下创建个 demo.ql 查询文件，然后 <code>Run Query on Selected Database</code>，就会打印 <code>heloooo test</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb541cb7d99.png" alt="image-20250409182017378" srcset="https://bu.dusays.com/2025/04/13/67fb541cb7d99.png?size=small, https://bu.dusays.com/2025/04/13/67fb541cb7d99.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb541cb7d99.png?size=large 2x" data-title="image-20250409182017378" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h2 id="基本语法" class="heading-element"><span>基本语法</span>
+  <a href="#%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>以上面的靶场为例</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f50a195.png" alt="image-20250409182314089" srcset="https://bu.dusays.com/2025/04/13/67fb53f50a195.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f50a195.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f50a195.png?size=large 2x" data-title="image-20250409182314089" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>可以看到 CodeQL 引擎的作用就是帮我们把源码转换为 CodeQL 能识别的数据库，所以我们能做的就是编写 QL 规则，再通过其引擎来运行我们的规则，这样就可以达到一个自动审计的功能</p>
+<h3 id="ql语法" class="heading-element"><span>QL语法</span>
+  <a href="#ql%e8%af%ad%e6%b3%95" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">from int i
+</span></span><span class="line"><span class="cl">where i = 1
+</span></span><span class="line"><span class="cl">select i</span></span></code></pre></td></tr></table>
+</div>
+</div><p>第一行表示我们要引入CodeQL的类库，这里我们以 java 为例</p>
+<blockquote>
+<p><code>from int i</code>，表示我们定义一个变量i，它的类型是int，表示我们获取所有的int类型的数据</p>
+<p><code>where i = 1</code>, 表示当i等于1的时候，符合条件</p>
+<p><code>select i</code>，表示输出i</p>
+</blockquote>
+<p>如果QL文件在 <code>sdk\java\ql\</code> 目录中时就不需要 <code>import java</code> 了，因为这是 CodeQL 标准库目录，其会自动隐式加载该目录下的依赖，但如果写在其他目录下就需要手动 <code>import java</code> ，包括其子目录</p>
+<p>这里我是写在 <code>sdk\java\ql\examples</code> 下的，上面的代码很好理解，所有int类型的数据中筛选出为1的情况，输出就是 1</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb541c8e622.png" alt="image-20250409185510005" srcset="https://bu.dusays.com/2025/04/13/67fb541c8e622.png?size=small, https://bu.dusays.com/2025/04/13/67fb541c8e622.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb541c8e622.png?size=large 2x" data-title="image-20250409185510005" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>QL查询的语法结构为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">from</span> <span class="p">[</span><span class="n">datatype</span><span class="p">]</span> <span class="k">var</span>
+</span></span><span class="line"><span class="cl"><span class="n">where</span> <span class="n">condition</span><span class="p">(</span><span class="k">var</span> <span class="o">=</span> <span class="n">something</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">select</span> <span class="k">var</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>从上面的例子中我们发现完整的QL语法无非就分三部分，先是限定一个查询的区域，然后写出过滤规则，最后输出</p>
+<h3 id="类库" class="heading-element"><span>类库</span>
+  <a href="#%e7%b1%bb%e5%ba%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>上面我们说了CodeQL引擎会将代码转换为数据库，这个数据库其实就是可识别的AST数据库</p>
+<p>在AST里面Method代表的就是类当中的方法；比如说我们想过的所有的方法调用，MethodAccess获取的就是所有的方法调用。</p>
+<p>我们经常会用到的ql类库大体如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>名称</th>
+          <th>解释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Method</td>
+          <td>方法类，Method method表示获取当前项目中所有的方法</td>
+      </tr>
+      <tr>
+          <td>MethodAccess</td>
+          <td>方法调用类，MethodAccess call表示获取当前项目当中的所有方法调用</td>
+      </tr>
+      <tr>
+          <td>Parameter</td>
+          <td>参数类，Parameter表示获取当前项目当中所有的参数</td>
+      </tr>
+  </tbody>
+</table>
+<p>结合ql的语法，我们尝试获取micro-service-seclab项目当中定义的所有方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">from Method kkk
+</span></span><span class="line"><span class="cl">select kkk</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f4c222a.png" alt="image-20250410215223683" srcset="https://bu.dusays.com/2025/04/13/67fb53f4c222a.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f4c222a.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f4c222a.png?size=large 2x" data-title="image-20250410215223683" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后添加下过滤条件，筛选出名字为 getStudent 的方法名称</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">from Method k
+</span></span><span class="line"><span class="cl">where k.hasName(&#34;getStudent&#34;)
+</span></span><span class="line"><span class="cl">select k.getName(), k.getDeclaringType()</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f4c07ca.png" alt="image-20250410215935790" srcset="https://bu.dusays.com/2025/04/13/67fb53f4c07ca.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f4c07ca.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f4c07ca.png?size=large 2x" data-title="image-20250410215935790" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">k.hashName() 判断名字是否匹配
+</span></span><span class="line"><span class="cl">k.getName() 获取的是当前方法的名称
+</span></span><span class="line"><span class="cl">k.getDeclaringType() 获取的是当前方法所属class的名称</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="谓词" class="heading-element"><span>谓词</span>
+  <a href="#%e8%b0%93%e8%af%8d" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>如果限制条件比较多，where 语句就会很冗长。CodeQL提供一种机制可以帮助我们把很长的查询语句封装成函数，而这个函数，就叫谓词。</p>
+<p>比如上面的案例，我们可以写成如下，获得的结果跟上面是一样的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">predicate isStudent(Method k) {
+</span></span><span class="line"><span class="cl">    k.getName()=&#34;getStudent&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">from Method k
+</span></span><span class="line"><span class="cl">where isStudent(k)
+</span></span><span class="line"><span class="cl">select k.getName(), k.getDeclaringType()</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>predicate 表示当前方法没有返回值。</p>
+</blockquote>
+<h3 id="设置source和sink" class="heading-element"><span>设置Source和Sink</span>
+  <a href="#%e8%ae%be%e7%bd%aesource%e5%92%8csink" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><blockquote>
+<p>什么是source和sink</p>
+<p>在代码自动化安全审计的理论当中，有一个最核心的三元组概念，就是(source，sink和sanitizer)</p>
+<p>source是指漏洞污染链条的输入点。比如获取http请求的参数部分，就是非常明显的Source</p>
+<p>sink是指漏洞污染链条的执行点，比如SQL注入漏洞，最终执行SQL语句的函数就是sink(这个函数可能叫query或者exeSql，或者其它)</p>
+<p>sanitizer又叫净化函数，是指在整个的漏洞链条当中，如果存在一个方法阻断了整个传递链，那么这个方法就叫sanitizer，也就是waf</p>
+</blockquote>
+<p>只有当source和sink同时存在，并且从source到sink的链路是通的，才表示当前漏洞是存在的。</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb541c72fb3.png" alt="image-20250410221945041" srcset="https://bu.dusays.com/2025/04/13/67fb541c72fb3.png?size=small, https://bu.dusays.com/2025/04/13/67fb541c72fb3.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb541c72fb3.png?size=large 2x" data-title="image-20250410221945041" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><strong>设置Source</strong></p>
+<p>在CodeQL中我们通过以下方法来设置Source</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">override predicate isSource(DataFlow::Node src) {}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个靶场中，我们使用的是<code>Spring Boot</code>框架，那么source就是http参数入口的代码参数，比如在下面的代码中，source就是username：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@RequestMapping(value = &#34;/one&#34;)
+</span></span><span class="line"><span class="cl">public List&lt;Student&gt; one(@RequestParam(value = &#34;username&#34;) String username) {
+</span></span><span class="line"><span class="cl">    return indexLogic.getStudent(username);
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>本例中我们设置Source的代码为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">override predicate isSource(DataFlow::Node src) { src instanceof RemoteFlowSource }</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>RemoteFlowSource</code> 是 CodeQL 标准库中预定义的 <strong>“远程数据源”</strong> 类，比如HTTP 请求参数，用户输入以及其他外部输入等都是</p>
+</blockquote>
+<p>这是<code>SDK</code>自带的规则，里面包含了大多常用的Source入口。我们使用的SpringBoot也包含在其中，可以直接使用。</p>
+<p>注: instanceof 语法是CodeQL提供的语法，后面在CodeQL进阶部分会提到，这里就是检查获得的 src 是否为 RemoteFlowSource</p>
+<p><strong>设置Sink</strong></p>
+<p>在CodeQL中我们通过以下方法来设置Sink</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">override predicate isSink(DataFlow::Node sink) {}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在实际中，我们最后都是触发到某个恶意方法，如 getter，setter，所以 sink 应该是个方法，假设我们这里的sink 点是个<code>query</code>方法(Method)的调用(MethodAccess)，所以我们设置Sink为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">override predicate isSink(DataFlow::Node sink) {
+</span></span><span class="line"><span class="cl">exists(Method method, MethodAccess call |
+</span></span><span class="line"><span class="cl">      method.hasName(&#34;query&#34;)
+</span></span><span class="line"><span class="cl">      and
+</span></span><span class="line"><span class="cl">      call.getMethod() = method and
+</span></span><span class="line"><span class="cl">      sink.asExpr() = call.getArgument(0)
+</span></span><span class="line"><span class="cl">	  )
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这里我们使用了exists子查询，这个是CodeQL谓词语法里非常常见的语法结构，它根据内部的子查询返回true or false，来决定筛选出哪些数据。</p>
+<p><code>sink.asExpr() = call.getArgument(0)</code>：将 sink 节点转换为表达式，并检查它是否等于 <code>call</code> 的第一个参数</p>
+<p>故上面sink语句的作用是查找一个query()方法的调用点，并把它的第一个参数设置为sink</p>
+</blockquote>
+<p>在靶场系统(<code>micro-service-seclab</code>)中，sink为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">jdbcTemplate.query(sql, ROW_MAPPER);</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当刚才设置的source变量流入这个方法时，说明注入点和触发点是通的，就能产生注入漏洞</p>
+<h3 id="flow数据流" class="heading-element"><span>Flow数据流</span>
+  <a href="#flow%e6%95%b0%e6%8d%ae%e6%b5%81" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>设置好Source和Sink，就相当于搞定了首尾，接下来就是疏通中间的利用链。一个受污染的变量，能够毫无阻拦的流转到危险函数，就表示存在漏洞</p>
+<p>这个连通工作就是CodeQL引擎本身来完成的。我们通过使用<code>config.hasFlowPath(source, sink)</code>方法来判断是否连通。</p>
+<p>比如如下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">from VulConfig config, DataFlow::PathNode source, DataFlow::PathNode sink
+</span></span><span class="line"><span class="cl">where config.hasFlowPath(source, sink)
+</span></span><span class="line"><span class="cl">select source.getNode(), source, sink, &#34;source&#34;</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>我们传递给<code>config.hasFlowPath(source, sink)</code>我们定义好的source和sink，系统就会自动帮我们判断是否存在漏洞了。</p>
+<p><code>source.getNode()</code>：获取源节点的底层语法树节点（AST Node），显示漏洞源头在代码中的具体位置</p>
+</blockquote>
+<h2 id="代码测试" class="heading-element"><span>代码测试</span>
+  <a href="#%e4%bb%a3%e7%a0%81%e6%b5%8b%e8%af%95" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="初步检测" class="heading-element"><span>初步检测</span>
+  <a href="#%e5%88%9d%e6%ad%a5%e6%a3%80%e6%b5%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>综上，可以写个 ql 查询代码来检测 sql 注入漏洞</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/**</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">id</span> <span class="n">java</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">vuldemo</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">name</span> <span class="n">Sql</span><span class="o">-</span><span class="n">Injection</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">description</span> <span class="n">Sql</span><span class="o">-</span><span class="n">Injection</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">kind</span> <span class="n">path</span><span class="o">-</span><span class="n">problem</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">problem</span><span class="o">.</span><span class="n">severity</span> <span class="n">warning</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="n">java</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="n">semmle</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">dataflow</span><span class="o">.</span><span class="n">FlowSources</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="n">semmle</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">QueryInjection</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="n">DataFlow</span><span class="p">::</span><span class="n">PathGraph</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="n">VulConfig</span> <span class="k">extends</span> <span class="n">TaintTracking</span><span class="p">::</span><span class="n">Configuration</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">VulConfig</span><span class="p">()</span> <span class="p">{</span> <span class="n">this</span> <span class="o">=</span> <span class="s2">&#34;SqlInjectionConfig&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">override</span> <span class="n">predicate</span> <span class="n">isSource</span><span class="p">(</span><span class="n">DataFlow</span><span class="p">::</span><span class="ne">Node</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">src</span> <span class="n">instanceof</span> <span class="n">RemoteFlowSource</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">override</span> <span class="n">predicate</span> <span class="n">isSink</span><span class="p">(</span><span class="n">DataFlow</span><span class="p">::</span><span class="ne">Node</span> <span class="n">sink</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exists</span><span class="p">(</span><span class="n">Method</span> <span class="n">method</span><span class="p">,</span> <span class="n">MethodAccess</span> <span class="n">call</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">            <span class="n">method</span><span class="o">.</span><span class="n">hasName</span><span class="p">(</span><span class="s2">&#34;query&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="ow">and</span>
+</span></span><span class="line"><span class="cl">            <span class="n">call</span><span class="o">.</span><span class="n">getMethod</span><span class="p">()</span> <span class="o">=</span> <span class="n">method</span> <span class="ow">and</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sink</span><span class="o">.</span><span class="n">asExpr</span><span class="p">()</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="n">getArgument</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">from</span> <span class="n">VulConfig</span> <span class="n">config</span><span class="p">,</span> <span class="n">DataFlow</span><span class="p">::</span><span class="n">PathNode</span> <span class="n">source</span><span class="p">,</span> <span class="n">DataFlow</span><span class="p">::</span><span class="n">PathNode</span> <span class="n">sink</span>
+</span></span><span class="line"><span class="cl"><span class="n">where</span> <span class="n">config</span><span class="o">.</span><span class="n">hasFlowPath</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">select</span> <span class="n">source</span><span class="o">.</span><span class="n">getNode</span><span class="p">(),</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">,</span> <span class="s2">&#34;source&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>CodeQL 在定义类上的语法和 Java 类似，其中 extends 的父类 <code>TaintTracking::Configuration</code> 是官方提供用来做数据流分析的通用类，提供很多数据流分析相关的方法，比如isSource(定义source)，isSink(定义sink)</p>
+<p><code>src instanceof RemoteFlowSource</code> 表示src 必须是 RemoteFlowSource 类型。在RemoteFlowSource里，官方提供很非常全的source定义，我们本次用到的Springboot的Source就已经涵盖了。</p>
+<ul>
+<li>注：上面的注释和其它语言是不一样的，不能够删除，它是程序的一部分，因为在我们生成测试报告的时候，上面注释当中的name，description等信息会写入到审计报告中。</li>
+</ul>
+<p>这里的<code>isSource</code> 和<code>isSink</code> 根据自己需要进行重写，而判断中间是否疏通可以使用CodeQL提供的<code>config.hasFlowPath(source, sink)</code>来帮我们处理</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f5aef1e.png" alt="image-20250411180745584" srcset="https://bu.dusays.com/2025/04/13/67fb53f5aef1e.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f5aef1e.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f5aef1e.png?size=large 2x" data-title="image-20250411180745584" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>可以看到真的很方便，直接把source处和整个从source到sink的链子都显示出来了</p>
+<p>这里爆警告说是 <code>DataFlow::PathGraph</code> 在新版本中被弃用了，所以这段代码只能在低版本的规则库里跑</p>
+<p>这里开头有 <code>@kind path-problem</code> ，说明结果至少是4列，写了这个结果就会输出完整的污点传播路径，除此之外对输出还有其他要求，比如每列要输出的类型也有要求，但是我这 <code>source.getNode(),source, sink,&quot;source&quot;</code> 就能正常输出，<code>source, sink,source.getNode(),&quot;source&quot;</code> 却是啥也没有</p>
+<h3 id="误报分析" class="heading-element"><span>误报分析</span>
+  <a href="#%e8%af%af%e6%8a%a5%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>我们可以看到有一处的 sql 注入，其输入的参数类型为 <code>List&lt;Long&gt;</code> ，不可能存在注入</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb541d328c4.png" alt="image-20250411183001837" srcset="https://bu.dusays.com/2025/04/13/67fb541d328c4.png?size=small, https://bu.dusays.com/2025/04/13/67fb541d328c4.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb541d328c4.png?size=large 2x" data-title="image-20250411183001837" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这里说明我们给的限制并未严格要求参数类型，就会导致以上的误报产生，我们可以用 isSanitizer 来避免这种情况</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb541c3dbf1.png" alt="image-20250411183843751" srcset="https://bu.dusays.com/2025/04/13/67fb541c3dbf1.png?size=small, https://bu.dusays.com/2025/04/13/67fb541c3dbf1.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb541c3dbf1.png?size=large 2x" data-title="image-20250411183843751" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>isSanitizer是CodeQL的类TaintTracking::Configuration提供的净化方法。它的函数原型是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">override predicate isSanitizer(DataFlow::Node node) {}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在CodeQL自带的默认规则里，对当前节点是否为基础类型做了判断</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">override predicate isSanitizer(DataFlow::Node node) {
+</span></span><span class="line"><span class="cl">node.getType() instanceof PrimitiveType or
+</span></span><span class="line"><span class="cl">node.getType() instanceof BoxedType or
+</span></span><span class="line"><span class="cl">node.getType() instanceof NumberType
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>表示如果当前节点是上面提到的基础类型，那么此污染链将被净化阻断，漏洞将不存在，可以看到这里默认规则只是一些基础类型，没有类似 <code>List&lt;long&gt;</code> 等的复合类型</p>
+<p>我们将 TaintTracking::Configuration 中的 isSanitizer 重写下就好了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">override predicate isSanitizer(DataFlow::Node node) {
+</span></span><span class="line"><span class="cl">    node.getType() instanceof PrimitiveType or
+</span></span><span class="line"><span class="cl">    node.getType() instanceof BoxedType or
+</span></span><span class="line"><span class="cl">    node.getType() instanceof NumberType or
+</span></span><span class="line"><span class="cl">    exists(ParameterizedType pt| node.getType() = pt and pt.getTypeArgument(0) instanceof NumberType )  // 这里的 ParameterizedType 代表所有泛型，判断泛型当中的传参是否为 Number 型
+</span></span><span class="line"><span class="cl">  }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样在检测到 <code>List&lt;long&gt;</code> 时就会将其净化掉，这样链子就不通了，也就不会出现误报的情况</p>
+<h3 id="漏报补充" class="heading-element"><span>漏报补充</span>
+  <a href="#%e6%bc%8f%e6%8a%a5%e8%a1%a5%e5%85%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>我们发现如下 sql 注入没有被捕捉到（参考文章是这样写的，但我这是捕捉到了的）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public List&lt;Student&gt; getStudentWithOptional(Optional&lt;String&gt; username) {
+</span></span><span class="line"><span class="cl">        String sqlWithOptional = &#34;select * from students where username like &#39;%&#34; + username.get() + &#34;%&#39;&#34;;
+</span></span><span class="line"><span class="cl">        //String sql = &#34;select * from students where username like ?&#34;;
+</span></span><span class="line"><span class="cl">        return jdbcTemplate.query(sqlWithOptional, ROW_MAPPER);
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>宁可错杀一百不可放过一个，在代码审计中是如此，误报可能需要花费时间去筛选，但是漏报的损失则无法挽回</p>
+<p>在 CodeQL 中，我们可以通过 isAdditionalTaintStep 方法来将断了的节点给它强制连接上</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb541c7ae6d.png" alt="image-20250412162413776" srcset="https://bu.dusays.com/2025/04/13/67fb541c7ae6d.png?size=small, https://bu.dusays.com/2025/04/13/67fb541c7ae6d.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb541c7ae6d.png?size=large 2x" data-title="image-20250412162413776" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>isAdditionalTaintStep 方法是CodeQL的类<code>TaintTracking::Configuration</code>提供的的方法，它的原型是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">override predicate isAdditionalTaintStep(DataFlow::Node node1, DataFlow::Node node2) {}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>它的作用是将一个可控节点，比如A强制传递给另外一个节点B，那么节点B也就成了可控节点。</p>
+<p>假设这里是 username.get() 这一步断掉了，我们可以强制让 username 流转到 username.get() ，代码为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/**</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">id</span> <span class="n">java</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">vuldemo</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">name</span> <span class="n">Sql</span><span class="o">-</span><span class="n">Injection</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">description</span> <span class="n">Sql</span><span class="o">-</span><span class="n">Injection</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">kind</span> <span class="n">path</span><span class="o">-</span><span class="n">problem</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">problem</span><span class="o">.</span><span class="n">severity</span> <span class="n">warning</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="n">import</span> <span class="n">java</span>
+</span></span><span class="line"><span class="cl"> <span class="n">import</span> <span class="n">semmle</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">dataflow</span><span class="o">.</span><span class="n">FlowSources</span>
+</span></span><span class="line"><span class="cl"> <span class="n">import</span> <span class="n">semmle</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">QueryInjection</span>
+</span></span><span class="line"><span class="cl"> <span class="n">import</span> <span class="n">DataFlow</span><span class="p">::</span><span class="n">PathGraph</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="n">predicate</span> <span class="n">isTaintedString</span><span class="p">(</span><span class="n">Expr</span> <span class="n">expSrc</span><span class="p">,</span> <span class="n">Expr</span> <span class="n">expDest</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">exists</span><span class="p">(</span><span class="n">Method</span> <span class="n">method</span><span class="p">,</span> <span class="n">MethodAccess</span> <span class="n">call</span><span class="p">,</span> <span class="n">MethodAccess</span> <span class="n">call1</span> <span class="o">|</span> <span class="n">expSrc</span> <span class="o">=</span> <span class="n">call1</span><span class="o">.</span><span class="n">getArgument</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">expDest</span><span class="o">=</span><span class="n">call</span> <span class="ow">and</span> <span class="n">call</span><span class="o">.</span><span class="n">getMethod</span><span class="p">()</span> <span class="o">=</span> <span class="n">method</span> <span class="ow">and</span> <span class="n">method</span><span class="o">.</span><span class="n">hasName</span><span class="p">(</span><span class="s2">&#34;get&#34;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">method</span><span class="o">.</span><span class="n">getDeclaringType</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span> <span class="o">=</span> <span class="s2">&#34;Optional&lt;String&gt;&#34;</span> <span class="ow">and</span> <span class="n">call1</span><span class="o">.</span><span class="n">getArgument</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span> <span class="o">=</span> <span class="s2">&#34;Optional&lt;String&gt;&#34;</span>  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="k">class</span> <span class="n">VulConfig</span> <span class="k">extends</span> <span class="n">TaintTracking</span><span class="p">::</span><span class="n">Configuration</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">VulConfig</span><span class="p">()</span> <span class="p">{</span> <span class="n">this</span> <span class="o">=</span> <span class="s2">&#34;SqlInjectionConfig&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">override</span> <span class="n">predicate</span> <span class="n">isSource</span><span class="p">(</span><span class="n">DataFlow</span><span class="p">::</span><span class="ne">Node</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span> <span class="n">src</span> <span class="n">instanceof</span> <span class="n">RemoteFlowSource</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">override</span> <span class="n">predicate</span> <span class="n">isSanitizer</span><span class="p">(</span><span class="n">DataFlow</span><span class="p">::</span><span class="ne">Node</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">node</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span> <span class="n">instanceof</span> <span class="n">PrimitiveType</span> <span class="ow">or</span>
+</span></span><span class="line"><span class="cl">     <span class="n">node</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span> <span class="n">instanceof</span> <span class="n">BoxedType</span> <span class="ow">or</span>
+</span></span><span class="line"><span class="cl">     <span class="n">node</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span> <span class="n">instanceof</span> <span class="n">NumberType</span> <span class="ow">or</span>
+</span></span><span class="line"><span class="cl">     <span class="n">exists</span><span class="p">(</span><span class="n">ParameterizedType</span> <span class="n">pt</span><span class="o">|</span> <span class="n">node</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span> <span class="o">=</span> <span class="n">pt</span> <span class="ow">and</span> <span class="n">pt</span><span class="o">.</span><span class="n">getTypeArgument</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="n">instanceof</span> <span class="n">NumberType</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">   <span class="n">override</span> <span class="n">predicate</span> <span class="n">isSink</span><span class="p">(</span><span class="n">DataFlow</span><span class="p">::</span><span class="ne">Node</span> <span class="n">sink</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">exists</span><span class="p">(</span><span class="n">Method</span> <span class="n">method</span><span class="p">,</span> <span class="n">MethodAccess</span> <span class="n">call</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">       <span class="n">method</span><span class="o">.</span><span class="n">hasName</span><span class="p">(</span><span class="s2">&#34;query&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="ow">and</span>
+</span></span><span class="line"><span class="cl">       <span class="n">call</span><span class="o">.</span><span class="n">getMethod</span><span class="p">()</span> <span class="o">=</span> <span class="n">method</span> <span class="ow">and</span>
+</span></span><span class="line"><span class="cl">       <span class="n">sink</span><span class="o">.</span><span class="n">asExpr</span><span class="p">()</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="n">getArgument</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="n">override</span> <span class="n">predicate</span> <span class="n">isAdditionalTaintStep</span><span class="p">(</span><span class="n">DataFlow</span><span class="p">::</span><span class="ne">Node</span> <span class="n">node1</span><span class="p">,</span> <span class="n">DataFlow</span><span class="p">::</span><span class="ne">Node</span> <span class="n">node2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">isTaintedString</span><span class="p">(</span><span class="n">node1</span><span class="o">.</span><span class="n">asExpr</span><span class="p">(),</span> <span class="n">node2</span><span class="o">.</span><span class="n">asExpr</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="n">from</span> <span class="n">VulConfig</span> <span class="n">config</span><span class="p">,</span> <span class="n">DataFlow</span><span class="p">::</span><span class="n">PathNode</span> <span class="n">source</span><span class="p">,</span> <span class="n">DataFlow</span><span class="p">::</span><span class="n">PathNode</span> <span class="n">sink</span>
+</span></span><span class="line"><span class="cl"> <span class="n">where</span> <span class="n">config</span><span class="o">.</span><span class="n">hasFlowPath</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="n">select</span> <span class="n">source</span><span class="o">.</span><span class="n">getNode</span><span class="p">(),</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">,</span> <span class="s2">&#34;source&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>expSrc = call1.getArgument(0)</code>：规定了污染源为第一个参数</p>
+<p><code>expDest = call and call.getMethod() = method and method.hasName(&quot;get&quot;)</code>：规定了污染目标为 <code>xxx.get()</code></p>
+<p><code>method.getDeclaringType().toString() = &quot;Optional&lt;String&gt;&quot; and call1.getArgument(0).getType().toString() = &quot;Optional&lt;String&gt;&quot; </code>：规定了污染源和污染目标的类型为<code>Optional&lt;String&gt;</code></p>
+</blockquote>
+<h3 id="lombok问题解决" class="heading-element"><span>Lombok问题解决</span>
+  <a href="#lombok%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Lombok是一个非常有名的Java类库，在开发中应该经常遇到，它通过简单的注解来帮助我们简化消除一些必须有但显得很臃肿的Java代码的工具，比如我们可以不用编写 getter，setter</p>
+<p>demo</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class Student {
+</span></span><span class="line"><span class="cl">    private int id;
+</span></span><span class="line"><span class="cl">    private String username;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public void setId(int id) {
+</span></span><span class="line"><span class="cl">        this.id = id;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public int getId() {
+</span></span><span class="line"><span class="cl">        return id;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public String getUsername() {
+</span></span><span class="line"><span class="cl">        return username;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public void setUsername(String username) {
+</span></span><span class="line"><span class="cl">        this.username = username;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当我们使用 Lombok 的注解，就不需要手动编写 getter 和 setter，以下代码等同于上面的 demo</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import lombok.Data;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">@Data
+</span></span><span class="line"><span class="cl">public class Student {
+</span></span><span class="line"><span class="cl">    private int id;
+</span></span><span class="line"><span class="cl">    private String username;
+</span></span><span class="line"><span class="cl">    private int sex;
+</span></span><span class="line"><span class="cl">    private int age;
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到用了 lombok 注解后就没有了 getter 和 setter，这就会导致 CodeQL 不能正常检测，source 到 sink 的链条断裂，从而造成漏报</p>
+<p>有两种解决办法，第一种是在 pom.xml 中加入依赖，再重新编译即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;build&gt;  
+</span></span><span class="line"><span class="cl">   &lt;sourceDirectory&gt;target/generated-sources/delombok&lt;/sourceDirectory&gt;  
+</span></span><span class="line"><span class="cl">   &lt;testSourceDirectory&gt;target/generated-test-sources/delombok&lt;/testSourceDirectory&gt;  
+</span></span><span class="line"><span class="cl">&lt;plugins&gt;  
+</span></span><span class="line"><span class="cl">   &lt;plugin&gt;  
+</span></span><span class="line"><span class="cl">      &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;  
+</span></span><span class="line"><span class="cl">      &lt;artifactId&gt;lombok-maven-plugin&lt;/artifactId&gt;  
+</span></span><span class="line"><span class="cl">      &lt;version&gt;1.18.20.0&lt;/version&gt;  
+</span></span><span class="line"><span class="cl">      &lt;executions&gt;  
+</span></span><span class="line"><span class="cl">         &lt;execution&gt;  
+</span></span><span class="line"><span class="cl">            &lt;id&gt;delombok&lt;/id&gt;  
+</span></span><span class="line"><span class="cl">            &lt;phase&gt;generate-sources&lt;/phase&gt;  
+</span></span><span class="line"><span class="cl">            &lt;goals&gt;  
+</span></span><span class="line"><span class="cl">               &lt;goal&gt;delombok&lt;/goal&gt;  
+</span></span><span class="line"><span class="cl">            &lt;/goals&gt;  
+</span></span><span class="line"><span class="cl">            &lt;configuration&gt;  
+</span></span><span class="line"><span class="cl">               &lt;addOutputDirectory&gt;false&lt;/addOutputDirectory&gt;  
+</span></span><span class="line"><span class="cl">               &lt;sourceDirectory&gt;src/main/java&lt;/sourceDirectory&gt;  
+</span></span><span class="line"><span class="cl">            &lt;/configuration&gt;  
+</span></span><span class="line"><span class="cl">         &lt;/execution&gt;  
+</span></span><span class="line"><span class="cl">         &lt;execution&gt;  
+</span></span><span class="line"><span class="cl">            &lt;id&gt;test-delombok&lt;/id&gt;  
+</span></span><span class="line"><span class="cl">            &lt;phase&gt;generate-test-sources&lt;/phase&gt;  
+</span></span><span class="line"><span class="cl">            &lt;goals&gt;  
+</span></span><span class="line"><span class="cl">               &lt;goal&gt;testDelombok&lt;/goal&gt;  
+</span></span><span class="line"><span class="cl">            &lt;/goals&gt;  
+</span></span><span class="line"><span class="cl">            &lt;configuration&gt;  
+</span></span><span class="line"><span class="cl">               &lt;addOutputDirectory&gt;false&lt;/addOutputDirectory&gt;  
+</span></span><span class="line"><span class="cl">               &lt;sourceDirectory&gt;src/test/java&lt;/sourceDirectory&gt;  
+</span></span><span class="line"><span class="cl">            &lt;/configuration&gt;  
+</span></span><span class="line"><span class="cl">         &lt;/execution&gt;  
+</span></span><span class="line"><span class="cl">      &lt;/executions&gt;  
+</span></span><span class="line"><span class="cl">   &lt;/plugin&gt;  
+</span></span><span class="line"><span class="cl">      &lt;plugin&gt;  
+</span></span><span class="line"><span class="cl">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;  
+</span></span><span class="line"><span class="cl">      &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;  
+</span></span><span class="line"><span class="cl">      &lt;/plugin&gt;  
+</span></span><span class="line"><span class="cl">   &lt;/plugins&gt;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">&lt;/build&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>第二种是有人在 issue 中提出的：https://github.com/github/codeql/issues/4984</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="c1"># get a copy of lombok.jar</span>
+</span></span><span class="line"><span class="cl"><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">projectlombok</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span><span class="n">lombok</span><span class="o">.</span><span class="n">jar</span> <span class="o">-</span><span class="n">O</span> <span class="s2">&#34;lombok.jar&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># run &#34;delombok&#34; on the source files and write the generated files to a folder named &#34;delombok&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="s2">&#34;lombok.jar&#34;</span> <span class="n">delombok</span> <span class="o">-</span><span class="n">n</span> <span class="o">--</span><span class="n">onlyChanged</span> <span class="o">.</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&#34;delombok&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># remove &#34;generated by&#34; comments</span>
+</span></span><span class="line"><span class="cl"><span class="n">find</span> <span class="s2">&#34;delombok&#34;</span> <span class="o">-</span><span class="n">name</span> <span class="s1">&#39;*.java&#39;</span> <span class="o">-</span><span class="n">exec</span> <span class="n">sed</span> <span class="s1">&#39;/Generated by delombok/d&#39;</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;{}&#39;</span> <span class="s1">&#39;;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># remove any left-over import statements</span>
+</span></span><span class="line"><span class="cl"><span class="n">find</span> <span class="s2">&#34;delombok&#34;</span> <span class="o">-</span><span class="n">name</span> <span class="s1">&#39;*.java&#39;</span> <span class="o">-</span><span class="n">exec</span> <span class="n">sed</span> <span class="s1">&#39;/import lombok/d&#39;</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;{}&#39;</span> <span class="s1">&#39;;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># copy delombok&#39;d files over the original ones</span>
+</span></span><span class="line"><span class="cl"><span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="s2">&#34;delombok/.&#34;</span> <span class="s2">&#34;./&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># remove the &#34;delombok&#34; folder</span>
+</span></span><span class="line"><span class="cl"><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="s2">&#34;delombok&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>两种方法都是去掉 lombok 注解，并还原 setter 和 getter 方法，实现手法不一样罢了，貌似第一种更方便，不知道为啥我这啥都没修改还是检测出来了</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f5947ab.png" alt="image-20250412171148651" srcset="https://bu.dusays.com/2025/04/13/67fb53f5947ab.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f5947ab.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f5947ab.png?size=large 2x" data-title="image-20250412171148651" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="批量化实现" class="heading-element"><span>批量化实现</span>
+  <a href="#%e6%89%b9%e9%87%8f%e5%8c%96%e5%ae%9e%e7%8e%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>以上 ql 规则可以成功跑出靶场的 sql 注入漏洞，我们也可以将其运用到其他项目上，先生成相应的数据库，然后再用写好的 ql 文件去分析就好，codeql 命令为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">codeql database analyze /CodeQL/databases/micro-service-seclab /CodeQL/ql/java/ql/examples/demo --format=csv --output=/CodeQL/Result/micro-service-seclab.csv --rerun</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="codeql进阶" class="heading-element"><span>CodeQL进阶</span>
+  <a href="#codeql%e8%bf%9b%e9%98%b6" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="instanceof语法糖" class="heading-element"><span>instanceof语法糖</span>
+  <a href="#instanceof%e8%af%ad%e6%b3%95%e7%b3%96" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a instanceof b</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面语句就是检测 a 对象是否是 b 类型</p>
+<p>在遇到复杂的类型时，可能要用多个 exist 子查询语句，但是只用一个 instanceof 语句就好，而且只要匹配一个抽象类，就能匹配到这个抽象类下的所有子类，比如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">class</span> <span class="n">MyCustomSource</span> <span class="k">extends</span> <span class="n">RemoteFlowSource</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果 x 为 MyCustomSource 类型，则 <code>x instanceof RemoteFlowSource</code> 会返回true</p>
+<h3 id="递归" class="heading-element"><span>递归</span>
+  <a href="#%e9%80%92%e5%bd%92" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>CodeQL里面的递归调用语法是：在谓词方法的后面跟*或者+，来表示调用0次以上和1次以上（和正则类似），0次会打印自己。</p>
+<p>demo</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">org</span><span class="p">.</span><span class="nx">example</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">public</span> <span class="nx">class</span> <span class="nx">hello</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">public</span> <span class="nx">class</span> <span class="nx">StudentService</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nx">class</span> <span class="nx">innerOne</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">public</span> <span class="nf">innerOne</span><span class="p">(){}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="nx">class</span> <span class="nx">innerTwo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">public</span> <span class="nf">innerTwo</span><span class="p">(){}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="nx">public</span> <span class="nx">String</span> <span class="nf">Nihao</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="s">&#34;Nihao&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">public</span> <span class="nx">String</span> <span class="nf">Hi</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="s">&#34;hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时如果想要根据innerTwo类定位到最外层的 hello 类</p>
+<p>我们可以用以下 ql 查询语句来获得，调用两次 getEnclosingType 方法即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">from Class classes
+</span></span><span class="line"><span class="cl">where classes.getName().toString() = &#34;innerTwo&#34;
+</span></span><span class="line"><span class="cl">select classes.getEnclosingType().getEnclosingType().getEnclosingType()   // getEnclosingtype获取作用域</span></span></code></pre></td></tr></table>
+</div>
+</div><p>但是实际情况我们不知道要调用几次，而且这样写也比较麻烦</p>
+<p>这时候就可以用到递归了，我们在调用方法后面加*(从自身开始调用)或者+(从上一级开始调用)，来解决此问题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">from Class classes
+</span></span><span class="line"><span class="cl">where classes.getName().toString() = &#34;innerTwo&#34;
+</span></span><span class="line"><span class="cl">select classes.getEnclosingType+()   // 获取作用域</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>+</code> 是从上一级开始调用</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f532720.png" alt="image-20250412182154821" srcset="https://bu.dusays.com/2025/04/13/67fb53f532720.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f532720.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f532720.png?size=large 2x" data-title="image-20250412182154821" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><code>*</code> 是从自身开始调用</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f532672.png" alt="image-20250412182236018" srcset="https://bu.dusays.com/2025/04/13/67fb53f532672.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f532672.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f532672.png?size=large 2x" data-title="image-20250412182236018" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>自己封装方法来实现递归调用也是可以的，比如这里我这只想找相差一层的类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">RefType demo(Class classes) {
+</span></span><span class="line"><span class="cl">    result = classes.getEnclosingType().getEnclosingType()
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">from Class classes
+</span></span><span class="line"><span class="cl">where classes.getName().toString() = &#34;innerTwo&#34;
+</span></span><span class="line"><span class="cl">select demo*(classes)   // 获取作用域</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f538503.png" alt="image-20250412182753822" srcset="https://bu.dusays.com/2025/04/13/67fb53f538503.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f538503.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f538503.png?size=large 2x" data-title="image-20250412182753822" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="强制类型转换" class="heading-element"><span>强制类型转换</span>
+  <a href="#%e5%bc%ba%e5%88%b6%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在 CodeQL 中可以用 getType() 来对返回结果做强制类型转换</p>
+<p>查询下当前数据库中所有的参数及其类型</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">from Parameter param
+</span></span><span class="line"><span class="cl">select param, param.getType()</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f52aa76.png" alt="image-20250413132629826" srcset="https://bu.dusays.com/2025/04/13/67fb53f52aa76.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f52aa76.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f52aa76.png?size=large 2x" data-title="image-20250413132629826" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>可以看到有5k多条而且有不同类型的参数，强制转换下，只留下是整型的参数</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/13/67fb53f50ae35.png" alt="image-20250413132902211" srcset="https://bu.dusays.com/2025/04/13/67fb53f50ae35.png?size=small, https://bu.dusays.com/2025/04/13/67fb53f50ae35.png?size=medium 1.5x, https://bu.dusays.com/2025/04/13/67fb53f50ae35.png?size=large 2x" data-title="image-20250413132902211" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>只有1k多条了，而且只含有整型的</p>
+<h2 id="总结" class="heading-element"><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>综上可以知道CodeQL的强大了，稍微入了下门，知道怎么用了，难点就在于规则的编写，最主要的就是source，sink和中间Sanitizer的编写</p>
+<p>接下来就是找案例来练手了</p>
+<h2 id="参考" class="heading-element"><span>参考</span>
+  <a href="#%e5%8f%82%e8%80%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><a href="https://www.freebuf.com/articles/web/283795.html"target="_blank" rel="external nofollow noopener noreferrer">https://www.freebuf.com/articles/web/283795.html</a></p>
+<p><a href="https://www.ascotbe.com/2024/12/27/CodeQL/"target="_blank" rel="external nofollow noopener noreferrer">https://www.ascotbe.com/2024/12/27/CodeQL/</a></p>
+<p><a href="https://drun1baby.top/2023/09/03/CodeQL-%E5%85%A5%E9%97%A8/"target="_blank" rel="external nofollow noopener noreferrer">https://drun1baby.top/2023/09/03/CodeQL-%E5%85%A5%E9%97%A8/</a></p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-04-13 14:03:55">更新于 2025-04-13&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/28dc684/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/28dc684/" data-title="CodeQL入门" data-hashtags="Java"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/28dc684/" data-hashtag="Java"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/posts/28dc684/" data-title="CodeQL入门" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://localhost:1313/posts/28dc684/" data-title="CodeQL入门"><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/28dc684/" data-title="CodeQL入门"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://localhost:1313/posts/28dc684/" data-title="CodeQL入门" data-description=""><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Myspace</title><path d="M19.802 12.274A3.811 3.811.0 0023.62 8.47c0-2.101-1.71-3.795-3.818-3.795a3.816 3.816.0 00-3.818 3.81 3.817 3.817.0 003.818 3.811zm-8.602.705a3.43 3.43.0 003.435-3.424A3.43 3.43.0 0011.2 6.13 3.44 3.44.0 007.764 9.566 3.436 3.436.0 0011.2 13zm-7.8.635c1.71.0 3.093-1.38 3.093-3.081.0-1.704-1.395-3.084-3.105-3.084A3.086 3.086.0 00.3 10.539c0 1.7 1.387 3.078 3.095 3.078zm0 .705c-1.96.0-3.4 1.717-3.4 3.495v1.196c0 .17.138.31.31.31h6.18a.31.31.0 00.309-.31v-1.196c0-1.779-1.437-3.5-3.398-3.5zm7.8-.56c-2.18.0-3.78 1.915-3.78 3.891v1.331c0 .188.156.344.345.344h6.87a.344.344.0 00.342-.344V17.65c0-1.976-1.598-3.891-3.777-3.891zm8.602-.617c-2.422.0-4.197 2.126-4.197 4.323v1.477c0 .21.172.381.382.381h7.63c.21.0.383-.171.383-.381v-1.477c-.001-2.197-1.776-4.323-4.198-4.323z"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://localhost:1313/posts/28dc684/" data-title="CodeQL入门" data-description=""><i class="fa-brands fa-blogger fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://localhost:1313/posts/28dc684/" data-title="CodeQL入门"><i class="fa-brands fa-evernote fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/java/" class="post-tag" title="标签 - Java">Java</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/c1e7c5b/" class="post-nav-item" rel="next" title="TPCTF2025部分wp">TPCTF2025部分wp<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.140.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-30a67c4b"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">6s6</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-30a67c4b"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>
