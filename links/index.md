@@ -17,6 +17,11 @@
 
 {{&lt; friend name=&#34;pRism&#34; url=&#34;https://www.pri87.vip/&#34; logo=&#34;https://tuchuang.voooe.cn/images/2023/12/11/8A3D3D2AD9542D84681D819FBA82A227.jpg&#34; word=&#34;Re&#34; &gt;}}
 
+### Friends
+
+{{&lt; friend name=&#34;LamentXU&#34; url=&#34;https://www.cnblogs.com/LAMENTXU&#34; logo=&#34;https://bu.dusays.com/2025/04/14/67fcb766a613f.jpg&#34; word=&#34;全栈天才少年，含金量不多说&#34; &gt;}}
+
+
 
 ---
 
