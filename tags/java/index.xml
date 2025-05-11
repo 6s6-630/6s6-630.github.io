@@ -6,8 +6,32 @@
     <description>description is here</description>
     <generator>Hugo 0.140.1 &amp; FixIt v0.3.17-30a67c4b</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Apr 2025 18:50:55 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 14:18:30 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Weblogic学习(2)</title>
+      <link>http://localhost:1313/posts/0846c48/</link>
+      <pubDate>Sun, 11 May 2025 14:18:30 +0800</pubDate>
+      <guid>http://localhost:1313/posts/0846c48/</guid>
+      <category domain="http://localhost:1313/categories/java/">Java</category>
+      <description>Weblogic学习(2)</description>
+    </item>
+    <item>
+      <title>Weblogic学习(1)</title>
+      <link>http://localhost:1313/posts/705d533/</link>
+      <pubDate>Sun, 11 May 2025 14:18:27 +0800</pubDate>
+      <guid>http://localhost:1313/posts/705d533/</guid>
+      <category domain="http://localhost:1313/categories/java/">Java</category>
+      <description>Weblogic学习(1)</description>
+    </item>
+    <item>
+      <title>SpringAOP链学习</title>
+      <link>http://localhost:1313/posts/816babd/</link>
+      <pubDate>Sun, 11 May 2025 14:13:20 +0800</pubDate>
+      <guid>http://localhost:1313/posts/816babd/</guid>
+      <category domain="http://localhost:1313/categories/java/">Java</category>
+      <description>SpringAOP链学习</description>
+    </item>
     <item>
       <title>Log4j2漏洞学习</title>
       <link>http://localhost:1313/posts/cde7a8a/</link>

