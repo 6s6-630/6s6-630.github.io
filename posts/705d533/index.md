@@ -25,8 +25,6 @@ T3 协议其实是 Weblogic 内独有的一个协议，在 Weblogic 中对 RMI �
 
 先下个 jdk7u21，再来个其对于版本的 Weblogic 安装包，1036 的 generic 版本，然后把下好的 JDK 和 Weblogic 然后分别放在WeblogicEnvironment 的 jdks 和 weblogics 中
 
-![image-20250424160954281](https://bu.dusays.com/2025/04/24/6809f1d14c589.png)
-
 改下 Dockerfile
 
 ```dockerfile
@@ -94,7 +92,7 @@ docker run -d -p 7001:7001 -p 8453:8453 -p 5556:5556 --name weblogic1036jdk7u21 
 
 然后访问 `http://192.168.2.128:7001/console/login/LoginForm.jsp` 即可
 
-![image-20250424170146866](https://bu.dusays.com/2025/05/11/68204172a167d.png)
+![image-20250424170146866](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175120998.png)
 
 然后设置下远程调试，需要把一些weblogic的依赖Jar包给导出来才能进行远程调试
 
@@ -107,15 +105,15 @@ docker cp weblogic1036jdk7u21:/u01/app/oracle/middleware/coherence_3.7/lib ./mid
 
 然后用 IDEA 打开 wlserver 文件夹，导入 coherence_3.7/lib 和 modules
 
-![image-20250424172622511](https://bu.dusays.com/2025/05/11/6820417492726.png)
+![image-20250424172622511](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121004.png)
 
 把 server/lib 也作为依赖进行导入
 
-![image-20250424172744777](https://bu.dusays.com/2025/05/11/6820417457244.png)
+![image-20250424172744777](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121009.png)
 
 然后添加远程 JVM 调试
 
-![image-20250424173653693](https://bu.dusays.com/2025/05/11/68204172a6fe9.png)
+![image-20250424173653693](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121013.png)
 
 ### 漏洞复现
 
@@ -164,7 +162,7 @@ if __name__ == &#34;__main__&#34;:
     T3Exploit(ip,port,payload)
 ```
 
-![image-20250424181926433](https://bu.dusays.com/2025/05/11/6820417258a82.png)
+![image-20250424181926433](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121008.png)
 
 只试了下 cc 链，1、3、6、7都能打通
 
@@ -172,7 +170,7 @@ if __name__ == &#34;__main__&#34;:
 
 本地拿wireshark抓个回环包，借用下佬的图
 
-![image-20250424182715727](https://bu.dusays.com/2025/05/11/682041729a61f.png)
+![image-20250424182715727](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121027.png)
 
 第一部分是请求包头，第二部分是服务端的响应，第三部分是请求主体
 
@@ -180,11 +178,11 @@ if __name__ == &#34;__main__&#34;:
 
 在反序列化数据包中，`ac ed 00 05` 是反序列化标志，在 T3 协议中由于每个反序列化数据包前面都有 `fe 01 00 00` ，所以这里反序列化的标志就相当于是 `fe 01 00 00 ac ed 00 05`
 
-![image-20250424182934350](https://bu.dusays.com/2025/05/11/682041756a6e1.png)
+![image-20250424182934350](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121384.png)
 
 整个请求主体包含了6个部分的序列化数据，我们可以对其中任意一个部分进行攻击
 
-![image-20250424183007025](https://bu.dusays.com/2025/05/11/68204172833a4.png)
+![image-20250424183007025](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121557.png)
 
 ### 漏洞分析
 
@@ -206,7 +204,7 @@ if __name__ == &#34;__main__&#34;:
 
 可以看到这里 var1 的 head 的值就是我们传入的序列化的数据
 
-![image-20250424183934508](https://bu.dusays.com/2025/05/11/682041758b5bd.png)
+![image-20250424183934508](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121592.png)
 
 然后进入 `ServerChannelInputStream` 构造函数
 
@@ -241,11 +239,11 @@ if __name__ == &#34;__main__&#34;:
     }
 ```
 
-![image-20250424185722905](https://bu.dusays.com/2025/05/11/6820417280443.png)
+![image-20250424185722905](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121624.png)
 
 处理完后回到 `InboundMsgAbbrev#readObject` 处，`ServerChannelInputStream` 继承了 `ObjectInputStream` 类，调用其 `readObject` 方法
 
-![image-20250424221554617](https://bu.dusays.com/2025/05/11/682041729725e.png)
+![image-20250424221554617](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121664.png)
 
 之后跟进后会调用到 `InboundMsgAbbrev#resolveClass` ，这其中的调用链
 
@@ -261,7 +259,7 @@ readObject:66, InboundMsgAbbrev (weblogic.rjvm)
 
 这里的 var1 就是 `sun.reflect.annotation.AnnotationInvocationHandler` 类
 
-![image-20250424222344429](https://bu.dusays.com/2025/05/11/68204175c1066.png)
+![image-20250424222344429](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175121705.png)
 
 再然后就会调用到 `AnnotationInvocationHandler#readObject` 了，之后就是 cc1 了
 
@@ -277,13 +275,13 @@ readObject:66, InboundMsgAbbrev (weblogic.rjvm)
 
 这里 header 表示数据包的长度，最开始只用于占位，可以看到最后生成 payload 时将其覆盖了，t3header 是 T3 协议的协议头，最后 desflag 就是反序列化标识，但在之前的分析中我们看到是8个字节，这里却只有4个字节，这是因为 yso 生成的 payload 会补全后四个字节
 
-![image-20250424231103989](https://bu.dusays.com/2025/05/11/68204199d69b7.png)
+![image-20250424231103989](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175122085.png)
 
 ### 漏洞修复
 
 上面分析我们可以看出加载类其实是通过调用 `resolveClass()` 方法，再通过反射获取到任意类的，官方给出的修复就是在这个方法中加入黑名单
 
-![image-20250425175438583](https://bu.dusays.com/2025/05/11/682041762e215.png)
+![image-20250425175438583](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175122111.png)
 
 因为这里是通过 T3 协议的请求来打，可以让 Web 代理的方式只能转发 HTTP 的请求，这样也能防住
 
@@ -293,17 +291,7 @@ readObject:66, InboundMsgAbbrev (weblogic.rjvm)
 
 后续就是加补丁，可以找黑名单外的类绕过，还能打 jrmp
 
-### 参考
-
-https://drun1baby.top/2022/11/28/CVE-2015-4852-WebLogic-T3-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%86%E6%9E%90/#0x05-%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D
-
-https://ilikeoyt.github.io/2024/02/26/Weblogic-T3%E5%8D%8F%E8%AE%AE%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96
-
-https://xz.aliyun.com/news/9813
-
-
-
-## WebLogic XMLDecoder反序列化（CVE-2017-10271）
+## CVE-2017-10271 WebLogic XMLDecoder反序列化
 
 ### 前置学习
 
@@ -549,7 +537,7 @@ Content-Length: 680
 
 根据要执行的命令调整 index 和对应的参数就好了
 
-![image-20250428180342464](https://bu.dusays.com/2025/05/11/682041b472717.png)
+![image-20250428180342464](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175238679.png)
 
 稍微解释一下以上 poc ，xml 部分不多说，说下SOAP 请求结构
 
@@ -562,13 +550,13 @@ Content-Length: 680
 
  `server/lib/wls-wsat.war/WEB-INF/web.xml` 中的接口都能对 SOAP 报文进行处理，也就是刚才那几个存在漏洞的路由接口
 
-![image-20250428211934727](https://bu.dusays.com/2025/05/11/682041b4c3c95.png)
+![image-20250428211934727](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175238684.png)
 
 定位到 `weblogic.wsee.jaxws.workcontext.WorkContextServerTube` 的 `processRequest` 方法，这里对我们 POST 数据包中的 SOAP 数据进行了处理
 
 这里可以看到 var1 就是我们传入的 xml 数据，var2 就是筛选出了XML 中 `&lt;soapenv:Header&gt;` 标签下的所有子元素
 
-![image-20250428212336617](https://bu.dusays.com/2025/05/11/682041b4c381d.png)
+![image-20250428212336617](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175238690.png)
 
 然后把 var3 放进了 `readHeaderOld()` 方法进行处理
 
@@ -692,11 +680,11 @@ private void validate(InputStream is) {
 
 还是黑名单，又加了几个标签，参看xmldecoder的官方文档很容易发现 class 标签可以动态加载任意类
 
-![image-20250428223424983](https://bu.dusays.com/2025/05/11/682041b48d91c.png)
+![image-20250428223424983](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175238682.png)
 
 根据上面补丁的要求，我们知道所利用的类需要满足构造方法存在利用点，且其构造方法的参数类型恰好是字节数组或者是java中的基础数据类型，比如string，int这些，刚好 `oracle.toplink.internal.sessions.UnitOfWorkChangeSet` 就满足
 
-![image-20250428223724642](https://bu.dusays.com/2025/05/11/682041b4850e4.png)
+![image-20250428223724642](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175238701.png)
 
 直接将传入的数据反序列化了，weblogic存在一个自带jre环境的版本，且自带的jdk版本为1.6&#43;，可以利用jdk7u21 gadget达到RCE，也可以打 cc，之前在 T3 的时候就知道能打部分 cc，而且weblogic还有 spring 的组件，可以利用FileSystemXmlApplicationContext和ClassPathXmlApplicationContext类加载spring的配置文件，打spring的依赖注入
 
@@ -704,11 +692,11 @@ private void validate(InputStream is) {
 
 最后就索性也限制了array元素的长度
 
-![image-20250428224444013](https://bu.dusays.com/2025/05/11/682041dce03f7.png)
+![image-20250428224444013](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175238703.png)
 
 据此，有佬给出了XMLDecoder官方文档的一句话
 
-![image-20250428225431687](https://bu.dusays.com/2025/05/11/682041b47acad.png)
+![image-20250428225431687](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175239203.png)
 
 但貌似不行，如果超出了指定的 length ，应该还是会报错，暂时不深究了
 
@@ -725,8 +713,6 @@ https://xz.aliyun.com/news/4656
 https://www.freebuf.com/vuls/206374.html
 
 https://xz.aliyun.com/news/4656
-
-
 
 ## 总结
 

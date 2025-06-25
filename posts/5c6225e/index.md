@@ -24,10 +24,6 @@ hugo下载：https://github.com/gohugoio/hugo/releases（下载extend拓展版�
 
 https://fixit.lruihao.cn/zh-cn/documentation/getting-started/quick-start/
 
-![image-20250106221800657](https://bu.dusays.com/2025/01/06/677be615200c3.png)
-
-这里echo时要去掉双引号，其他的不多说
-
 ## 美化记录（持续更新ing）
 
 ### 2025.2.28

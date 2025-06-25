@@ -11,7 +11,7 @@
   <meta itemprop="description" content="description is here">
   <meta itemprop="datePublished" content="2025-05-11T14:13:20+08:00">
   <meta itemprop="dateModified" content="2025-05-11T14:13:20+08:00">
-  <meta itemprop="wordCount" content="1534">
+  <meta itemprop="wordCount" content="1531">
   <meta itemprop="keywords" content="Java"><meta property="og:url" content="http://localhost:1313/posts/816babd/">
   <meta property="og:site_name" content="6s6&#39;s blog">
   <meta property="og:title" content="SpringAOP链学习">
@@ -40,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/816babd\/"
-    },"genre": "posts","keywords": "Java","wordcount":  1534 ,
+    },"genre": "posts","keywords": "Java","wordcount":  1531 ,
     "url": "http:\/\/localhost:1313\/posts\/816babd\/","datePublished": "2025-05-11T14:13:20+08:00","dateModified": "2025-05-11T14:13:20+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -116,7 +116,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>SpringAOP链学习</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://bu.dusays.com/2024/12/26/676d23907280d.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2025-05-11 14:13:20"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-05-11">2025-05-11</time></span>&nbsp;<span title="1534 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 8 分钟</span>&nbsp;</div>
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625180730436.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2025-05-11 14:13:20"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-05-11">2025-05-11</time></span>&nbsp;<span title="1531 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 8 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -124,7 +124,6 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#前言">前言</a></li>
     <li><a href="#简介">简介</a></li>
     <li><a href="#环境搭建">环境搭建</a></li>
     <li><a href="#调用链分析">调用链分析</a>
@@ -143,12 +142,7 @@
   <a href="#springaop%e9%93%be" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h2 id="前言" class="heading-element"><span>前言</span>
-  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h2><p>年初还是去年末就看到有佬发了，标题叫啥 Spring 原生链，感觉实战挺有用的，最近也有很多文章在分析这个，就来学学</p>
-<h2 id="简介" class="heading-element"><span>简介</span>
+</h2><h2 id="简介" class="heading-element"><span>简介</span>
   <a href="#%e7%ae%80%e4%bb%8b" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -227,10 +221,9 @@
 </div>
 </div><p>这里很明显直接就反射调用了</p>
 <p>这里 <code>this.aspectJAdviceMethod</code> 在构造函数中定义</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204020c47d1.png" alt="image-20250416223619943" srcset="https://bu.dusays.com/2025/05/11/68204020c47d1.png?size=small, https://bu.dusays.com/2025/05/11/68204020c47d1.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204020c47d1.png?size=large 2x" data-title="image-20250416223619943" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>这个类继承了 <code>Serializable</code> 接口的，是个抽象类，其子类为</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/04/15/67fe612823e51.png" alt="image-20250415213743052" srcset="https://bu.dusays.com/2025/04/15/67fe612823e51.png?size=small, https://bu.dusays.com/2025/04/15/67fe612823e51.png?size=medium 1.5x, https://bu.dusays.com/2025/04/15/67fe612823e51.png?size=large 2x" data-title="image-20250415213743052" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>在这几个子类中我们可以发现 <code>AspectJAroundAdvice</code> 的 <code>invoke</code> 方法调用了 <code>invokeAdviceMethod</code>，然后就会触发 <code>invokeAdviceMethodWithGivenArgs</code>，而且这里对 <code>aspectJAroundAdviceMethod</code> 的赋值也很简单，直接传就好了</p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524883.png" alt="image-20250416223619943" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524883.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524883.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524883.png?size=large 2x" data-title="image-20250416223619943" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这个类继承了 <code>Serializable</code> 接口的，是个抽象类</p>
+<p>在其子类中我们可以发现 <code>AspectJAroundAdvice</code> 的 <code>invoke</code> 方法调用了 <code>invokeAdviceMethod</code>，然后就会触发 <code>invokeAdviceMethodWithGivenArgs</code>，而且这里对 <code>aspectJAroundAdviceMethod</code> 的赋值也很简单，直接传就好了</p>
 <p>反射调用方法的三要素：method、obj、args，现在 method 有了， args 先不说，有的是无参方法用，看看怎么实现 obj，跟进看下 <code>this.aspectInstanceFactory</code> 的实现</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -240,9 +233,9 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">private final AspectInstanceFactory aspectInstanceFactory;</span></span></code></pre></td></tr></table>
 </div>
 </div><p>是一个 AspectInstanceFactory 类型的值，继续跟进，发现其是个接口，有几个实现类</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204020cceae.png" alt="image-20250415214725297" srcset="https://bu.dusays.com/2025/05/11/68204020cceae.png?size=small, https://bu.dusays.com/2025/05/11/68204020cceae.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204020cceae.png?size=large 2x" data-title="image-20250415214725297" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524889.png" alt="image-20250415214725297" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524889.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524889.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524889.png?size=large 2x" data-title="image-20250415214725297" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>现在我们的目标是找到一个同时实现 <code>AspectInstanceFactory</code> 和 <code>Serializable</code> 的子类，并且 <code>getAspectInstance</code> 方法可以返回指定的对象，刚好 <code>SingletonAspectInstanceFactory</code> 就满足</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682040486013c.png" alt="image-20250415215137860" srcset="https://bu.dusays.com/2025/05/11/682040486013c.png?size=small, https://bu.dusays.com/2025/05/11/682040486013c.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682040486013c.png?size=large 2x" data-title="image-20250415215137860" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524881.png" alt="image-20250415215137860" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524881.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524881.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524881.png?size=large 2x" data-title="image-20250415215137860" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>因此就可以基本确定 <code>org.springframework.aop.aspectj.AbstractAspectJAdvice#invokeAdviceMethodWithGivenArgs</code> 为最终的 sink 点</p>
 <h3 id="中间链分析" class="heading-element"><span>中间链分析</span>
   <a href="#%e4%b8%ad%e9%97%b4%e9%93%be%e5%88%86%e6%9e%90" class="heading-mark">
@@ -300,7 +293,7 @@
 </div>
 </div><p>这里我们要让 <code>interceptorOrInterceptionAdvice</code> 对象为 <code>AspectJAroundAdvice</code> 。可以看到 <code>interceptorOrInterceptionAdvice</code> 对象是从 <code>this.interceptorsAndDynamicMethodMatchers</code> 这个 List 中拿出来的，可以在 <code>ReflectiveMethodInvocation</code> 中的构造方法中对其赋值</p>
 <p>但是这里 <code>ReflectiveMethodInvocation</code> 本身并没有实现 Serializable 接口，想要在反序列化过程中使用，只能依赖于动态创建。可以在 <code>org.springframework.aop.framework.JdkDynamicAopProxy#invoke</code> 中发现</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204020b9788.png" alt="image-20250415230349377" srcset="https://bu.dusays.com/2025/05/11/68204020b9788.png?size=small, https://bu.dusays.com/2025/05/11/68204020b9788.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204020b9788.png?size=large 2x" data-title="image-20250415230349377" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524886.png" alt="image-20250415230349377" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524886.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524886.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524886.png?size=large 2x" data-title="image-20250415230349377" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>这里刚好实例化了 <code>ReflectiveMethodInvocation</code> 类，并且又调用了其 <code>proceed</code> 方法，而且恰好这个类又能用来实现动态创建，而且还实现了 <code>Serializable</code> 接口，所以这里就是 source 点</p>
 <p>分析完毕后，回到刚才的 <code>org.springframework.aop.framework.ReflectiveMethodInvocation</code> 中，这里要走到 <code>return ((MethodInterceptor)interceptorOrInterceptionAdvice).invoke(this);</code> 需要避免实现两个 if 语句，进入第一个 if 语句时只要 List 中有一个值就能跳出。第二个 if 语句，我们这里 <code>interceptorOrInterceptionAdvice</code> 对象为 <code>AspectJAroundAdvice</code>，所以这里也是跳出，故而无需做何操作即可调用 <code>((MethodInterceptor)interceptorOrInterceptionAdvice).invoke(this)</code></p>
 <h3 id="source点jdkdynamicaopproxy" class="heading-element"><span>source点JdkDynamicAopProxy</span>
@@ -507,7 +500,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">AdvisorAdapterRegistry registry = GlobalAdvisorAdapterRegistry.getInstance();</span></span></code></pre></td></tr></table>
 </div>
-</div><p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820401fec601.png" alt="image-20250416171744030" srcset="https://bu.dusays.com/2025/05/11/6820401fec601.png?size=small, https://bu.dusays.com/2025/05/11/6820401fec601.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820401fec601.png?size=large 2x" data-title="image-20250416171744030" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+</div><p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524899.png" alt="image-20250416171744030" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524899.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524899.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524899.png?size=large 2x" data-title="image-20250416171744030" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>是个静态方法，直接返回 <code>DefaultAdvisorAdapterRegistry</code> 实例，继续跟进到其 <code>getInterceptors</code> 方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -566,7 +559,7 @@
 </div><p>随便找个干净的实现类就好，比如 <code>DefaultIntroductionAdvisor</code>，直接返回 advice</p>
 <p>刚才我们说了要让 chain，在这里也就是 advice，要为 <code>AspectJAroundAdvice</code>，这个类已经实现了 <code>MethodInterceptor</code> 接口，所以我们再用 <code>JdkDynamicAopProxy</code> 给 <code>AspectJAroundAdvice</code> 实现 Advice 接口就好了</p>
 <p>那回过头来看看 advisor 的值是否能控制</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204021222f2.png" alt="image-20250416172201575" srcset="https://bu.dusays.com/2025/05/11/68204021222f2.png?size=small, https://bu.dusays.com/2025/05/11/68204021222f2.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204021222f2.png?size=large 2x" data-title="image-20250416172201575" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524904.png" alt="image-20250416172201575" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524904.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524904.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524904.png?size=large 2x" data-title="image-20250416172201575" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>这里 <code>config</code> 的值就是 <code>AdvisedSupport</code> ，跟进其 <code>getAdvisors()</code> 方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -952,7 +945,8 @@
 </span></span><span class="line"><span class="cl">unser:87, poc (test)
 </span></span><span class="line"><span class="cl">main:45, poc (test)</span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="参考" class="heading-element"><span>参考</span>
+</div><p>后续：貌似无需套二层，一层就行，而且还能有参调用</p>
+<h2 id="参考" class="heading-element"><span>参考</span>
   <a href="#%e5%8f%82%e8%80%83" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>

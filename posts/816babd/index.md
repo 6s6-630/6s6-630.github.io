@@ -5,10 +5,6 @@
 
 # SpringAOP链
 
-## 前言
-
-年初还是去年末就看到有佬发了，标题叫啥 Spring 原生链，感觉实战挺有用的，最近也有很多文章在分析这个，就来学学
-
 ## 简介
 
 详情参考：https://blog.csdn.net/Cr1556648487/article/details/126777903
@@ -64,13 +60,11 @@ sink 点是 `org.springframework.aop.aspectj` 包下的 `AbstractAspectJAdvice` 
 
 这里 `this.aspectJAdviceMethod` 在构造函数中定义
 
-![image-20250416223619943](https://bu.dusays.com/2025/05/11/68204020c47d1.png)
+![image-20250416223619943](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524883.png)
 
-这个类继承了 `Serializable` 接口的，是个抽象类，其子类为
+这个类继承了 `Serializable` 接口的，是个抽象类
 
-![image-20250415213743052](https://bu.dusays.com/2025/04/15/67fe612823e51.png)
-
-在这几个子类中我们可以发现 `AspectJAroundAdvice` 的 `invoke` 方法调用了 `invokeAdviceMethod`，然后就会触发 `invokeAdviceMethodWithGivenArgs`，而且这里对 `aspectJAroundAdviceMethod` 的赋值也很简单，直接传就好了
+在其子类中我们可以发现 `AspectJAroundAdvice` 的 `invoke` 方法调用了 `invokeAdviceMethod`，然后就会触发 `invokeAdviceMethodWithGivenArgs`，而且这里对 `aspectJAroundAdviceMethod` 的赋值也很简单，直接传就好了
 
 反射调用方法的三要素：method、obj、args，现在 method 有了， args 先不说，有的是无参方法用，看看怎么实现 obj，跟进看下 `this.aspectInstanceFactory` 的实现
 
@@ -80,11 +74,11 @@ private final AspectInstanceFactory aspectInstanceFactory;
 
 是一个 AspectInstanceFactory 类型的值，继续跟进，发现其是个接口，有几个实现类
 
-![image-20250415214725297](https://bu.dusays.com/2025/05/11/68204020cceae.png)
+![image-20250415214725297](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524889.png)
 
 现在我们的目标是找到一个同时实现 `AspectInstanceFactory` 和 `Serializable` 的子类，并且 `getAspectInstance` 方法可以返回指定的对象，刚好 `SingletonAspectInstanceFactory` 就满足
 
-![image-20250415215137860](https://bu.dusays.com/2025/05/11/682040486013c.png)
+![image-20250415215137860](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524881.png)
 
 因此就可以基本确定 `org.springframework.aop.aspectj.AbstractAspectJAdvice#invokeAdviceMethodWithGivenArgs` 为最终的 sink 点
 
@@ -123,7 +117,7 @@ org.springframework.aop.aspectj.AbstractAspectJAdvice#invokeAdviceMethodWithGive
 
 但是这里 `ReflectiveMethodInvocation` 本身并没有实现 Serializable 接口，想要在反序列化过程中使用，只能依赖于动态创建。可以在 `org.springframework.aop.framework.JdkDynamicAopProxy#invoke` 中发现
 
-![image-20250415230349377](https://bu.dusays.com/2025/05/11/68204020b9788.png)
+![image-20250415230349377](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524886.png)
 
 这里刚好实例化了 `ReflectiveMethodInvocation` 类，并且又调用了其 `proceed` 方法，而且恰好这个类又能用来实现动态创建，而且还实现了 `Serializable` 接口，所以这里就是 source 点
 
@@ -248,7 +242,7 @@ public interface AdvisorChainFactory {
 AdvisorAdapterRegistry registry = GlobalAdvisorAdapterRegistry.getInstance();
 ```
 
-![image-20250416171744030](https://bu.dusays.com/2025/05/11/6820401fec601.png)
+![image-20250416171744030](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524899.png)
 
 是个静态方法，直接返回 `DefaultAdvisorAdapterRegistry` 实例，继续跟进到其 `getInterceptors` 方法
 
@@ -289,7 +283,7 @@ public interface Advisor {
 
 那回过头来看看 advisor 的值是否能控制
 
-![image-20250416172201575](https://bu.dusays.com/2025/05/11/68204021222f2.png)
+![image-20250416172201575](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174524904.png)
 
 这里 `config` 的值就是 `AdvisedSupport` ，跟进其 `getAdvisors()` 方法
 
@@ -506,6 +500,8 @@ readObject:371, ObjectInputStream (java.io)
 unser:87, poc (test)
 main:45, poc (test)
 ```
+
+后续：貌似无需套二层，一层就行，而且还能有参调用
 
 ## 参考
 

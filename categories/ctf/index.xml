@@ -24,13 +24,5 @@
       <category domain="http://localhost:1313/categories/ctf/">CTF</category>
       <description>SUCTF2025部分wp</description>
     </item>
-    <item>
-      <title>软件系统安全赛初赛2025部分wp</title>
-      <link>http://localhost:1313/posts/6c39531/</link>
-      <pubDate>Tue, 07 Jan 2025 19:21:07 +0800</pubDate>
-      <guid>http://localhost:1313/posts/6c39531/</guid>
-      <category domain="http://localhost:1313/categories/ctf/">CTF</category>
-      <description>软件系统安全赛初赛2025部分wp</description>
-    </item>
   </channel>
 </rss>

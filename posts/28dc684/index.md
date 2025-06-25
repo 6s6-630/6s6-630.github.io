@@ -27,7 +27,7 @@ setx PATH &#34;E:\CodeQL\codeql;%PATH%&#34;
 
 然后重开个cmd输入 codeql，出现如下图就说明引擎设置完成
 
-![image-20250409131900882](https://bu.dusays.com/2025/04/13/67fb53f4cf635.png)
+![image-20250409131900882](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174214176.png)
 
 ### SDK安装
 
@@ -35,17 +35,17 @@ setx PATH &#34;E:\CodeQL\codeql;%PATH%&#34;
 
 将解压后的文件放入~/CodeQL中，之后输入codeql pack ls来查看当前SDK中支持的规则集。
 
-![image-20250409154407515](https://bu.dusays.com/2025/04/13/67fb541c9d8ba.png)
+![image-20250409154407515](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174214189.png)
 
 ### VSCode开发插件安装
 
 在 vscode 中安装 CodeQL 插件
 
-![image-20250409154926481](https://bu.dusays.com/2025/04/13/67fb541cae0dd.png)
+![image-20250409154926481](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174214200.png)
 
 然后在该插件的设置中设置 codeql 的可执行文件路径（路径中最好不要有中文）
 
-![image-20250409171548823](https://bu.dusays.com/2025/04/13/67fb53f4c8f02.png)
+![image-20250409171548823](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174214213.png)
 
 然后就设置好了，接下来写个demo测试一下
 
@@ -86,23 +86,23 @@ codeql database create micro_service_seclab_database --language=&#34;java&#34; -
 
 然后在这里把生成的 `micro_service_seclab_database` 添加进去
 
-![image-20250409180422875](https://bu.dusays.com/2025/04/13/67fb53f50d7b5.png)
+![image-20250409180422875](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174214219.png)
 
 然后出现这个就表示数据库加载成功了
 
-![image-20250409180504379](https://bu.dusays.com/2025/04/13/67fb53f488cde.png)
+![image-20250409180504379](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174214229.png)
 
 接着再添加CodeQL SDK：“文件”-“将文件夹添加到工作区”
 
 然后在 sdk/java/ql 目录下创建个 demo.ql 查询文件，然后 `Run Query on Selected Database`，就会打印 `heloooo test`
 
-![image-20250409182017378](https://bu.dusays.com/2025/04/13/67fb541cb7d99.png)
+![image-20250409182017378](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174216214.png)
 
 ## 基本语法
 
 以上面的靶场为例
 
-![image-20250409182314089](https://bu.dusays.com/2025/04/13/67fb53f50a195.png)
+![image-20250409182314089](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174216225.png)
 
 可以看到 CodeQL 引擎的作用就是帮我们把源码转换为 CodeQL 能识别的数据库，所以我们能做的就是编写 QL 规则，再通过其引擎来运行我们的规则，这样就可以达到一个自动审计的功能
 
@@ -128,7 +128,7 @@ select i
 
 这里我是写在 `sdk\java\ql\examples` 下的，上面的代码很好理解，所有int类型的数据中筛选出为1的情况，输出就是 1
 
-![image-20250409185510005](https://bu.dusays.com/2025/04/13/67fb541c8e622.png)
+![image-20250409185510005](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174216232.png)
 
 QL查询的语法结构为：
 
@@ -163,7 +163,7 @@ from Method kkk
 select kkk
 ```
 
-![image-20250410215223683](https://bu.dusays.com/2025/04/13/67fb53f4c222a.png)
+![image-20250410215223683](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174216239.png)
 
 然后添加下过滤条件，筛选出名字为 getStudent 的方法名称
 
@@ -175,7 +175,7 @@ where k.hasName(&#34;getStudent&#34;)
 select k.getName(), k.getDeclaringType()
 ```
 
-![image-20250410215935790](https://bu.dusays.com/2025/04/13/67fb53f4c07ca.png)
+![image-20250410215935790](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174216267.png)
 
 ```
 k.hashName() 判断名字是否匹配
@@ -217,7 +217,7 @@ select k.getName(), k.getDeclaringType()
 
 只有当source和sink同时存在，并且从source到sink的链路是通的，才表示当前漏洞是存在的。
 
-![image-20250410221945041](https://bu.dusays.com/2025/04/13/67fb541c72fb3.png)
+![image-20250410221945041](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174216271.png)
 
 **设置Source**
 
@@ -352,7 +352,7 @@ CodeQL 在定义类上的语法和 Java 类似，其中 extends 的父类 `Taint
 
 这里的`isSource` 和`isSink` 根据自己需要进行重写，而判断中间是否疏通可以使用CodeQL提供的`config.hasFlowPath(source, sink)`来帮我们处理
 
-![image-20250411180745584](https://bu.dusays.com/2025/04/13/67fb53f5aef1e.png)
+![image-20250411180745584](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174212718.png)
 
 可以看到真的很方便，直接把source处和整个从source到sink的链子都显示出来了
 
@@ -364,11 +364,11 @@ CodeQL 在定义类上的语法和 Java 类似，其中 extends 的父类 `Taint
 
 我们可以看到有一处的 sql 注入，其输入的参数类型为 `List&lt;Long&gt;` ，不可能存在注入
 
-![image-20250411183001837](https://bu.dusays.com/2025/04/13/67fb541d328c4.png)
+![image-20250411183001837](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174212754.png)
 
 这里说明我们给的限制并未严格要求参数类型，就会导致以上的误报产生，我们可以用 isSanitizer 来避免这种情况
 
-![image-20250411183843751](https://bu.dusays.com/2025/04/13/67fb541c3dbf1.png)
+![image-20250411183843751](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174212745.png)
 
 isSanitizer是CodeQL的类TaintTracking::Configuration提供的净化方法。它的函数原型是：
 
@@ -417,7 +417,7 @@ public List&lt;Student&gt; getStudentWithOptional(Optional&lt;String&gt; usernam
 
 在 CodeQL 中，我们可以通过 isAdditionalTaintStep 方法来将断了的节点给它强制连接上
 
-![image-20250412162413776](https://bu.dusays.com/2025/04/13/67fb541c7ae6d.png)
+![image-20250412162413776](C:\Users\28698\AppData\Roaming\Typora\typora-user-images\image-20250412162413776.png)
 
 isAdditionalTaintStep 方法是CodeQL的类`TaintTracking::Configuration`提供的的方法，它的原型是：
 
@@ -594,7 +594,7 @@ rm -rf &#34;delombok&#34;
 
 两种方法都是去掉 lombok 注解，并还原 setter 和 getter 方法，实现手法不一样罢了，貌似第一种更方便，不知道为啥我这啥都没修改还是检测出来了
 
-![image-20250412171148651](https://bu.dusays.com/2025/04/13/67fb53f5947ab.png)
+![image-20250412171148651](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174212750.png)
 
 ### 批量化实现
 
@@ -678,11 +678,11 @@ select classes.getEnclosingType&#43;()   // 获取作用域
 
 `&#43;` 是从上一级开始调用
 
-![image-20250412182154821](https://bu.dusays.com/2025/04/13/67fb53f532720.png)
+![image-20250412182154821](C:\Users\28698\AppData\Roaming\Typora\typora-user-images\image-20250412182154821.png)
 
 `*` 是从自身开始调用
 
-![image-20250412182236018](https://bu.dusays.com/2025/04/13/67fb53f532672.png)
+![image-20250412182236018](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174213171.png)
 
 自己封装方法来实现递归调用也是可以的，比如这里我这只想找相差一层的类
 
@@ -698,7 +698,7 @@ where classes.getName().toString() = &#34;innerTwo&#34;
 select demo*(classes)   // 获取作用域
 ```
 
-![image-20250412182753822](https://bu.dusays.com/2025/04/13/67fb53f538503.png)
+![image-20250412182753822](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174213174.png)
 
 ### 强制类型转换
 
@@ -713,11 +713,11 @@ from Parameter param
 select param, param.getType()
 ```
 
-![image-20250413132629826](https://bu.dusays.com/2025/04/13/67fb53f52aa76.png)
+![image-20250413132629826](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174213261.png)
 
 可以看到有5k多条而且有不同类型的参数，强制转换下，只留下是整型的参数
 
-![image-20250413132902211](https://bu.dusays.com/2025/04/13/67fb53f50ae35.png)
+![image-20250413132902211](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174213341.png)
 
 只有1k多条了，而且只含有整型的
 

@@ -21,12 +21,11 @@
 
 #### 24
 
-{{&lt; friend name=&#34;A5trid&#34; url=&#34;https://www.a5trid.com/&#34; logo=&#34;https://bu.dusays.com/2025/05/19/682ac73978ecf.jpg&#34; word=&#34;Web&#34; &gt;}}
+{{&lt; friend name=&#34;A5trid&#34; url=&#34;https://www.a5trid.com/&#34; logo=&#34;https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625180456677.jpg&#34; word=&#34;Web&#34; &gt;}}
 
 ### Friends
 
-{{&lt; friend name=&#34;LamentXU&#34; url=&#34;https://www.cnblogs.com/LAMENTXU&#34; logo=&#34;https://bu.dusays.com/2025/04/14/67fcb766a613f.jpg&#34; word=&#34;全栈天才少年，含金量不多说&#34; &gt;}}
-
+{{&lt; friend name=&#34;LamentXU&#34; url=&#34;https://www.cnblogs.com/LAMENTXU&#34; logo=&#34;https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625180434387.jpg&#34; word=&#34;全栈天才少年，含金量不多说&#34; &gt;}}
 
 
 ---

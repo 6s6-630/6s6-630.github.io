@@ -13,6 +13,8 @@ QQ：Mjg2OTg3Mzk1OQ==
 
 Github：https://github.com/6s6-630
 
+//如果有问题或者此博客图床崩了，请联系我，感谢
+
 
 ---
 
