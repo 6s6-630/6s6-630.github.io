@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud Security - 分类 - 6s6&#39;s blog</title>
+    <link>http://localhost:1313/categories/cloud-security/</link>
+    <description>description is here</description>
+    <generator>Hugo 0.140.1 &amp; FixIt v0.3.17-30a67c4b</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Sep 2025 16:02:01 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/cloud-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>腾讯云安全挑战赛2025wp</title>
+      <link>http://localhost:1313/posts/cebf4ad/</link>
+      <pubDate>Fri, 19 Sep 2025 16:02:01 +0800</pubDate>
+      <guid>http://localhost:1313/posts/cebf4ad/</guid>
+      <category domain="http://localhost:1313/categories/cloud-security/">Cloud Security</category>
+      <description>腾讯云安全挑战赛2025wp</description>
+    </item>
+  </channel>
+</rss>
