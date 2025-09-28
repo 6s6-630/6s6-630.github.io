@@ -6,8 +6,16 @@
     <description>description is here</description>
     <generator>Hugo 0.140.1 &amp; FixIt v0.3.17-30a67c4b</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 May 2025 14:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Sep 2025 11:20:31 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Cloud GateWay CVE-2025-41243</title>
+      <link>http://localhost:1313/posts/d7e2c91/</link>
+      <pubDate>Sun, 28 Sep 2025 11:20:31 +0800</pubDate>
+      <guid>http://localhost:1313/posts/d7e2c91/</guid>
+      <category domain="http://localhost:1313/categories/java/">Java</category>
+      <description>Spring Cloud GateWay CVE-2025-41243</description>
+    </item>
     <item>
       <title>Weblogic学习(2)</title>
       <link>http://localhost:1313/posts/0846c48/</link>
